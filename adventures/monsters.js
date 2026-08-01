@@ -101,5 +101,77 @@ window.RPG_HELPER.monsters = {
       'Second Wind: once below half HP, regain 20 HP.',
       'Battle Cry: once, all allies move or attack immediately.'
     ]
+  },
+  'dwarven-shade': {
+    id: 'dwarven-shade',
+    name: 'Dwarven Shade',
+    role: 'Undead',
+    ac: 13,
+    hp: 18,
+    speed: '30 ft',
+    hit: '+4',
+    damage: 'Rusty Pick 1d8+2',
+    special: [
+      'Grave-chill: on a hit, the target makes a DC 12 Constitution save or its speed is halved until the end of its next turn.',
+      'Unburied: rises from collapsed rubble and ignores difficult terrain in the mine galleries.'
+    ]
+  },
+  'mine-crawler': {
+    id: 'mine-crawler',
+    name: 'Mine Crawler',
+    role: 'Beast',
+    ac: 13,
+    hp: 16,
+    speed: '30 ft, climb 20 ft',
+    hit: '+5',
+    damage: 'Bite 1d10+3',
+    special: [
+      'Blindsight 30 ft: unaffected by darkness or smoke.',
+      'Web Snare: once per combat, hits a target with sticky web (DC 12 Strength save or restrained).'
+    ]
+  },
+  'ember-elemental': {
+    id: 'ember-elemental',
+    name: 'Ember Elemental',
+    role: 'Hazard',
+    ac: 12,
+    hp: 22,
+    speed: '30 ft (hover)',
+    hit: '+5',
+    damage: 'Burning touch 1d10+3',
+    special: [
+      'Fiery Form: a creature ending its turn within 5 ft takes 1d4 fire damage.',
+      'Born of the vents: spawned from superheated cracks in the rock and cannot leave the chamber where it was born.'
+    ]
+  },
+  'forge-guardian': {
+    id: 'forge-guardian',
+    name: 'Forge Guardian',
+    role: 'Construct',
+    ac: 16,
+    hp: 40,
+    speed: '20 ft',
+    hit: '+6',
+    damage: 'Anvil Slam 2d6+4',
+    special: [
+      'Immutable Form: immune to effects that would change its shape or control it.',
+      'Ember Core: when destroyed, explodes in a 10-ft burst of fire (DC 12 Dexterity save or 2d6 fire damage).',
+      'Dormant until the vault door is opened.'
+    ]
+  },
+  'keldor-graymantle': {
+    id: 'keldor-graymantle',
+    name: 'Keldor Graymantle',
+    role: 'Final Boss (Rival)',
+    ac: 17,
+    hp: 60,
+    speed: '30 ft',
+    hit: '+6',
+    damage: 'Runic Warhammer 1d10+4 (x2 attacks)',
+    special: [
+      'Greed Unbound: whenever a hero touches or takes treasure, Keldor makes an out-of-turn attack.',
+      'Pickpocket: once per combat, steals a small object from a hero and uses it as a bargaining chip.',
+      'Relic Merchant: carries 2 healing potions and a key to the mine\'s back entrance.'
+    ]
   }
 };

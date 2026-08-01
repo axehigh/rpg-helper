@@ -10,7 +10,7 @@
       }
       list.innerHTML = adventures.map(function (a) {
         return (
-          '<div class="adventure-card">' +
+          '<div class="adventure-card' + (a.active === false ? ' inactive' : '') + '">' +
             '<img src="' + escapeHtml(a.image) + '" alt="">' +
             '<div class="adventure-card-body">' +
               '<h2>' + escapeHtml(a.title) + '</h2>' +

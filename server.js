@@ -104,7 +104,7 @@ function lanIps() {
 }
 
 server.listen(PORT, function () {
-  console.log('RPG Helper running');
+  console.log('DnD Wayfinder running');
   console.log('  Local (this device):   http://localhost:' + PORT);
   lanIps().forEach(function (ip) {
     console.log('  On your network (use on tablet): http://' + ip + ':' + PORT);
