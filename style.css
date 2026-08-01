@@ -75,6 +75,10 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
 .scene-item img { width: 56px; height: 40px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
 .scene-item span { font-size: .85rem; line-height: 1.2; }
 .scene-item.active { border-color: #6fb3ff; background: #2e3440; }
+.scene-group-label {
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .05em;
+  color: #9a9aa2; margin: .75rem 0 .25rem;
+}
 
 .dm-panel { overflow-y: auto; min-height: 0; }
 #panelScene { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }

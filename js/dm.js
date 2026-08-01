@@ -46,9 +46,18 @@
     }, 900);
   }
 
+  function sceneCount() {
+    return adventure.scenes.filter(function (s) { return !s.gallery; }).length;
+  }
+
   function renderScene() {
     var scene = adventure.scenes[sceneIndex];
-    els.counter.textContent = (sceneIndex + 1) + ' / ' + adventure.scenes.length;
+    if (scene.gallery) {
+      els.counter.textContent = 'Gallery';
+    } else {
+      var realBefore = adventure.scenes.slice(0, sceneIndex).filter(function (s) { return !s.gallery; }).length;
+      els.counter.textContent = (realBefore + 1) + ' / ' + sceneCount();
+    }
     els.sceneImg.src = scene.image;
     els.sceneImg.alt = scene.title;
     els.sceneLabels.textContent = adventure.title + ' — ' + scene.title;
@@ -68,21 +77,34 @@
 
     var items = document.querySelectorAll('#sceneList .scene-item');
     for (var i = 0; i < items.length; i++) {
-      items[i].classList.toggle('active', i === sceneIndex);
-      items[i].setAttribute('aria-pressed', i === sceneIndex ? 'true' : 'false');
+      var isActive = Number(items[i].dataset.i) === sceneIndex;
+      items[i].classList.toggle('active', isActive);
+      items[i].setAttribute('aria-pressed', isActive ? 'true' : 'false');
     }
     if (autoSend) sendScene();
   }
 
+  function sceneItemHtml(s, i) {
+    return (
+      '<button class="scene-item" data-i="' + i + '">' +
+        '<img src="' + escapeHtml(s.image) + '" alt="">' +
+        '<span>' + (i + 1) + '. ' + escapeHtml(s.title) + '</span>' +
+      '</button>'
+    );
+  }
+
   function renderSceneList() {
-    els.sceneList.innerHTML = adventure.scenes.map(function (s, i) {
-      return (
-        '<button class="scene-item" data-i="' + i + '">' +
-          '<img src="' + escapeHtml(s.image) + '" alt="">' +
-          '<span>' + (i + 1) + '. ' + escapeHtml(s.title) + '</span>' +
-        '</button>'
-      );
-    }).join('');
+    var html = '';
+    adventure.scenes.forEach(function (s, i) {
+      if (s.gallery) return;
+      html += sceneItemHtml(s, i);
+    });
+    var galleries = adventure.scenes.filter(function (s) { return s.gallery; });
+    if (galleries.length) {
+      html += '<div class="scene-group-label">Gallery</div>';
+      galleries.forEach(function (s) { html += sceneItemHtml(s, adventure.scenes.indexOf(s)); });
+    }
+    els.sceneList.innerHTML = html;
     els.sceneList.addEventListener('click', function (e) {
       var btn = e.target.closest('.scene-item');
       if (!btn) return;
@@ -129,13 +151,20 @@
     b.addEventListener('click', function () { showTab(b.dataset.tab); });
   });
 
-  document.getElementById('prevBtn').addEventListener('click', function () {
-    sceneIndex = (sceneIndex - 1 + adventure.scenes.length) % adventure.scenes.length;
+  function stepScene(dir) {
+    var total = adventure.scenes.length;
+    for (var n = 1; n <= total; n++) {
+      var next = (sceneIndex + dir * n + total) % total;
+      if (!adventure.scenes[next].gallery) { sceneIndex = next; break; }
+    }
     renderScene();
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function () {
+    stepScene(-1);
   });
   document.getElementById('nextBtn').addEventListener('click', function () {
-    sceneIndex = (sceneIndex + 1) % adventure.scenes.length;
-    renderScene();
+    stepScene(1);
   });
   document.getElementById('sendBtn').addEventListener('click', function () {
     sendScene();

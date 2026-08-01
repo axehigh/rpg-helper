@@ -10,6 +10,12 @@ function monstersById(adventure) {
   return map;
 }
 
+function specialLines(m) {
+  var s = m.special;
+  var lines = Array.isArray(s) ? s : [s];
+  return lines.map(escapeHtml).join('<br>');
+}
+
 function monsterCard(m) {
   return (
     '<div class="monster-card">' +
@@ -24,7 +30,7 @@ function monsterCard(m) {
         '<span><b>Hit</b> ' + escapeHtml(m.hit) + '</span>' +
         '<span><b>DMG</b> ' + escapeHtml(m.damage) + '</span>' +
       '</div>' +
-      '<p class="monster-special">' + escapeHtml(m.special) + '</p>' +
+      '<p class="monster-special">' + specialLines(m) + '</p>' +
     '</div>'
   );
 }
