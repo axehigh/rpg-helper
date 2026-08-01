@@ -16,6 +16,7 @@ window.RPG_HELPER.adventures.push({
         'Rescue Elder Hadrick or recover the map dropped in the chaos.'
     ],
     documents: [
+        {label: 'Adventure (md)', href: 'adventures/shadows-of-blackstone-keep/docs/adventure.md'},
         {label: 'Adventure (PDF)', href: 'adventures/shadows-of-blackstone-keep/docs/adventure.pdf'},
         {
             label: 'Adventure – Monsters (PDF)',
@@ -44,7 +45,9 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-1',
             title: 'The Oakhollow Raiders',
-            image: 'adventures/shadows-of-blackstone-keep/images/01_Attack_on_Oakhollow.jpg',
+            images: [
+                'adventures/shadows-of-blackstone-keep/images/01_Attack_on_Oakhollow.jpg'
+            ],
             readAloud:
                 'Smoke chokes the sky above Oakhollow, ' +
                 'throwing the looming sunset into crimson shadows. ' +
@@ -128,16 +131,21 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-5',
             title: 'Blackstone Keep — The Collapsed Hall',
-            image: 'adventures/shadows-of-blackstone-keep/images/04_1_blackstone_room1.jpg',
+            images: [
+                'adventures/shadows-of-blackstone-keep/images/04_1_blackstone_room1.jpg',
+                'adventures/shadows-of-blackstone-keep/images/parchment.jpg'
+
+            ],
             readAloud:
                 'The heavy iron doors unlock onto a grand, dusty hall lined with monumental dwarven statues holding stone hammers. The floor is covered in a thick, unnatural layer of white dust left behind by Kragath\'s vanguard.',
             readAloudNo:
                 'De tunge jerndørene låses opp til en storslått, støvdekt sal flankert av monumentale dvergstatuer som løfter steinhammere. Gulvet ligger under et tykt, unaturlig lag av hvitt støv, etterlatt av Kragaths fortropp.',
             notes: [
                 'Tension builder: torchlight makes the statues appear to lean and shift. They are entirely mundane stone — they do absolutely nothing.',
-                'Hidden danger: near the center, the crushed corpse of a Goblin Skirmisher lies pinned under fallen ceiling masonry. Tucked into its armor is a scrap of parchment: "The statues watch, but the floor is what bites."',
-                'The note alerts the players to inspect the floor — hidden pressure plates trigger swinging iron chains from the ceiling, turning a stroll into a tense investigation.'
-            ]
+                'A crushed corpse of a Goblin Skirmisher lies pinned under fallen ceiling masonry. Tucked into its armor is a healing potion and a parchment.'
+            ],
+            aftermath:
+                'Goblin parchment reads: "To wake the Heartforge, mimic the master smith\'s work. First, blast the coals with wind. Second, heat the coals with fire. Third, shape the heavy metal. Fourth, cool it in the deep waters."'
         },
         {
             id: 'scene-6',
@@ -149,9 +157,7 @@ window.RPG_HELPER.adventures.push({
                 'Utgangen er et par tårnhøye, massive jerndører, gravert med enorme tannhjul. Fire urgamle dverghjul av stein er murt inn i veggen ved siden av dem, hvert skåret med en glødende, mystisk rune. Ledetråder til riktig stilling er etset inn i den omliggende steinmuren.',
             enemies: [{id: 'goblin-skirmisher', count: 6}],
             notes: [
-                'Puzzle — The Forging Order. The four wheels read left to right. Correct order: Bellows (Wind), Flame (Fire), Iron (Earth), Quench (Water).',
-                'Clue (lintel inscription): "To wake the Heartforge, mimic the master smith\'s work. First, blast the coals with wind. Second, heat the coals with fire. Third, shape the heavy metal. Fourth, cool it in the deep waters."',
-                'Clue (vanguard scratch-mark): a dead goblin scratched a crude arrow pointing from the left wheel to the right (1 -> 2 -> 3 -> 4) — the wheels read left to right.',
+                'Puzzle — The Forging Order. The four wheels read left to right. Correct order: Wind, Fire, Iron(Earth), Water.',
                 'Mechanics: turning a rusted stone wheel requires a DC 10 Strength (Athletics) check as an Action.',
                 'Ambush trigger: the moment the first two wheels are aligned (Bellows, Flame), a grinding mechanism echoes — a hidden side panel slides open and 2 Goblin Skirmishers drop out while the party turns the remaining wheels.',
                 'Wrong guess: a small vent hisses boiling steam, dealing 1 fire damage (no roll needed) to the character turning it.',
