@@ -70,7 +70,7 @@ function serveStatic(req, res) {
       return;
     }
     const type = MIME[path.extname(filePath).toLowerCase()] || 'application/octet-stream';
-    res.writeHead(200, { 'Content-Type': type });
+    res.writeHead(200, { 'Content-Type': type, 'Cache-Control': 'no-store' });
     res.end(data);
   });
 }

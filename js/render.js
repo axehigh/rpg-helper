@@ -44,9 +44,9 @@ function encounterList(adventure, enemies) {
   }).join('');
 }
 
-function renderReadAloud(text) {
+function renderReadAloud(text, tag) {
   return (
-    '<div class="read-aloud"><span class="tag">Read aloud</span>' +
+    '<div class="read-aloud"><span class="tag">' + (tag || 'Read aloud') + '</span>' +
     escapeHtml(text) + '</div>'
   );
 }

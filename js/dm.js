@@ -8,6 +8,7 @@
   var adventure = null;
   var sceneIndex = 0;
   var autoSend = true;
+  var lang = 'en';
 
   if (location.protocol === 'http:' || location.protocol === 'https:') {
     var playerUrl = location.origin + '/player.html#' + adventureId;
@@ -54,10 +55,13 @@
     els.sceneTitle.textContent = scene.title;
 
     var html = '';
-    if (scene.readAloud) html += renderReadAloud(scene.readAloud);
+    if (scene.readAloud || scene.readAloudNo) {
+      var readAloud = lang === 'no' ? (scene.readAloudNo || scene.readAloud) : (scene.readAloud || scene.readAloudNo);
+      html += renderReadAloud(readAloud, lang === 'no' ? 'Les høyt' : 'Read aloud');
+    }
     if (scene.environment) html += '<h3>Environment</h3><p>' + escapeHtml(scene.environment) + '</p>';
-    if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
     if (scene.notes && scene.notes.length) html += '<h3>DM Notes</h3>' + renderBox(renderNotes(scene.notes));
+    if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
     if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderBox(renderNotes(scene.tactics));
     if (scene.aftermath) html += '<h3>Aftermath & Clues</h3>' + renderBox('<p>' + escapeHtml(scene.aftermath) + '</p>');
     els.sceneBody.innerHTML = html;
@@ -141,6 +145,15 @@
     autoSend = !autoSend;
     document.getElementById('followBtn').classList.toggle('on', autoSend);
     document.getElementById('followBtn').setAttribute('aria-pressed', autoSend ? 'true' : 'false');
+  });
+
+  document.getElementById('langBtn').addEventListener('click', function () {
+    lang = lang === 'en' ? 'no' : 'en';
+    var btn = document.getElementById('langBtn');
+    btn.textContent = lang === 'en' ? 'Norsk' : 'English';
+    btn.classList.toggle('on', lang === 'no');
+    btn.setAttribute('aria-pressed', lang === 'no' ? 'true' : 'false');
+    renderScene();
   });
 
   document.addEventListener('keydown', function (e) {

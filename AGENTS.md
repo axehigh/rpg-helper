@@ -1,6 +1,7 @@
 # AGENTS.md
 
-RPG Helper — a tabletop RPG companion that runs a DM screen and a synced player view for an adventure.
+RPG Helper — a tabletop RPG companion that runs 
+a DM screen and a synced player view for an adventure.
 
 ## Project overview
 
@@ -28,9 +29,9 @@ RPG Helper — a tabletop RPG companion that runs a DM screen and a synced playe
 - `adventures/index.js` is the registry. Add a new adventure by pushing a meta entry with a `source` path and a unique `id`.
 - `adventures/monsters.js` is the shared monster library, registered on `window.RPG_HELPER.monsters` (an object keyed by monster `id`). Define each monster exactly once here.
 - Each adventure is its own data file (e.g. `adventures/<slug>/data.js`) that re-registers its full object on `window.RPG_HELPER.adventures`, filtering out any previous copy of itself first.
-- Adventure shape: `id`, `title`, `scenes[]` (with `id`, `title`, `image`, `readAloud`, `environment`, `enemies`, `notes`, `tactics`, `aftermath`), `monsters[]` (array of monster id pointers into the shared library, e.g. `'worg'`), `documents[]` (`{ label, href }`), plus optional `intro`/`objectives`. Resolve pointers with `getAdventureMonsters(adventure)` in `js/render.js`; scenes reference monsters by bare id in `enemies`.
+- Adventure shape: `id`, `title`, `scenes[]` (with `id`, `title`, `image`, `readAloud`, optional `readAloudNo` Norwegian translation, `environment`, `enemies`, `notes`, `tactics`, `aftermath`), `monsters[]` (array of monster id pointers into the shared library, e.g. `'worg'`), `documents[]` (`{ label, href }`), plus optional `intro`/`objectives`. Resolve pointers with `getAdventureMonsters(adventure)` in `js/render.js`; scenes reference monsters by bare id in `enemies`. The DM screen's language toggle flips `readAloud` between English and Norwegian (`readAloudNo`), falling back to the English text when a translation is missing.
 - Document links render with `target="_blank"` so they open in a new tab.
-- Resource files live under `resources/` (images in `resources/images`, documents in `resources/docs`).
+- Adventure resources (images in `images/`, documents in `docs/`) live in the adventure's own folder, e.g. `adventures/shadows-of-blackstone-keep/`.
 
 ## Conventions
 

@@ -16,10 +16,10 @@ window.RPG_HELPER.adventures.push({
         'Rescue Elder Hadrick or recover the map dropped in the chaos.'
     ],
     documents: [
-        {label: 'Adventure (PDF)', href: 'resources/docs/adventure.pdf'},
-        {label: 'Adventure – Monsters (PDF)', href: 'resources/docs/adventure-monsters.pdf'},
-        {label: 'Adventure (DOCX)', href: 'resources/docs/Shadows over Blackstone Keep.docx'},
-        {label: 'Adventure – Monsters (DOCX)', href: 'resources/docs/Shadows over Blackstone Keep - Monsters.docx'}
+        {label: 'Adventure (PDF)', href: 'adventures/shadows-of-blackstone-keep/docs/adventure.pdf'},
+        {label: 'Adventure – Monsters (PDF)', href: 'adventures/shadows-of-blackstone-keep/docs/adventure-monsters.pdf'},
+        {label: 'Adventure (DOCX)', href: 'adventures/shadows-of-blackstone-keep/docs/Shadows over Blackstone Keep.docx'},
+        {label: 'Adventure – Monsters (DOCX)', href: 'adventures/shadows-of-blackstone-keep/docs/Shadows over Blackstone Keep - Monsters.docx'}
     ],
     monsters: [
         'goblin-skirmisher',
@@ -35,12 +35,16 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-1',
             title: 'The Oakhollow Raiders',
-            image: 'resources/images/01_Attack_on_Oakhollow.jpg',
+            image: 'adventures/shadows-of-blackstone-keep/images/01_Attack_on_Oakhollow.jpg',
             readAloud:
                 'Smoke chokes the sky above Oakhollow, ' +
                 'throwing the looming sunset into crimson shadows. ' +
                 'Houses crackle in flames as villagers flee down the dirt roads. ' +
                 'Between the burning storefronts, goblins dart — a raiding party, organized and quick.',
+            readAloudNo:
+                'Røyk kveler himmelen over Oakhollow og støper den truende solnedgangen i karmosinrøde skygger. ' +
+                'Husene spraker i flammer mens landsbyfolket flykter nedover de støvete stiene. ' +
+                'Mellom de brennende husfasadene farer gobliner frem – en plyndringshorde, velorganisert og rask.',
             environment:
                 'Village square. Burning wooden beams create lines of sight blockage. Choking smoke acts as light cover (+2 AC/Dex saves) if standing inside marked zones. One thatch-roof tavern stands mostly intact but burning at the base.',
             enemies: [
@@ -63,7 +67,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-2',
             title: 'Through Blackwood Forest',
-            image: 'resources/images/02_b_the_forest_english.jpg',
+            image: 'adventures/shadows-of-blackstone-keep/images/02_b_the_forest_english.jpg',
             environment:
                 'Dense, dark foliage. The players track fresh bootprints and claw marks of the warband deeper into the woods.',
             notes: [
@@ -75,7 +79,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-3',
             title: 'Dwarven Milestones',
-            image: 'resources/images/02_the_forest_runes.jpg',
+            image: 'adventures/shadows-of-blackstone-keep/images/02_the_forest_runes.jpg',
             notes: [
                 'Deep in the woods stand ancient, mossy stone monoliths carved with dwarven runes.',
                 'If a player reads Dwarvish (or checks the recovered village records), they can decipher the runes: "Beware the Heartforge\'s light; it warms the just, but burns the greedy."',
@@ -85,9 +89,11 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-4',
             title: 'The Broken Bridge',
-            image: 'resources/images/03_brigde.jpg',
+            image: 'adventures/shadows-of-blackstone-keep/images/03_brigde.jpg',
             readAloud:
                 'The forest path ends at the edge of a massive, rocky gorge. A grand stone dwarven bridge once spanned the gap, but half of it has collapsed into a churning river hundreds of feet below. Across the remaining side waits a heavily armed hobgoblin blockade. Before combat, you overhear a tense argument — a goblin hexer shrilly berating a massive bugbear about the tactical importance of holding the defensive line, while the bugbear growls in frustration, eager to smash things.',
+            readAloudNo:
+                'Skogsstien ender ved randen av en mektig, klippefylt kløft. En storslått dvergbro av stein spente en gang over gapet, men deler har styrtet ned i en brusende elv, hundrevis av fot under. På motsatt side venter en tungt bevæpnet hobgoblinblokade. Før kampen bryter løs, overhører dere en anspent krangel – en goblinheks som skingrende skjeller ut en diger bugbear om hvor avgjørende det er å holde forsvarslinjen, mens bugbearen knurrer av frustrasjon, ivrig etter å knuse ting.',
             environment:
                 'A narrow, stable stone path leading to a 15-foot gap over the gorge. Planks of wood, ropes, and crumbling stone pillars offer ways to cross or swing over. [Party Side] ===[15-ft Gap]=== [Hobgoblin Soldiers] === [Hexer / Bugbear]',
             enemies: [
@@ -107,9 +113,11 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-5',
             title: 'Blackstone Keep — The Collapsed Hall',
-            image: 'resources/images/04_1_blackstone_room1.jpg',
+            image: 'adventures/shadows-of-blackstone-keep/images/04_1_blackstone_room1.jpg',
             readAloud:
                 'The heavy iron doors unlock onto a grand, dusty hall lined with monumental dwarven statues holding stone hammers. The floor is covered in a thick, unnatural layer of white dust left behind by Kragath\'s vanguard.',
+            readAloudNo:
+                'De tunge jerndørene låses opp til en storslått, støvdekt sal flankert av monumentale dvergstatuer som løfter steinhammere. Gulvet ligger under et tykt, unaturlig lag av hvitt støv, etterlatt av Kragaths fortropp.',
             notes: [
                 'Tension builder: torchlight makes the statues appear to lean and shift. They are entirely mundane stone — they do absolutely nothing.',
                 'Hidden danger: near the center, the crushed corpse of a Goblin Skirmisher lies pinned under fallen ceiling masonry. Tucked into its armor is a scrap of parchment: "The statues watch, but the floor is what bites."',
@@ -119,12 +127,14 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-6',
             title: 'Blackstone Keep — The Forge Locks',
-            image: 'resources/images/04_2_blackstone_room2.jpg',
+            image: 'adventures/shadows-of-blackstone-keep/images/04_2_blackstone_room2.jpg',
             readAloud:
                 'The exit is a pair of towering, solid iron doors etched with massive gears. Four ancient dwarven stone wheels are built into the wall beside them, each carved with a glowing, mystical rune. Clues regarding the proper alignment are etched into the surrounding masonry.',
+            readAloudNo:
+                'Utgangen er et par tårnhøye, massive jerndører, gravert med enorme tannhjul. Fire urgamle dverghjul av stein er murt inn i veggen ved siden av dem, hvert skåret med en glødende, mystisk rune. Ledetråder til riktig stilling er etset inn i den omliggende steinmuren.',
             enemies: [{id: 'goblin-skirmisher', count: 2}],
             notes: [
-                'Puzzle — The Forging Order. The four wheels read left to right. Correct order: Bellows, Flame, Iron, Quench.',
+                'Puzzle — The Forging Order. The four wheels read left to right. Correct order: Bellows (Wind), Flame (Fire), Iron (Earth), Quench (Water).',
                 'Clue (lintel inscription): "To wake the Heartforge, mimic the master smith\'s work. First, blast the coals with wind. Second, heat the coals with fire. Third, shape the heavy metal. Fourth, cool it in the deep waters."',
                 'Clue (vanguard scratch-mark): a dead goblin scratched a crude arrow pointing from the left wheel to the right (1 -> 2 -> 3 -> 4) — the wheels read left to right.',
                 'Mechanics: turning a rusted stone wheel requires a DC 10 Strength (Athletics) check as an Action.',
@@ -136,9 +146,11 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-7',
             title: 'Blackstone Keep — The Heartforge',
-            image: 'resources/images/04_3_final_battle.jpg',
+            image: 'adventures/shadows-of-blackstone-keep/images/04_3_final_battle.jpg',
             readAloud:
                 'The vault doors grind open onto a massive, circular chamber. Great stone channels hum with glowing molten lava around a central platform connected by narrow, broken iron bridges and swinging chains. Deep beneath the floor grates, the core of the ancient Heartforge pulses with an angry, blinding orange light. Kragath Iron Fang stands at the central control altar, holding the primary dwarven key as the machinery awakens.',
+            readAloudNo:
+                'Hvelvdørene skjærer seg åpne mot et mektig, sirkulært kammer. Store steinkanaler brummer av glødende, smeltet lava rundt en sentral plattform, forbundet av smale, knuste jernbroer og svingende kjettinger. Dypt under gitterristene i gulvet pulserer kjernen i det urgamle Heartforge med et rasende, blendende oransje lys. Kragath Iron Fang står ved det sentrale kontrollalteret og holder dvergnøkkelen mens maskineriet våkner.',
             environment:
                 'Lava channels surround a central altar. \n' +
                 '[Goblin Archer on Crane]' +
