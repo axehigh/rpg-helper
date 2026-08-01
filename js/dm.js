@@ -82,7 +82,7 @@
   function renderDocuments() {
     var docs = adventure.documents || [];
     els.documents.innerHTML = docs.map(function (d) {
-      return '<a href="' + escapeHtml(d.href) + '">' + escapeHtml(d.label) + '</a>';
+      return '<a href="' + escapeHtml(d.href) + '" target="_blank" rel="noopener">' + escapeHtml(d.label) + '</a>';
     }).join('');
   }
 
