@@ -1,38 +1,30 @@
-const images = [
-  'resources/images/01_Attack_on_Oakhollow.jpg',
-  'resources/images/02_b_the_forest_english.jpg',
-  'resources/images/02_the_forest_runes.jpg',
-  'resources/images/03_brigde.jpg',
-  'resources/images/04_1_blackstone_room1.jpg',
-  'resources/images/04_2_blackstone_room2.jpg',
-  'resources/images/04_3_final_battle.jpg'
-];
+(function () {
+  var list = document.getElementById('adventureList');
 
-const gallery = document.getElementById('gallery');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-
-images.forEach(src => {
-  const a = document.createElement('a');
-  a.href = src;
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    lightboxImg.src = src;
-    lightbox.classList.add('open');
-  });
-  const img = document.createElement('img');
-  img.src = src;
-  img.alt = src.split('/').pop();
-  a.appendChild(img);
-  gallery.appendChild(a);
-});
-
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('open');
-});
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    lightbox.classList.remove('open');
-  }
-});
+  loadScript('adventures/index.js')
+    .then(function () {
+      var adventures = getAdventures();
+      if (!adventures.length) {
+        list.innerHTML = '<p>No adventures found.</p>';
+        return;
+      }
+      list.innerHTML = adventures.map(function (a) {
+        return (
+          '<div class="adventure-card">' +
+            '<img src="' + escapeHtml(a.image) + '" alt="">' +
+            '<div class="adventure-card-body">' +
+              '<h2>' + escapeHtml(a.title) + '</h2>' +
+              '<p>' + escapeHtml(a.blurb || '') + '</p>' +
+              '<div class="adventure-actions">' +
+                '<a class="btn" href="dm.html#' + encodeURIComponent(a.id) + '">DM screen</a>' +
+                '<a class="btn" href="player.html#' + encodeURIComponent(a.id) + '">Player screen</a>' +
+              '</div>' +
+            '</div>' +
+          '</div>'
+        );
+      }).join('');
+    })
+    .catch(function (err) {
+      list.innerHTML = '<p>Failed to load adventures: ' + escapeHtml(err.message) + '</p>';
+    });
+})();
