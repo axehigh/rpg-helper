@@ -44,6 +44,12 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
   padding-bottom: .75rem; border-bottom: 1px solid #333;
 }
 .dm-header h1 { font-size: 1.15rem; margin: 0; }
+.home-link {
+  color: #9a9aa2; text-decoration: none; font-size: .85rem;
+  background: #26262c; border: 1px solid #3a3a42; border-radius: 6px;
+  padding: .35rem .7rem;
+}
+.home-link:hover { background: #303038; color: #e8e8ea; }
 .dm-controls { display: flex; gap: .5rem; align-items: center; }
 .dm-controls button, .dm-tabs button {
   background: #26262c; color: #e8e8ea; border: 1px solid #3a3a42;

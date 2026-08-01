@@ -140,7 +140,11 @@ window.RPG_HELPER.adventures.push({
             readAloud:
                 'The vault doors grind open onto a massive, circular chamber. Great stone channels hum with glowing molten lava around a central platform connected by narrow, broken iron bridges and swinging chains. Deep beneath the floor grates, the core of the ancient Heartforge pulses with an angry, blinding orange light. Kragath Iron Fang stands at the central control altar, holding the primary dwarven key as the machinery awakens.',
             environment:
-                'Lava channels surround a central altar. [Goblin Archer on Crane] / [Lava] — [Hobgoblin Soldier] — [Lava] / [KRAGATH AT THE ALTAR] / [Lava] — [Hobgoblin Soldier] — [Lava] / [Broken Iron Bridge] / [Party Enters]',
+                'Lava channels surround a central altar. \n' +
+                '[Goblin Archer on Crane]' +
+                '— [Hobgoblin Soldier]' +
+                '- [KRAGATH AT THE ALTAR]' +
+                '— [Hobgoblin Soldier]',
             enemies: [
                 {id: 'kragath-iron-fang'},
                 {id: 'hobgoblin-soldier', count: 2},

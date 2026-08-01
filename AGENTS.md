@@ -16,7 +16,7 @@ RPG Helper — a tabletop RPG companion that runs a DM screen and a synced playe
 ## Key pages and flows
 
 - `index.html` — lists adventures from the registry; links to the DM screen.
-- `dm.html#<adventure-id>` — DM screen: scenes, monsters, and documents tabs. Publishes the current scene.
+- `dm.html#<adventure-id>` — DM screen: overview (intro/objectives), scenes, monsters, and documents tabs. Publishes the current scene.
 - `player.html#<adventure-id>/<scene-id>` — player view; subscribes to scene sync and follows the DM.
 - `js/dm.js` — DM screen logic; renders scenes, monsters, documents.
 - `js/player.js` — player view logic; listens to `Sync` for scene changes.

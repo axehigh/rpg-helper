@@ -21,6 +21,7 @@
     sceneLabels: document.getElementById('sceneLabels'),
     sceneTitle: document.getElementById('sceneTitle'),
     sceneBody: document.getElementById('sceneBody'),
+    overview: document.getElementById('panelOverview'),
     monsterSearch: document.getElementById('monsterSearch'),
     monsterList: document.getElementById('monsterList'),
     documents: document.getElementById('panelDocuments'),
@@ -83,7 +84,12 @@
       if (!btn) return;
       sceneIndex = Number(btn.dataset.i);
       renderScene();
+      showTab('scene');
     });
+  }
+
+  function renderOverviewTab() {
+    els.overview.innerHTML = renderOverview(adventure);
   }
 
   function renderMonsters() {
@@ -107,10 +113,12 @@
       tabs[i].classList.toggle('active', tabs[i].dataset.tab === tab);
       tabs[i].setAttribute('aria-pressed', tabs[i].dataset.tab === tab ? 'true' : 'false');
     }
+    document.getElementById('panelOverview').classList.toggle('hidden', tab !== 'overview');
     document.getElementById('panelScene').classList.toggle('hidden', tab !== 'scene');
     document.getElementById('panelMonsters').classList.toggle('hidden', tab !== 'monsters');
     document.getElementById('panelDocuments').classList.toggle('hidden', tab !== 'documents');
     if (tab === 'monsters') renderMonsters();
+    if (tab === 'overview') renderOverviewTab();
   }
 
   document.querySelectorAll('.dm-tabs button').forEach(function (b) {
@@ -155,6 +163,7 @@
       if (!adventure || !adventure.scenes) throw new Error('Adventure failed to load: ' + adventureId);
       document.title = 'DM - ' + adventure.title;
       document.getElementById('advTitle').textContent = adventure.title;
+      renderOverviewTab();
       renderSceneList();
       renderScene();
       renderDocuments();

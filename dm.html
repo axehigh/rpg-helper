@@ -9,6 +9,7 @@
 </head>
 <body class="dm">
   <header class="dm-header">
+    <a class="home-link" href="index.html" title="Back to adventure list">&larr; Adventures</a>
     <h1 id="advTitle">DM Screen</h1>
     <span id="syncNote" class="sync-note"></span>
     <div class="dm-controls">
@@ -19,14 +20,16 @@
       <button id="followBtn" class="on" aria-pressed="true" title="Auto-push every scene change">Auto</button>
     </div>
     <nav class="dm-tabs">
-      <button data-tab="scene" class="active" aria-pressed="true">Scene</button>
+      <button data-tab="overview" class="active" aria-pressed="true">Overview</button>
+      <button data-tab="scene">Scene</button>
       <button data-tab="monsters">Monsters</button>
       <button data-tab="documents">Documents</button>
     </nav>
   </header>
   <main class="dm-body">
     <aside class="scene-list" id="sceneList"></aside>
-    <section class="dm-panel" id="panelScene">
+    <section class="dm-panel" id="panelOverview"></section>
+    <section class="dm-panel hidden" id="panelScene">
       <div class="scene-image">
         <img id="sceneImg" alt="">
         <div class="scene-labels" id="sceneLabels"></div>

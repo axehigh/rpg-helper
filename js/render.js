@@ -60,3 +60,14 @@ function renderNotes(notes) {
 function renderBox(content) {
   return '<div class="dm-box">' + content + '</div>';
 }
+
+function renderOverview(adventure) {
+  var html = '';
+  if (adventure.intro) {
+    html += '<div class="dm-box"><span class="tag">Intro</span><p>' + escapeHtml(adventure.intro) + '</p></div>';
+  }
+  if (adventure.objectives && adventure.objectives.length) {
+    html += '<div class="dm-box"><span class="tag">Objectives</span>' + renderNotes(adventure.objectives) + '</div>';
+  }
+  return html;
+}

@@ -49,12 +49,12 @@ window.RPG_HELPER.monsters = {
     id: 'hobgoblin-soldier',
     name: 'Hobgoblin Soldier',
     role: 'Front line',
-    ac: 18,
+    ac: 16,
     hp: 16,
     speed: '30 ft',
     hit: '+4',
     damage: 'Longsword 1d8+2',
-    special: 'Shield Wall: if next to another hobgoblin, deals +2 damage.'
+    special: 'Shield Wall: if next to another hobgoblin, +2 AC and deals +2 damage.'
   },
   'bugbear-brute': {
     id: 'bugbear-brute',
