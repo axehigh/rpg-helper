@@ -81,6 +81,13 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
 .scene-detail h2 { margin-bottom: .5rem; }
 .scene-detail h3 { margin: 1rem 0 .4rem; font-size: 1rem; color: #6fb3ff; }
 .dm-note { line-height: 1.55; margin: .35rem 0; }
+.dm-box {
+  background: #2b2621; border: 1px solid #3f382e;
+  border-left: 3px solid #e2b45c; border-radius: 8px;
+  padding: .7rem .9rem; margin: .5rem 0;
+}
+.dm-box .dm-note:first-child { margin-top: 0; }
+.dm-box p:last-child { margin-bottom: 0; }
 .read-aloud {
   background: #2b2f22; border-left: 3px solid #b8cc6a;
   padding: .7rem .9rem; border-radius: 6px; font-style: italic;

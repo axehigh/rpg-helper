@@ -1,6 +1,12 @@
+function getAdventureMonsters(adventure) {
+  return (adventure.monsters || []).map(function (id) {
+    return window.RPG_HELPER.monsters[id];
+  }).filter(function (m) { return !!m; });
+}
+
 function monstersById(adventure) {
   var map = {};
-  (adventure.monsters || []).forEach(function (m) { map[m.id] = m; });
+  getAdventureMonsters(adventure).forEach(function (m) { map[m.id] = m; });
   return map;
 }
 
@@ -49,4 +55,8 @@ function renderNotes(notes) {
   return notes.map(function (n) {
     return '<p class="dm-note">' + escapeHtml(n) + '</p>';
   }).join('');
+}
+
+function renderBox(content) {
+  return '<div class="dm-box">' + content + '</div>';
 }

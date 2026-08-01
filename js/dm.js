@@ -56,9 +56,9 @@
     if (scene.readAloud) html += renderReadAloud(scene.readAloud);
     if (scene.environment) html += '<h3>Environment</h3><p>' + escapeHtml(scene.environment) + '</p>';
     if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
-    if (scene.notes && scene.notes.length) html += '<h3>DM Notes</h3>' + renderNotes(scene.notes);
-    if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderNotes(scene.tactics);
-    if (scene.aftermath) html += '<h3>Aftermath & Clues</h3><p>' + escapeHtml(scene.aftermath) + '</p>';
+    if (scene.notes && scene.notes.length) html += '<h3>DM Notes</h3>' + renderBox(renderNotes(scene.notes));
+    if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderBox(renderNotes(scene.tactics));
+    if (scene.aftermath) html += '<h3>Aftermath & Clues</h3>' + renderBox('<p>' + escapeHtml(scene.aftermath) + '</p>');
     els.sceneBody.innerHTML = html;
 
     var items = document.querySelectorAll('#sceneList .scene-item');
@@ -88,7 +88,7 @@
 
   function renderMonsters() {
     var q = (els.monsterSearch.value || '').toLowerCase();
-    var list = adventure.monsters.filter(function (m) {
+    var list = getAdventureMonsters(adventure).filter(function (m) {
       return !q || m.name.toLowerCase().indexOf(q) !== -1 || m.role.toLowerCase().indexOf(q) !== -1;
     });
     els.monsterList.innerHTML = list.map(monsterCard).join('') || '<p>No monsters match.</p>';
@@ -144,6 +144,7 @@
   els.monsterSearch.addEventListener('input', renderMonsters);
 
   loadScript('adventures/index.js')
+    .then(function () { return loadScript('adventures/monsters.js'); })
     .then(function () {
       var meta = getAdventure(adventureId);
       if (!meta) throw new Error('Unknown adventure: ' + adventureId);
