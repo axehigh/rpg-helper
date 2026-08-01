@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RPG Helper - DM</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#x1F3B2;</text></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="dm">
@@ -15,10 +16,10 @@
       <span id="sceneCounter"></span>
       <button id="nextBtn" title="Next scene (&rarr;)">&rarr;</button>
       <button id="sendBtn" title="Push this scene to the TV">Send to TV</button>
-      <button id="followBtn" class="on" title="Auto-push every scene change">Auto</button>
+      <button id="followBtn" class="on" aria-pressed="true" title="Auto-push every scene change">Auto</button>
     </div>
     <nav class="dm-tabs">
-      <button data-tab="scene" class="active">Scene</button>
+      <button data-tab="scene" class="active" aria-pressed="true">Scene</button>
       <button data-tab="monsters">Monsters</button>
       <button data-tab="documents">Documents</button>
     </nav>

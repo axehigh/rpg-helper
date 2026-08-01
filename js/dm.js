@@ -10,7 +10,9 @@
   var autoSend = true;
 
   if (location.protocol === 'http:' || location.protocol === 'https:') {
-    document.getElementById('syncNote').textContent = 'server sync on — open the printed /player.html URL on the tablet';
+    var playerUrl = location.origin + '/player.html#' + adventureId;
+    document.getElementById('syncNote').innerHTML =
+      'server sync on — <a href="' + escapeHtml(playerUrl) + '" target="_blank" rel="noopener">player screen</a>';
   }
 
   var els = {
@@ -28,6 +30,18 @@
   function sendScene() {
     if (!adventure) return;
     Sync.publish(adventure.id, adventure.scenes[sceneIndex].id);
+  }
+
+  var pushTimer = null;
+  function flashPush() {
+    var btn = document.getElementById('sendBtn');
+    btn.classList.remove('flash');
+    void btn.offsetWidth;
+    btn.classList.add('flash');
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(function () {
+      btn.classList.remove('flash');
+    }, 900);
   }
 
   function renderScene() {
@@ -50,6 +64,7 @@
     var items = document.querySelectorAll('#sceneList .scene-item');
     for (var i = 0; i < items.length; i++) {
       items[i].classList.toggle('active', i === sceneIndex);
+      items[i].setAttribute('aria-pressed', i === sceneIndex ? 'true' : 'false');
     }
     if (autoSend) sendScene();
   }
@@ -90,6 +105,7 @@
     var tabs = document.querySelectorAll('.dm-tabs button');
     for (var i = 0; i < tabs.length; i++) {
       tabs[i].classList.toggle('active', tabs[i].dataset.tab === tab);
+      tabs[i].setAttribute('aria-pressed', tabs[i].dataset.tab === tab ? 'true' : 'false');
     }
     document.getElementById('panelScene').classList.toggle('hidden', tab !== 'scene');
     document.getElementById('panelMonsters').classList.toggle('hidden', tab !== 'monsters');
@@ -109,10 +125,14 @@
     sceneIndex = (sceneIndex + 1) % adventure.scenes.length;
     renderScene();
   });
-  document.getElementById('sendBtn').addEventListener('click', sendScene);
+  document.getElementById('sendBtn').addEventListener('click', function () {
+    sendScene();
+    flashPush();
+  });
   document.getElementById('followBtn').addEventListener('click', function () {
     autoSend = !autoSend;
     document.getElementById('followBtn').classList.toggle('on', autoSend);
+    document.getElementById('followBtn').setAttribute('aria-pressed', autoSend ? 'true' : 'false');
   });
 
   document.addEventListener('keydown', function (e) {

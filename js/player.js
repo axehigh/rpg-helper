@@ -33,8 +33,7 @@
   function gotoScene(sceneId) {
     if (!adventure) return;
     var idx = adventure.scenes.findIndex(function (s) { return s.id === sceneId; });
-    if (idx === -1) return;
-    sceneIndex = idx;
+    sceneIndex = idx === -1 ? 0 : idx;
     show();
   }
 
