@@ -15,6 +15,7 @@
             '<div class="adventure-card-body">' +
               '<h2>' + escapeHtml(a.title) + '</h2>' +
               '<p>' + escapeHtml(a.blurb || '') + '</p>' +
+              (a.synopsis ? '<p class="adventure-synopsis">' + escapeHtml(a.synopsis) + '</p>' : '') +
               '<div class="adventure-actions">' +
                 '<a class="btn" href="dm.html#' + encodeURIComponent(a.id) + '">DM screen</a>' +
                 '<a class="btn" href="player.html#' + encodeURIComponent(a.id) + '">Player screen</a>' +

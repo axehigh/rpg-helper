@@ -7,13 +7,14 @@
 
   var adventure = null;
   var sceneIndex = 0;
-  var autoSend = true;
+  var imageIndex = 0;
+  var autoSend = false;
   var lang = 'en';
 
   if (location.protocol === 'http:' || location.protocol === 'https:') {
     var playerUrl = location.origin + '/player.html#' + adventureId;
     document.getElementById('syncNote').innerHTML =
-      'server sync on — <a href="' + escapeHtml(playerUrl) + '" target="_blank" rel="noopener">player screen</a>';
+      '<a href="' + escapeHtml(playerUrl) + '" target="_blank" rel="noopener">player screen</a>';
   }
 
   var els = {
@@ -22,6 +23,7 @@
     sceneLabels: document.getElementById('sceneLabels'),
     sceneTitle: document.getElementById('sceneTitle'),
     sceneBody: document.getElementById('sceneBody'),
+    sceneImages: document.getElementById('sceneImages'),
     overview: document.getElementById('panelOverview'),
     monsterSearch: document.getElementById('monsterSearch'),
     monsterList: document.getElementById('monsterList'),
@@ -31,7 +33,7 @@
 
   function sendScene() {
     if (!adventure) return;
-    Sync.publish(adventure.id, adventure.scenes[sceneIndex].id);
+    Sync.publish(adventure.id, adventure.scenes[sceneIndex].id, imageIndex);
   }
 
   var pushTimer = null;
@@ -52,16 +54,18 @@
 
   function renderScene() {
     var scene = adventure.scenes[sceneIndex];
+    imageIndex = 0;
     if (scene.gallery) {
       els.counter.textContent = 'Gallery';
     } else {
       var realBefore = adventure.scenes.slice(0, sceneIndex).filter(function (s) { return !s.gallery; }).length;
       els.counter.textContent = (realBefore + 1) + ' / ' + sceneCount();
     }
-    els.sceneImg.src = scene.image;
+    els.sceneImg.src = sceneImages(scene)[imageIndex];
     els.sceneImg.alt = scene.title;
     els.sceneLabels.textContent = adventure.title + ' — ' + scene.title;
     els.sceneTitle.textContent = scene.title;
+    renderSceneImages(scene);
 
     var html = '';
     if (scene.readAloud || scene.readAloudNo) {
@@ -87,10 +91,26 @@
   function sceneItemHtml(s, i) {
     return (
       '<button class="scene-item" data-i="' + i + '">' +
-        '<img src="' + escapeHtml(s.image) + '" alt="">' +
+        '<img src="' + escapeHtml(sceneImages(s)[0]) + '" alt="">' +
         '<span>' + (i + 1) + '. ' + escapeHtml(s.title) + '</span>' +
       '</button>'
     );
+  }
+
+  function renderSceneImages(scene) {
+    var images = sceneImages(scene);
+    var html = '';
+    images.forEach(function (src, i) {
+      html += (
+        '<button class="scene-thumb' + (i === imageIndex ? ' active' : '') + '" data-i="' + i + '" title="' +
+        (i === imageIndex ? 'Showing' : 'Show this image') + '">' +
+          '<img src="' + escapeHtml(src) + '" alt="">' +
+          (i === imageIndex ? '<span class="thumb-tag">Showing</span>' : '') +
+        '</button>'
+      );
+    });
+    els.sceneImages.innerHTML = html;
+    els.sceneImages.classList.toggle('hidden', images.length < 2);
   }
 
   function renderSceneList() {
@@ -183,6 +203,16 @@
     btn.classList.toggle('on', lang === 'no');
     btn.setAttribute('aria-pressed', lang === 'no' ? 'true' : 'false');
     renderScene();
+  });
+
+  els.sceneImages.addEventListener('click', function (e) {
+    var btn = e.target.closest('.scene-thumb');
+    if (!btn) return;
+    imageIndex = Number(btn.dataset.i);
+    var scene = adventure.scenes[sceneIndex];
+    els.sceneImg.src = sceneImages(scene)[imageIndex];
+    renderSceneImages(scene);
+    if (autoSend) sendScene();
   });
 
   document.addEventListener('keydown', function (e) {

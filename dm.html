@@ -17,7 +17,7 @@
       <span id="sceneCounter"></span>
       <button id="nextBtn" title="Next scene (&rarr;)">&rarr;</button>
       <button id="sendBtn" title="Push this scene to the TV">Send to TV</button>
-      <button id="followBtn" class="on" aria-pressed="true" title="Auto-push every scene change">Auto</button>
+      <button id="followBtn" title="Auto-push every scene change">Auto</button>
       <button id="langBtn" title="Toggle read-aloud language (English / Norsk)">Norsk</button>
     </div>
     <nav class="dm-tabs">
@@ -33,6 +33,7 @@
     <section class="dm-panel hidden" id="panelScene">
       <div class="scene-image">
         <img id="sceneImg" alt="">
+        <div id="sceneImages" class="scene-thumbs hidden"></div>
         <div class="scene-labels" id="sceneLabels"></div>
       </div>
       <div class="scene-detail">

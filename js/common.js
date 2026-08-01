@@ -1,5 +1,9 @@
 window.RPG_HELPER = window.RPG_HELPER || { adventures: [] };
 
+function sceneImages(scene) {
+  return scene.images && scene.images.length ? scene.images : [scene.image];
+}
+
 function loadScript(src) {
   return new Promise((resolve, reject) => {
     const s = document.createElement('script');
@@ -35,31 +39,31 @@ var Sync = (function () {
     try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
   }
 
-  function serverPublish(adventureId, sceneId) {
+  function serverPublish(adventureId, sceneId, imageIndex) {
     fetch('/api/scene', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adventureId: adventureId, sceneId: sceneId })
+      body: JSON.stringify({ adventureId: adventureId, sceneId: sceneId, imageIndex: imageIndex })
     }).catch(function () {});
   }
 
-  function publish(adventureId, sceneId) {
+  function publish(adventureId, sceneId, imageIndex) {
     try {
-      localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), adventureId: adventureId, sceneId: sceneId }));
+      localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), adventureId: adventureId, sceneId: sceneId, imageIndex: imageIndex }));
     } catch (e) { /* storage unavailable */ }
-    if (channel) channel.postMessage({ type: 'scene', adventureId: adventureId, sceneId: sceneId });
-    if (viaServer) serverPublish(adventureId, sceneId);
+    if (channel) channel.postMessage({ type: 'scene', adventureId: adventureId, sceneId: sceneId, imageIndex: imageIndex });
+    if (viaServer) serverPublish(adventureId, sceneId, imageIndex);
   }
 
   function subscribe(adventureId, onScene) {
     if (channel) {
       channel.addEventListener('message', function (e) {
         var m = e.data;
-        if (m && m.type === 'scene' && m.adventureId === adventureId) onScene(m.sceneId);
+        if (m && m.type === 'scene' && m.adventureId === adventureId) onScene(m.sceneId, m.imageIndex);
       });
     }
     var last = read();
-    if (last && last.adventureId === adventureId) onScene(last.sceneId);
+    if (last && last.adventureId === adventureId) onScene(last.sceneId, last.imageIndex);
 
     var serverLast = null;
     if (viaServer) {
@@ -70,7 +74,7 @@ var Sync = (function () {
             if (s && s.adventureId === adventureId) {
               if (!serverLast || serverLast.sceneId !== s.sceneId || serverLast.t !== s.t) {
                 serverLast = s;
-                onScene(s.sceneId);
+                onScene(s.sceneId, s.imageIndex);
               }
             }
           })
@@ -85,7 +89,7 @@ var Sync = (function () {
       if (cur && cur.adventureId === adventureId) {
         if (!last || last.sceneId !== cur.sceneId || last.t !== cur.t) {
           last = cur;
-          onScene(cur.sceneId);
+          onScene(cur.sceneId, cur.imageIndex);
         }
       }
     }, 600);

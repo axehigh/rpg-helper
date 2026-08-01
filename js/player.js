@@ -14,6 +14,7 @@
 
   var adventure = null;
   var sceneIndex = 0;
+  var imageIndex = 0;
 
   if (location.protocol === 'http:' || location.protocol === 'https:') {
     els.status.classList.remove('hidden');
@@ -21,7 +22,8 @@
 
   function show() {
     var scene = adventure.scenes[sceneIndex];
-    els.img.src = scene.image;
+    var images = sceneImages(scene);
+    els.img.src = images[imageIndex] || images[0];
     els.img.alt = scene.title;
     els.advTitle.textContent = adventure.title;
     els.sceneTitle.textContent = scene.title;
@@ -30,10 +32,11 @@
     history.replaceState(null, '', '#' + adventure.id + '/' + encodeURIComponent(scene.id));
   }
 
-  function gotoScene(sceneId) {
+  function gotoScene(sceneId, syncedImageIndex) {
     if (!adventure) return;
     var idx = adventure.scenes.findIndex(function (s) { return s.id === sceneId; });
     sceneIndex = idx === -1 ? 0 : idx;
+    imageIndex = (typeof syncedImageIndex === 'number' && syncedImageIndex >= 0) ? syncedImageIndex : 0;
     show();
   }
 
@@ -68,10 +71,12 @@
     if (!adventure) return;
     if (e.key === 'ArrowLeft') {
       sceneIndex = (sceneIndex - 1 + adventure.scenes.length) % adventure.scenes.length;
+      imageIndex = 0;
       show();
     }
     if (e.key === 'ArrowRight') {
       sceneIndex = (sceneIndex + 1) % adventure.scenes.length;
+      imageIndex = 0;
       show();
     }
   });

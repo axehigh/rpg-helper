@@ -32,7 +32,7 @@ function sendText(res, status, text) {
 
 function handleApi(req, res) {
   if (req.method === 'GET' && req.url === '/api/scene') {
-    sendJson(res, 200, sceneState || { adventureId: null, sceneId: null, t: null });
+    sendJson(res, 200, sceneState || { adventureId: null, sceneId: null, t: null, imageIndex: null });
     return;
   }
   if (req.method === 'POST' && req.url === '/api/scene') {
@@ -45,7 +45,8 @@ function handleApi(req, res) {
           sendJson(res, 400, { error: 'adventureId and sceneId (strings) required' });
           return;
         }
-        sceneState = { adventureId: data.adventureId, sceneId: data.sceneId, t: Date.now() };
+        const imageIndex = typeof data.imageIndex === 'number' ? data.imageIndex : null;
+        sceneState = { adventureId: data.adventureId, sceneId: data.sceneId, t: Date.now(), imageIndex: imageIndex };
         sendJson(res, 200, sceneState);
       } catch (e) {
         sendJson(res, 400, { error: 'Invalid JSON' });
