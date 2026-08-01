@@ -29,9 +29,18 @@ function escapeHtml(str) {
 var Sync = (function () {
   var KEY = 'rpg-helper-scene';
   var channel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('rpg-helper') : null;
+  var viaServer = location.protocol === 'http:' || location.protocol === 'https:';
 
   function read() {
     try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
+  }
+
+  function serverPublish(adventureId, sceneId) {
+    fetch('/api/scene', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ adventureId: adventureId, sceneId: sceneId })
+    }).catch(function () {});
   }
 
   function publish(adventureId, sceneId) {
@@ -39,6 +48,7 @@ var Sync = (function () {
       localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), adventureId: adventureId, sceneId: sceneId }));
     } catch (e) { /* storage unavailable */ }
     if (channel) channel.postMessage({ type: 'scene', adventureId: adventureId, sceneId: sceneId });
+    if (viaServer) serverPublish(adventureId, sceneId);
   }
 
   function subscribe(adventureId, onScene) {
@@ -50,6 +60,26 @@ var Sync = (function () {
     }
     var last = read();
     if (last && last.adventureId === adventureId) onScene(last.sceneId);
+
+    var serverLast = null;
+    if (viaServer) {
+      var pull = function () {
+        fetch('/api/scene')
+          .then(function (r) { return r.json(); })
+          .then(function (s) {
+            if (s && s.adventureId === adventureId) {
+              if (!serverLast || serverLast.sceneId !== s.sceneId || serverLast.t !== s.t) {
+                serverLast = s;
+                onScene(s.sceneId);
+              }
+            }
+          })
+          .catch(function () {});
+      };
+      pull();
+      var serverTimer = setInterval(pull, 800);
+    }
+
     var timer = setInterval(function () {
       var cur = read();
       if (cur && cur.adventureId === adventureId) {
@@ -59,7 +89,11 @@ var Sync = (function () {
         }
       }
     }, 600);
-    return function () { clearInterval(timer); };
+
+    return function () {
+      clearInterval(timer);
+      if (serverTimer) clearInterval(serverTimer);
+    };
   }
 
   return { publish: publish, subscribe: subscribe };

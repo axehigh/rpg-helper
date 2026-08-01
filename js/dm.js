@@ -9,6 +9,10 @@
   var sceneIndex = 0;
   var autoSend = true;
 
+  if (location.protocol === 'http:' || location.protocol === 'https:') {
+    document.getElementById('syncNote').textContent = 'server sync on — open the printed /player.html URL on the tablet';
+  }
+
   var els = {
     sceneList: document.getElementById('sceneList'),
     sceneImg: document.getElementById('sceneImg'),

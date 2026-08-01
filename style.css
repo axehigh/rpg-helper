@@ -11,6 +11,14 @@ body {
 h1, h2, h3 { margin-top: 0; }
 a { color: #6fb3ff; }
 .hidden { display: none !important; }
+code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
+.usage { margin: .5rem 0 0; color: #9a9aa2; }
+.usage ol { margin: .5rem 0 0; padding-left: 1.2rem; line-height: 1.7; }
+.sync-note { font-size: .8rem; color: #6fb3ff; }
+.player-status {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #3ad06a; flex-shrink: 0; margin-left: auto;
+}
 
 /* Launcher */
 .launcher-header { max-width: 960px; margin: 0 auto 2rem; }

@@ -9,7 +9,16 @@
 <body>
   <header class="launcher-header">
     <h1>RPG Helper</h1>
-    <p>Open the DM screen on your laptop and the player screen on the TV (same browser). The TV follows your scenes automatically.</p>
+    <p>Open the DM screen on your laptop and the player screen on the TV or tablet.</p>
+    <details class="usage">
+      <summary>Two devices (tablet/TV follows the DM screen)</summary>
+      <ol>
+        <li>Run <code>npm start</code> in this folder (or <code>node server.js</code>).</li>
+        <li>On this device open <code>http://localhost:8080/dm.html#&lt;adventure&gt;</code>.</li>
+        <li>On the tablet open the <code>http://&lt;this device's IP&gt;:8080</code> URL printed by the server, e.g. <code>/player.html#&lt;adventure&gt;</code>.</li>
+        <li>Scene changes on the DM screen push to the tablet automatically.</li>
+      </ol>
+    </details>
   </header>
   <main class="adventure-list" id="adventureList"></main>
   <script src="js/common.js"></script>

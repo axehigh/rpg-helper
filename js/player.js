@@ -8,11 +8,16 @@
     empty: document.getElementById('playerEmpty'),
     img: document.getElementById('playerImg'),
     advTitle: document.getElementById('playerAdvTitle'),
-    sceneTitle: document.getElementById('playerSceneTitle')
+    sceneTitle: document.getElementById('playerSceneTitle'),
+    status: document.getElementById('playerStatus')
   };
 
   var adventure = null;
   var sceneIndex = 0;
+
+  if (location.protocol === 'http:' || location.protocol === 'https:') {
+    els.status.classList.remove('hidden');
+  }
 
   function show() {
     var scene = adventure.scenes[sceneIndex];
