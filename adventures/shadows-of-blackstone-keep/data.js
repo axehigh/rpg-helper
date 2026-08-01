@@ -17,9 +17,18 @@ window.RPG_HELPER.adventures.push({
     ],
     documents: [
         {label: 'Adventure (PDF)', href: 'adventures/shadows-of-blackstone-keep/docs/adventure.pdf'},
-        {label: 'Adventure – Monsters (PDF)', href: 'adventures/shadows-of-blackstone-keep/docs/adventure-monsters.pdf'},
-        {label: 'Adventure (DOCX)', href: 'adventures/shadows-of-blackstone-keep/docs/Shadows over Blackstone Keep.docx'},
-        {label: 'Adventure – Monsters (DOCX)', href: 'adventures/shadows-of-blackstone-keep/docs/Shadows over Blackstone Keep - Monsters.docx'}
+        {
+            label: 'Adventure – Monsters (PDF)',
+            href: 'adventures/shadows-of-blackstone-keep/docs/adventure-monsters.pdf'
+        },
+        {
+            label: 'Adventure (DOCX)',
+            href: 'adventures/shadows-of-blackstone-keep/docs/Shadows over Blackstone Keep.docx'
+        },
+        {
+            label: 'Adventure – Monsters (DOCX)',
+            href: 'adventures/shadows-of-blackstone-keep/docs/Shadows over Blackstone Keep - Monsters.docx'
+        }
     ],
     monsters: [
         'goblin-skirmisher',
@@ -49,12 +58,11 @@ window.RPG_HELPER.adventures.push({
                 'Village square. Burning wooden beams create lines of sight blockage. Choking smoke acts as light cover (+2 AC/Dex saves) if standing inside marked zones. One thatch-roof tavern stands mostly intact but burning at the base.',
             enemies: [
                 {id: 'goblin-skirmisher', count: 6},
-                {id: 'goblin-archer',count:3},
-                {id: 'worg'}
+                {id: 'goblin-archer', count: 3}
             ],
             notes: [
-                'The raiders are not slaughtering blindly — they target specific storehouses to steal supplies, maps of the Blackstone Valley, and an ancient dwarven key.',
-                'They have captured Elder Hadrick, the village blacksmith and the only living soul who can decipher the ancient dwarven milestones in the Blackwood Forest.'
+                'The raiders are not slaughtering blindly — they target specific storehouses to steal supplies and kidnap the Blacksmith',
+                'The have kidnapped Elder Hadrick Blacksmith owned the an ancient dwarven key.'
             ],
             tactics: [
                 'Hit-and-Run: the 3 Goblin Skirmishers dart out from burning storefronts, slash (+4, 1d6+2), then use Nimble Escape as a bonus action to Disengage or Hide behind debris.',
@@ -62,12 +70,14 @@ window.RPG_HELPER.adventures.push({
                 'Worg Chaos: the Worg surges into the frontline. Bite (+5, 2d6+3); on a hit the target must pass a DC 13 Strength save or be knocked prone. The moment a hero falls, the skirmishers swarm out of the smoke to strike with advantage.'
             ],
             aftermath:
-                'Once the raiders fall or scatter, the heroes find a crude map dropped by a fleeing goblin — a path deep into the Blackwood Forest toward "The Broken Bridge". A wounded, soot-stained ranger stumbles forward, coughing: "They dragged Elder Hadrick away... Kragath has already entered the valley. If he reaches the Heartforge with that key... we\'re finished."'
+                'Once the raiders fall or scatter, the heroes find a crude map dropped by a fleeing goblin — ' +
+                ' a path deep into the Blackwood Forest toward "The Dwarven Milestone". ' +
+                'A wounded, soot-stained ranger stumbles forward, coughing: "They dragged Elder Hadrick away... Kragath has already entered the valley. If he reaches the Heartforge with that key... we\'re finished."'
         },
         {
             id: 'scene-2',
             title: 'Through Blackwood Forest',
-            image: 'adventures/shadows-of-blackstone-keep/images/02_b_the_forest_english.jpg',
+            image: 'adventures/shadows-of-blackstone-keep/images/02_campsite.jpg',
             environment:
                 'Dense, dark foliage. The players track fresh bootprints and claw marks of the warband deeper into the woods.',
             notes: [
@@ -83,19 +93,23 @@ window.RPG_HELPER.adventures.push({
             notes: [
                 'Deep in the woods stand ancient, mossy stone monoliths carved with dwarven runes.',
                 'If a player reads Dwarvish (or checks the recovered village records), they can decipher the runes: "Beware the Heartforge\'s light; it warms the just, but burns the greedy."',
-                'This foreshadows the room mechanics of the Forge Locks puzzle and the Heartforge battle.'
-            ]
+                'This foreshadows the room mechanics of the Forge Locks puzzle and the Heartforge battle.',
+                'Once the party reads the runes, they are ambushed by a small warband.'
+            ],
+            enemies: [
+                {id: 'goblin-archer', count: 2},
+                {id: 'worg', count: 2}
+            ],
+            tactics: [
+                'Ambush: the warband hides in the shadows, waiting for the party to approach. When they do, the skirmishers attack with their bows, while the worgs charge in with their claws and teeth.'
+            ],
         },
         {
             id: 'scene-4',
-            title: 'The Broken Bridge',
-            image: 'adventures/shadows-of-blackstone-keep/images/03_brigde.jpg',
-            readAloud:
-                'The forest path ends at the edge of a massive, rocky gorge. A grand stone dwarven bridge once spanned the gap, but half of it has collapsed into a churning river hundreds of feet below. Across the remaining side waits a heavily armed hobgoblin blockade. Before combat, you overhear a tense argument — a goblin hexer shrilly berating a massive bugbear about the tactical importance of holding the defensive line, while the bugbear growls in frustration, eager to smash things.',
-            readAloudNo:
-                'Skogsstien ender ved randen av en mektig, klippefylt kløft. En storslått dvergbro av stein spente en gang over gapet, men deler har styrtet ned i en brusende elv, hundrevis av fot under. På motsatt side venter en tungt bevæpnet hobgoblinblokade. Før kampen bryter løs, overhører dere en anspent krangel – en goblinheks som skingrende skjeller ut en diger bugbear om hvor avgjørende det er å holde forsvarslinjen, mens bugbearen knurrer av frustrasjon, ivrig etter å knuse ting.',
-            environment:
-                'A narrow, stable stone path leading to a 15-foot gap over the gorge. Planks of wood, ropes, and crumbling stone pillars offer ways to cross or swing over. [Party Side] ===[15-ft Gap]=== [Hobgoblin Soldiers] === [Hexer / Bugbear]',
+            title: 'Blackstone Keep',
+            image: 'adventures/shadows-of-blackstone-keep/images/04_0_blackstone_keep.jpg',
+            readAloud: 'The winding mountain trail climbs steeply through the jagged peaks, culminating at the edge of a deep, misty gorge. Built directly into the sheer stone face of the mountain stands Blackstone Keep, an ancient and forgotten dwarven stronghold. Its imposing grey masonry merges seamlessly into the rock, dominated by a massive entrance that houses the grand central forge. Once a hub of roaring heat and industry, the forge now stands completely silent and dead—no smoke rises from its chimneys, and no fires illuminate its darkened interior. A magnificent stone bridge, ancient and worn, arches across the chasm toward the iron gates. A spiderweb of fractures splits the stone walkway, and a large chunk of its outer edge has collapsed into the abyss below, narrowing the path and turning the entrance into a hazardous bottleneck.',
+            readAloudNo: 'Den svingete fjellstien klatrer bratt gjennom de taggede tindene og ender ved kanten av en dyp, tåkefylt kløft. Bygget direkte inn i fjellets steile side står Blackstone Keep, en eldgammel og glemt dvergeborg. Det imponerende, grå murverket går i ett med fjellet, dominert av en massiv døråpning som rommer den store sentralsmia. Smia, som en gang var et sentrum for dundrende varme og industri, er nå fullstendig lydløs og død—ingen røyk stiger fra skorsteinene, og ingen flammer lyser opp det mørklagte indre. En storslått steinbro, gammel og slitt, strekker seg over avgrunnen mot jerportene. Et edderkoppspinn av sprekker deler steinveien, og et stort stykke av den ytre kanten har rast ned i dypet under, noe som gjør veien smal og tvinger alle som vil passere inn på en trang og risikabel sti.',
             enemies: [
                 {id: 'hobgoblin-soldier', count: 2},
                 {id: 'bugbear-brute'},
@@ -108,7 +122,8 @@ window.RPG_HELPER.adventures.push({
                 'Alternative: exploit faction tension. A clever illusion or shouted deception mimicking Kragath\'s voice can trick the impatient bugbear into charging across the unstable beams, breaking the hobgoblins\' shield synergy.'
             ],
             aftermath:
-                'Once defeated, the heroes find healing potions, an ancient dwarven map detailing the interior of Blackstone Keep, and a heavy iron key meant to open the keep\'s outer perimeter gate.'
+                'Once defeated, the heroes find healing potions'
+
         },
         {
             id: 'scene-5',
@@ -132,7 +147,7 @@ window.RPG_HELPER.adventures.push({
                 'The exit is a pair of towering, solid iron doors etched with massive gears. Four ancient dwarven stone wheels are built into the wall beside them, each carved with a glowing, mystical rune. Clues regarding the proper alignment are etched into the surrounding masonry.',
             readAloudNo:
                 'Utgangen er et par tårnhøye, massive jerndører, gravert med enorme tannhjul. Fire urgamle dverghjul av stein er murt inn i veggen ved siden av dem, hvert skåret med en glødende, mystisk rune. Ledetråder til riktig stilling er etset inn i den omliggende steinmuren.',
-            enemies: [{id: 'goblin-skirmisher', count: 2}],
+            enemies: [{id: 'goblin-skirmisher', count: 6}],
             notes: [
                 'Puzzle — The Forging Order. The four wheels read left to right. Correct order: Bellows (Wind), Flame (Fire), Iron (Earth), Quench (Water).',
                 'Clue (lintel inscription): "To wake the Heartforge, mimic the master smith\'s work. First, blast the coals with wind. Second, heat the coals with fire. Third, shape the heavy metal. Fourth, cool it in the deep waters."',
@@ -164,15 +179,24 @@ window.RPG_HELPER.adventures.push({
                 {id: 'goblin-hexer', count: 1, optional: true}
             ],
             notes: [
-                'Commander\'s Aura: Kragath\'s passive aura grants all allies within 30 ft a +1 bonus to hit.',
-                'Guardian Phalanx: the 2 Hobgoblin Soldiers lock shields directly in front of Kragath (AC 18, Shield Wall) to absorb attacks and block the party from rushing the warlord.',
-                'Phase 2 (Second Wind): the exact moment Kragath drops below 42 HP (half of his 85 maximum), he triggers Second Wind as a reaction — the Heartforge pulses and restores 20 HP.',
                 'The Heartforge Ember: once during the fight, Kragath slams a glowing crystal into the iron floor grates — a 15-ft cone of fire (DC 13 Dexterity save or 3d6 fire damage). Forces the players to scatter across the dangerous, narrow bridges.',
                 'Battlefield Events — Initiative Count 20, each round: R1 The Awakening (violent tremors; the chamber is difficult terrain except solid iron grates and main stone pillars). R2 Steam Eruption (burst pipes — a 10-ft wide line of total concealment). R3 Bridge Collapse / Battle Cry (the eastern iron walkway shears off into the lava; Kragath roars Battle Cry — all surviving goblins and hobgoblins take an out-of-turn movement to pin down the disoriented heroes).',
                 'Ending: when Kragath falls, his body slumps over the altar, fracturing the primary key inside the control mechanism. The Heartforge becomes highly volatile and self-destructs as lava channels overflow.',
                 'Escape: the party has exactly 5 rounds. Athletics to lift falling iron portcullises; Acrobatics to clear widening lava fissures and pull allies across. They burst through the outer gates just as the towers collapse in a cloud of dust and harmless magical sparks.',
                 'Reward: the sky clears and the sun sets peacefully over a saved valley. Elder Hadrick presents their due rewards, and the dwarven forge spirits bless each hero with a small magical gift — a +1 weapon, a protective charm, or a glowing heirloom shield.'
+            ],
+            tactics: [
+                'Commander\'s Aura: Kragath\'s passive aura grants all allies within 30 ft a +1 bonus to hit.',
+                'Guardian Phalanx: the 2 Hobgoblin Soldiers lock shields directly in front of Kragath (AC 18, Shield Wall) to absorb attacks and block the party from rushing the warlord.',
+                'Phase 2 (Second Wind): the exact moment Kragath drops below 42 HP (half of his 85 maximum), he triggers Second Wind as a reaction — the Heartforge pulses and restores 20 HP.',
             ]
+
+        },
+        {
+            id: 'monster-gallery',
+            title: 'Monster Gallery',
+            image: 'adventures/shadows-of-blackstone-keep/images/monster-gallery.jpg',
+            gallery: true
         }
     ]
 });

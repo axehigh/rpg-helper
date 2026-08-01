@@ -10,7 +10,10 @@ window.RPG_HELPER.monsters = {
     speed: '30 ft',
     hit: '+4',
     damage: 'Scimitar 1d6+2',
-    special: 'Nimble Escape: can Hide or Disengage as a bonus action. Uses hit-and-run tactics.'
+    special: [
+      'Nimble Escape: can Hide or Disengage as a bonus action. Uses hit-and-run tactics.',
+      'If 2 or more, one can use dodge action, while other uses Nimble Escape.'
+    ]
   },
   'goblin-archer': {
     id: 'goblin-archer',
@@ -21,7 +24,10 @@ window.RPG_HELPER.monsters = {
     speed: '30 ft',
     hit: '+5',
     damage: 'Longbow 1d8+2',
-    special: 'Aimed Shot (5–6): deals an extra 1d6 damage. Stays at range and retreats if threatened.'
+    special: [
+      'Aimed Shot (5–6): deals an extra 1d6 damage.',
+      'Stays at range and retreats if threatened.'
+    ]
   },
   'goblin-hexer': {
     id: 'goblin-hexer',
@@ -32,7 +38,10 @@ window.RPG_HELPER.monsters = {
     speed: '30 ft',
     hit: '+5',
     damage: 'Hex Bolt 2d6',
-    special: 'Once each: Curse (next attack has disadvantage), Battle Chant (ally moves), Smoke Cloud (10-ft obscuring cloud).'
+    special: [
+      'Once each:',
+      'Curse (next attack has disadvantage), Battle Chant (ally moves), Smoke Cloud (10-ft obscuring cloud).'
+    ]
   },
   'worg': {
     id: 'worg',
@@ -76,7 +85,7 @@ window.RPG_HELPER.monsters = {
     speed: '30 ft',
     hit: '+5',
     damage: 'Longsword 1d8+3 (x2 attacks)',
-    special: 'Command (Bonus Action): one ally moves half speed, makes one attack, or gains +2 AC until next turn.'
+    special: ['Command (Bonus Action): one ally moves half speed, makes one attack, or gains +2 AC until next turn.']
   },
   'kragath-iron-fang': {
     id: 'kragath-iron-fang',
@@ -87,6 +96,10 @@ window.RPG_HELPER.monsters = {
     speed: '30 ft',
     hit: '+6',
     damage: 'Greatsword 2d6+4 (x2 attacks)',
-    special: 'Commander: allies gain +1 to hit. Second Wind: once below half HP, regain 20 HP. Battle Cry: once, all allies move or attack immediately.'
+    special: [
+      'Commander: allies gain +1 to hit.',
+      'Second Wind: once below half HP, regain 20 HP.',
+      'Battle Cry: once, all allies move or attack immediately.'
+    ]
   }
 };
