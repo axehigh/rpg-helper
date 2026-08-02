@@ -48,9 +48,10 @@ entry. Confirm the story with the user before building `data.js`.
 
 ### 4. Registry (`adventures/index.js`)
 - Push a meta entry: `id, title, blurb ('4 players · Level X · duration'), synopsis, image,
-  source, active`.
-- `active: true` renders normally; `active: false` renders the card faded (`opacity: .45`)
-  on index.html.
+  source, status`.
+- `status` is one of `ready` (ready to run, rendered normally), `running` (currently being
+  played, green highlight on the card), `wip` (still being written, faded `opacity: .45`),
+  or `completed` (hidden on index.html behind the "Show completed adventures" toggle).
 
 ## Conventions
 - ES5-style code, 4-space indentation in data files, single quotes, string concat with `+`.

@@ -26,7 +26,7 @@ a DM screen and a synced player view for an adventure.
 
 ## How adventures work
 
-- `adventures/index.js` is the registry. Add a new adventure by pushing a meta entry with a `source` path and a unique `id`.
+- `adventures/index.js` is the registry. Add a new adventure by pushing a meta entry with a `source` path, a unique `id`, and a `status` (`ready`/`running`/`wip`/`completed`; `completed` adventures are hidden on `index.html` behind the "Show completed" toggle).
 - `adventures/monsters.js` is the shared monster library, registered on `window.RPG_HELPER.monsters` (an object keyed by monster `id`). Define each monster exactly once here.
 - Each adventure is its own data file (e.g. `adventures/<slug>/data.js`) that re-registers its full object on `window.RPG_HELPER.adventures`, filtering out any previous copy of itself first.
 - Adventure shape: `id`, `title`, `scenes[]` (with `id`, `title`, `images`, `readAloud`, optional `readAloudNo` Norwegian translation, `environment`, `enemies`, `notes`, `tactics`, `aftermath`), `monsters[]` (array of monster id pointers into the shared library, e.g. `'worg'`), `documents[]` (`{ label, href }`), plus optional `intro`/`objectives`. Scenes may also define an optional `battlemap`: either a library id string (e.g. `'ttb1-p31-l-underground'`) pointing into `library/battlemaps/data.js`, or a local image path (e.g. `'adventures/<slug>/images/<map>.jpg'`). The DM screen's **Combat** toggle swaps the main image to the battlemap (tagged "Map" in the thumbnail strip) and hides non-combat details (read-aloud, environment, notes, aftermath), showing only enemies and tactics. When the battlemap resolves to a library entry, a "Battle map — find the book" chip under the image shows the book, page, side, and file path. Scenes without a `battlemap` simply keep the scene image in combat view. Resolve pointers with `getAdventureMonsters(adventure)` in `js/render.js`; scenes reference monsters by bare id in `enemies`. The DM screen's language toggle flips `readAloud` between English and Norwegian (`readAloudNo`), falling back to the English text when a translation is missing. The default language is set by the feature flag `window.RPG_HELPER.config.defaultReadAloudLang` in `js/common.js` (currently `'no'` — Norwegian-first).
@@ -45,23 +45,3 @@ a DM screen and a synced player view for an adventure.
 ## Features
 - When adding features, always use skill grill-me on the feature.
 
-From Mr Tall::
-### Tooling
-
-- **Generator:** Gemini CLI with the nanobanana extension. Call with:
-  `gemini --yolo "/generate '<prompt>'"`
-- Always pass `--yolo` to auto-approve tool actions. The `--aspect` flag is NOT supported — describe aspect in the prompt text.
-- **Auth note (July 2026):** CLI OAuth free-tier is dead; `~/.gemini/settings.json` must have `security.auth.selectedType: "gemini-api-key"` (uses `GEMINI_API_KEY`). Run from the repo dir (folder trust).
-- **Scriptable alternative:** `scripts/nanogen.py --prompt '...' --out nanobanana-output/<id>-v<N>.png [--aspect 4:3] [--edit <src-image>]` — direct REST call, supports true aspect-ratio control and image editing; model via `NANOGEN_MODEL` (default `gemini-3.1-flash-image`). Prefer it for batch/background dispatch and targeted edits. The `nano-banana` MCP server is broken (pinned to a retired model) — do not use.
-- Run each generation in the background via Bash `run_in_background: true`. Output lands in `./web/nanobanana-output/<slug>.png` during generation.
-- Dispatch multiple generations in parallel (same message, multiple background Bash calls) — nanobanana handles concurrent requests fine.
-- **Never** call `xdg-open` or launch a viewer — the DM reviews images directly in the file explorer.
-
-### Conversion & storage
-
-- **Archive PNGs:** Move generated PNGs from `web/nanobanana-output/` to `/home/lindahl/git/weird-wizard/nanobanana-output/` with naming: `<id>-v<N>.png`. Bump version suffix on re-rolls so earlier takes are preserved.
-    - Example: `giant-v1.png`, `hag-v2.png` (if hag-v1 already exists)
-- Convert PNG → JPG with ImageMagick `convert` (not Python/PIL):
-  `convert nanobanana-output/<id>-v<N>.png -quality 90 web/images/monsters/<id>.jpg`
-- Final JPG filename **must** match the monster's `id` field in `monsters.json`, e.g. `draugr-champion.jpg`.
-- Cursed/alternate variants use `<id>-evil.jpg` (shown in the bestiary stat block under a "Cursed Variant" section when present).
