@@ -56,14 +56,17 @@ var Sync = (function () {
   }
 
   function subscribe(adventureId, onScene) {
+    var any = adventureId === undefined || adventureId === null;
+    function matches(id) { return any || id === adventureId; }
+
     if (channel) {
       channel.addEventListener('message', function (e) {
         var m = e.data;
-        if (m && m.type === 'scene' && m.adventureId === adventureId) onScene(m.sceneId, m.imageIndex);
+        if (m && m.type === 'scene' && matches(m.adventureId)) onScene(m.sceneId, m.imageIndex, m.adventureId);
       });
     }
     var last = read();
-    if (last && last.adventureId === adventureId) onScene(last.sceneId, last.imageIndex);
+    if (last && matches(last.adventureId)) onScene(last.sceneId, last.imageIndex, last.adventureId);
 
     var serverLast = null;
     if (viaServer) {
@@ -71,10 +74,10 @@ var Sync = (function () {
         fetch('/api/scene')
           .then(function (r) { return r.json(); })
           .then(function (s) {
-            if (s && s.adventureId === adventureId) {
+            if (s && matches(s.adventureId)) {
               if (!serverLast || serverLast.sceneId !== s.sceneId || serverLast.t !== s.t) {
                 serverLast = s;
-                onScene(s.sceneId, s.imageIndex);
+                onScene(s.sceneId, s.imageIndex, s.adventureId);
               }
             }
           })
@@ -86,10 +89,10 @@ var Sync = (function () {
 
     var timer = setInterval(function () {
       var cur = read();
-      if (cur && cur.adventureId === adventureId) {
+      if (cur && matches(cur.adventureId)) {
         if (!last || last.sceneId !== cur.sceneId || last.t !== cur.t) {
           last = cur;
-          onScene(cur.sceneId, cur.imageIndex);
+          onScene(cur.sceneId, cur.imageIndex, cur.adventureId);
         }
       }
     }, 600);
