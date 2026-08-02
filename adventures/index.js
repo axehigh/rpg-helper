@@ -7,7 +7,7 @@ window.RPG_HELPER.adventures.push({
   synopsis: 'Defeat the evil warlord in the dwarven forge',
   image: 'adventures/shadows-of-blackstone-keep/images/01_Attack_on_Oakhollow.jpg',
   source: 'adventures/shadows-of-blackstone-keep/data.js',
-  active: true
+  status: 'completed'
 });
 
 window.RPG_HELPER.adventures.push({
@@ -17,5 +17,5 @@ window.RPG_HELPER.adventures.push({
   synopsis: 'Descend into the mines and face the master smith\'s judgment',
   image: 'adventures/embers-of-heartforge/images/01_Attack_on_Oakhollow.jpg',
   source: 'adventures/embers-of-heartforge/data.js',
-  active: false
+  status: 'wip'
 });

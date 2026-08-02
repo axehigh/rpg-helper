@@ -20,6 +20,7 @@ window.RPG_HELPER.adventures.push({
         {label: 'Adventure (md)', href: 'adventures/embers-of-heartforge/docs/adventure.md'}
     ],
     monsters: [
+        'goblin-skirmisher',
         'dwarven-shade',
         'mine-crawler',
         'ember-elemental',
@@ -55,27 +56,77 @@ window.RPG_HELPER.adventures.push({
         },
         {
             id: 'scene-2',
+            title: 'The Shaking Pass',
+            images: [
+                'adventures/embers-of-heartforge/images/02_b_the_forest_english.jpg',
+                'adventures/embers-of-heartforge/images/02_campsite.jpg'
+            ],
+            readAloud:
+                'The trail east climbs through the Blackwood, where the old forest tilts and splits along ' +
+                'fresh cracks. Every few minutes the ground shudders, sending pebbles skittering down the slopes. ' +
+                'On a switchback above, three figures in travel cloaks crouch over a torn map, arguing in low voices.',
+            readAloudNo:
+                'Stien østover klatrer gjennom Svartskogen, der den gamle skogen heller og sprekker langs ' +
+                'friske revner. Med noen minutters mellomrom rister bakken, og rullesteinene sklir nedover ' +
+                'skråningene. I en sving ovenfor står tre skikkelser i reisekapper huket over et revet kart ' +
+                'og krangler med lave stemmer.',
+            environment:
+                'Unstable mountain pass above the ruined Blackwood. Rubble, fresh cracks, and a collapsed ' +
+                'timber bridge. The mountain shudders at irregular intervals.',
+            notes: [
+                'Keldor\'s Scouts: two hired scouts and a courier argue over the route into the mines. They can be approached, bribed, or ambushed — questioned, they admit their employer hired them days ago and "has a way in from the far side of the gorge."',
+                'Hazard — Unstable Pass: when the mountain shudders, each hero makes a DC 12 Dexterity save or stumbles in the rubble (1d4 bludgeoning). Loud failures alert the scouts and complicate the approach.',
+                'Route Choice: a long, safe switchback, or a short scramble across the collapsed timbers (DC 12 Dexterity (Acrobatics), or 1d6 damage and a loud fall).'
+            ],
+            enemies: [
+                {id: 'goblin-skirmisher', count: 2, optional: true}
+            ],
+            tactics: [
+                'Scout Tension: the scouts bicker over the map and startle easily. If the party shows force they scatter rather than fight to the death; if captured, one admits the merchant "paid for a fast route, not a fight."'
+            ],
+            aftermath:
+                'The pass crests above the valley. Below, Blackstone Keep lies collapsed — and the mountain ' +
+                'beside it is split along an old seam, exposing a shaft long thought sealed. ' +
+                'Keldor\'s people have a head start.'
+        },
+        {
+            id: 'scene-3',
             title: 'The Sundered Descent',
             images: [
-                'adventures/embers-of-heartforge/images/02_the_forest_runes.jpg'
+                'adventures/embers-of-heartforge/images/02_the_forest_runes.jpg',
+                'adventures/embers-of-heartforge/images/04_0_blackstone_keep.jpg',
+                'adventures/embers-of-heartforge/images/04_1_blackstone_room1.jpg'
             ],
             battlemap: 'ttb1-p31-l-underground',
             readAloud:
-                'The shaft opens into ember-lit galleries: abandoned work halls where tools still hang, ' +
-                'ore carts rusted to their tracks, and pillars carved by generations of dwarven hands. ' +
-                'The mountain shifts and groans around you — a wound that refuses to heal.',
+                'You pick your way up the rubble of the collapsed keep. Where the great Heartforge ' +
+                'once burned, a hollow ruin of soot and broken gears now stands open to the sky. ' +
+                'Beyond it, the mountain is split along a fresh seam — a narrow shaft plunging into ' +
+                'the dark. You lower yourselves down. Below, ember-lit galleries open out: abandoned ' +
+                'work halls where tools still hang, ore carts rusted to their tracks, and pillars ' +
+                'carved by generations of dwarven hands. The mountain shifts and groans around you — ' +
+                'a wound that refuses to heal.',
             readAloudNo:
-                'Skaftet åpner seg mot glødebelyste gallerier: forlatte arbeidssaler hvor verktøyene fortsatt ' +
-                'henger, malmvogner rustet fast til skinnene, og søyler hugget av generasjoner av dvergehender. ' +
+                'Dere arbeider dere oppover ruinene av den kollapsede borgen. Der den store ' +
+                'Heartforge en gang brant, står nå en hul ruin av sot og brukne tannhjul åpen ' +
+                'mot himmelen. Bak den er fjellet sprukket langs en frisk revne – et smalt skaft ' +
+                'som stuper ned i mørket. Dere firer dere ned. Nedenfor åpner glødebelyste ' +
+                'gallerier seg: forlatte arbeidssaler hvor verktøyene fortsatt henger, malmvogner ' +
+                'rustet fast til skinnene, og søyler hugget av generasjoner av dvergehender. ' +
                 'Fjellet flytter på seg og stønner rundt dere – et sår som nekter å leges.',
             environment:
                 'Ember-lit mine galleries. Rockfall and superheated vents create hazards. The deepest tunnels ' +
                 'narrow, and the rock itself radiates warmth.',
             notes: [
+                'The Ruined Heartforge: passing the dead forge hall, the heroes walk through the aftermath of their own victory — the caved towers, the cold lava channels, the embers that once powered Kragath\'s awakening. A callback beat for those who played the prequel; keep it brief.',
                 'Sealed from the inside: scorch patterns and barricade marks show the mine was deliberately sealed long ago — something below was meant to stay below.',
                 'Hazard — Rockfall: a DC 12 Dexterity save or 1d6 bludgeoning damage from falling stones in the narrow galleries.',
                 'Hazard — Superheated Vents: cracks in the rock glow with ember light. A creature ending its turn next to a vent takes 1d4 fire damage; the vents are where ember elementals are born.',
-                'The Dwarven Shades: dead miners who never left. They rise from collapsed rubble and drift through the galleries, still working the rock they died in.'
+                'The Dwarven Shades: dead miners who never left. They rise from collapsed rubble and drift through the galleries, still working the rock they died in.',
+                'Optional Room — The Smith\'s Quarters: a collapsed side-gallery hides the foreman smith\'s abandoned quarters. A DC 13 Perception or Investigation check finds the gap behind the rubble. Inside: a trunk with 2 healing potions and 50 gp in dwarven coin, and a journal that tells the truth of the sealing — the masterpiece was never finished, and the mine was sealed so the work would await a worthy hand.',
+                'Optional Guard — Crawler Nest: 2 mine crawlers nest among the fallen timbers of the quarters (optional), or the floor has caved in places — a DC 12 Dexterity save or a 1d6 tumble into a shallow shaft.',
+                'Greed Test — The Silver Seam: a vein of glittering ore in the gallery glows with ember light. A greedy reach flares the seam (1 fire damage, no save); hands that come to work, protect, or pass by feel only warmth. The warning from Oakhollow holds true below the ground.',
+                'Race the Rival: Keldor\'s back entrance is faster. If the party rests for two or more hours, dawdles, or fights loudly for many rounds, he reaches the vault first — open the final scene with him already holding the masterpiece.'
             ],
             enemies: [
                 {id: 'dwarven-shade', count: 3}
@@ -90,10 +141,11 @@ window.RPG_HELPER.adventures.push({
                 'narrows into a low, scorched tunnel that ends at a vault door older than the keep above.'
         },
         {
-            id: 'scene-3',
+            id: 'scene-4',
             title: 'The Master Smith\'s Vault',
             images: [
-                'adventures/embers-of-heartforge/images/03_brigde.jpg'
+                'adventures/embers-of-heartforge/images/03_brigde.jpg',
+                'adventures/embers-of-heartforge/images/parchment.jpg'
             ],
             battlemap: 'ttb2-p27-l-cellars',
             readAloud:
@@ -109,10 +161,13 @@ window.RPG_HELPER.adventures.push({
                 'The sealed vault chamber: a dark smithy lit only by glowing ember cracks in the floor. ' +
                 'The masterpiece rests on a pedestal of black iron. Two iron guardians flank it, dormant.',
             notes: [
-                'Opening the vault: the gear-locks were weakened by the collapse. A DC 14 Strength (Athletics) check as an Action, or a DC 14 Dexterity (Thieves\' Tools) check to work the cracked mechanism.',
+                'Puzzle — The Gear Locks: four cracked wheels are carved with runes of the bellows, the flame, the anvil, and the quenching trough. The vault opens only when they are aligned in the master smith\'s working order — the same Forging Order the Heartforge demanded: Wind, Fire, Iron, Water.',
+                'Mechanics: turning a cracked gear-lock takes a DC 12 Strength (Athletics) check or a DC 12 Dexterity (Thieves\' Tools) check as an Action. A wrong alignment hisses superheated steam — 1d4 fire damage to the character turning it (no save).',
+                'Under Pressure: the moment the third wheel is aligned, a grinding mechanism echoes and the first forge guardian rises from its alcove — the party finishes the last wheel while holding it off.',
                 'Awakening Guardians: the moment the door opens, the forge guardians activate. They defend the masterpiece, not out of malice but to keep it from thieves.',
                 'The Testament: beside the masterpiece lies the smith\'s final testament — the Heartforge was built to finish the greatest work the mountain could hold, and the mine was sealed because that work was never completed. It was meant to be finished by a worthy hand, not hoarded.',
-                'The Judgment Begins: as the guardians fall, embers flare from the floor cracks. The chamber is testing who comes to take, and who comes to finish.'
+                'The Judgment Begins: as the guardians fall, embers flare from the floor cracks. The chamber is testing who comes to take, and who comes to finish.',
+                'Room to Breathe: the smith\'s quarters and the ember-lighted chamber offer a natural short rest if the party is spent — and Keldor\'s opening offer ("name your price, heroes") buys time while the judgment is still undecided. The vault is safe while no one reaches for the masterpiece.'
             ],
             enemies: [
                 {id: 'forge-guardian', count: 2},
@@ -129,7 +184,7 @@ window.RPG_HELPER.adventures.push({
                 'Keldor Graymantle steps out of the shadows, his eyes fixed on the prize.'
         },
         {
-            id: 'scene-4',
+            id: 'scene-5',
             title: 'The Greedy Burn',
             images: [
                 'adventures/embers-of-heartforge/images/04_3_final_battle.jpg'
@@ -150,6 +205,7 @@ window.RPG_HELPER.adventures.push({
                 'The Judgment: the smith\'s rune holds true — the work warms the just and burns the greedy. Heroes who reach for the masterpiece with greed in their hearts suffer the backlash; those who come to protect it, finish it, or leave it be find the chamber\'s fire on their side.',
                 'Keldor\'s Gambit: he first offers to buy the masterpiece and split the profit. Refused, he attacks — but the chamber\'s embers flare against him, not the heroes.',
                 'The Burn: if the party seizes the masterpiece by force without honoring the judgment, the vault erupts — DC 13 Dexterity save or 3d6 fire damage to all within 20 ft of the pedestal.',
+                'Keldor\'s Kit: on defeat, Keldor carries 2 healing potions and the key to the mine\'s back entrance — the fast way out once the vault settles, and a promise of whatever lies on the far side.',
                 'Reward: the smith\'s masterpiece — a legendary +1 weapon or shield tailored to the party, or the smith\'s tools and unfinished work to complete it by a worthy hand. The forge spirits grant their final blessing.'
             ],
             enemies: [

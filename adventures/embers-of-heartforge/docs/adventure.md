@@ -45,25 +45,41 @@ That night the heroes' blessings glow to full brightness. Etched into the ember
 light, an old warning takes shape: *"Beware the Heartforge's light; it warms the
 just, but burns the greedy."*
 
-### 2. The Sundered Descent
-The party climbs to the collapsed keep and lowers themselves into the shaft.
-Below, the dwarven mines spread in ember-lit galleries: abandoned work crews'
+### 2. The Shaking Pass
+The trail east climbs through the Blackwood, where the old forest tilts and
+splits along fresh cracks. Every few minutes the mountain shudders, dropping
+rubble across the switchbacks. On a switchback above, the party spots Keldor's
+hired scouts arguing over a torn map — evidence that the rival is already ahead
+of them. The scouts can be questioned, bribed, or ambushed; caught, they admit
+their employer "has a way in from the far side of the gorge."
+
+### 3. The Sundered Descent
+The party climbs the rubble of the collapsed keep. Where the great Heartforge
+once burned, a hollow ruin of soot and broken gears now stands open to the sky —
+the aftermath of their victory against Kragath. Beyond it, the mountain is split
+along a fresh seam, and the heroes lower themselves into the shaft. Below, the
+dwarven mines spread in ember-lit galleries: abandoned work crews'
 halls where tools still hang, ore carts rusted to their tracks, and the carved
 pillars of a mountain that once burned with industry. The quakes continue
 below, shifting rubble and dropping old timbers — the mine is a wound that
 refuses to heal. Trail markers and scorch patterns tell a story: this was a
 working mine, then a sealed one, sealed from the inside.
 
-Deeper down, the tunnels narrow and the embers grow brighter. The air smells of
-ancient fire, and the rock itself radiates warmth.
+A collapsed side-gallery hides the foreman smith's abandoned quarters — a
+trunk with potions, dwarven coin, and a journal that tells the truth of the
+sealing. A glowing silver seam tests the party early: the work warms the just,
+and burns the greedy. And the shades of dead miners rise from the rubble,
+still working the rock they died in.
 
-### 3. The Master Smith's Vault
+### 4. The Master Smith's Vault
 At the mine's deepest level lies a vault door carved with the same gear-and-anvil
 motifs as the Heartforge's locks — but older, and untouched. This was the
 sanctum of the master smith who built Blackstone Keep and lit its Heartforge.
-Seals that would have barred the way for a thousand years have weakened with the
-mountain's collapse; the mechanism is cracked, the guardians within beginning to
-stir.
+The door is sealed by four cracked gear-locks carved with runes of the bellows,
+the flame, the anvil, and the quenching trough. They open only when aligned in
+the master smith's working order — Wind, Fire, Iron, Water — the same Forging
+Order the Heartforge demanded long ago. A wrong alignment hisses superheated
+steam, and the first guardian stirs as the third wheel turns.
 
 The vault holds the smith's life's work: a masterpiece of metalcraft unlike any
 the world has seen, laid out with tools and half-finished works around it. And
@@ -73,12 +89,14 @@ behind.
 
 The rival is here, too, drawn by the same greed the warning spoke of.
 
-### 4. The Greedy Burn
+### 5. The Greedy Burn
 The confrontation comes to a head at the masterpiece. The vault's ancient
 guardians — and the smith's testament itself — judge the intruders. The rune
 holds true: the work warms the just, and burns the greedy. What the heroes
 believe they deserve, and what they are willing to take, decides what the vault
-gives and what it takes.
+gives and what it takes. When Keldor falls, his kit holds two healing potions
+and the key to the mine's back entrance — the fast way out, and a promise of
+whatever lies on the far side.
 
 ### Epilogue
 The ending is the heroes' to write. The masterpiece may be claimed, kept, and
