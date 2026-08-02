@@ -31,7 +31,7 @@ window.RPG_HELPER.adventures.push({
             id: 'scene-1',
             title: 'The Ember Summons',
             images: [
-                'adventures/embers-of-heartforge/images/01_ember_summons.jpg'
+                'adventures/embers-of-heartforge/images/starting_scene.jpg'
             ],
             readAloud:
                 'The valley trembles as dusk falls over Oakhollow. Elder Hadrick\'s forge blazes with a fire ' +
@@ -57,8 +57,9 @@ window.RPG_HELPER.adventures.push({
             id: 'scene-2',
             title: 'The Sundered Descent',
             images: [
-                'adventures/embers-of-heartforge/images/02_sundered_descent.jpg'
+                'adventures/embers-of-heartforge/images/02_the_forest_runes.jpg'
             ],
+            battlemap: 'ttb1-p31-l-underground',
             readAloud:
                 'The shaft opens into ember-lit galleries: abandoned work halls where tools still hang, ' +
                 'ore carts rusted to their tracks, and pillars carved by generations of dwarven hands. ' +
@@ -92,8 +93,9 @@ window.RPG_HELPER.adventures.push({
             id: 'scene-3',
             title: 'The Master Smith\'s Vault',
             images: [
-                'adventures/embers-of-heartforge/images/03_master_smiths_vault.jpg'
+                'adventures/embers-of-heartforge/images/03_brigde.jpg'
             ],
+            battlemap: 'ttb2-p27-l-cellars',
             readAloud:
                 'At the mine\'s deepest level stands a vault door carved with gear-and-anvil motifs — ' +
                 'older than anything in the keep above, and untouched. The seals that barred this place ' +
@@ -130,8 +132,9 @@ window.RPG_HELPER.adventures.push({
             id: 'scene-4',
             title: 'The Greedy Burn',
             images: [
-                'adventures/embers-of-heartforge/images/04_the_greedy_burn.jpg'
+                'adventures/embers-of-heartforge/images/04_3_final_battle.jpg'
             ],
+            battlemap: 'ttb1-p32-r-underground',
             readAloud:
                 'Keldor Graymantle walks toward the pedestal as the embers flare. "You did the heavy lifting. ' +
                 'I\'ll take it from here." The masterpiece waits on its pedestal of black iron — ' +
@@ -167,7 +170,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'monster-gallery',
             title: 'Monster Gallery',
-            image: 'adventures/embers-of-heartforge/images/monster-gallery.jpg',
+            images: ['adventures/embers-of-heartforge/images/monster-gallery.jpg'],
             gallery: true
         }
     ]

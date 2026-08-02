@@ -80,7 +80,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-2',
             title: 'Through Blackwood Forest',
-            image: 'adventures/shadows-of-blackstone-keep/images/02_campsite.jpg',
+            images: ['adventures/shadows-of-blackstone-keep/images/02_campsite.jpg'],
             environment:
                 'Dense, dark foliage. The players track fresh bootprints and claw marks of the warband deeper into the woods.',
             notes: [
@@ -92,7 +92,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-3',
             title: 'Dwarven Milestones',
-            image: 'adventures/shadows-of-blackstone-keep/images/02_the_forest_runes.jpg',
+            images: ['adventures/shadows-of-blackstone-keep/images/02_the_forest_runes.jpg'],
             notes: [
                 'Deep in the woods stand ancient, mossy stone monoliths carved with dwarven runes.',
                 'If a player reads Dwarvish (or checks the recovered village records), they can decipher the runes: "Beware the Heartforge\'s light; it warms the just, but burns the greedy."',
@@ -110,7 +110,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-4',
             title: 'Blackstone Keep',
-            image: 'adventures/shadows-of-blackstone-keep/images/04_0_blackstone_keep.jpg',
+            images: ['adventures/shadows-of-blackstone-keep/images/04_0_blackstone_keep.jpg'],
             readAloud: 'The winding mountain trail climbs steeply through the jagged peaks, culminating at the edge of a deep, misty gorge. Built directly into the sheer stone face of the mountain stands Blackstone Keep, an ancient and forgotten dwarven stronghold. Its imposing grey masonry merges seamlessly into the rock, dominated by a massive entrance that houses the grand central forge. Once a hub of roaring heat and industry, the forge now stands completely silent and dead—no smoke rises from its chimneys, and no fires illuminate its darkened interior. A magnificent stone bridge, ancient and worn, arches across the chasm toward the iron gates. A spiderweb of fractures splits the stone walkway, and a large chunk of its outer edge has collapsed into the abyss below, narrowing the path and turning the entrance into a hazardous bottleneck.',
             readAloudNo: 'Den svingete fjellstien klatrer bratt gjennom de taggede tindene og ender ved kanten av en dyp, tåkefylt kløft. Bygget direkte inn i fjellets steile side står Blackstone Keep, en eldgammel og glemt dvergeborg. Det imponerende, grå murverket går i ett med fjellet, dominert av en massiv døråpning som rommer den store sentralsmia. Smia, som en gang var et sentrum for dundrende varme og industri, er nå fullstendig lydløs og død—ingen røyk stiger fra skorsteinene, og ingen flammer lyser opp det mørklagte indre. En storslått steinbro, gammel og slitt, strekker seg over avgrunnen mot jerportene. Et edderkoppspinn av sprekker deler steinveien, og et stort stykke av den ytre kanten har rast ned i dypet under, noe som gjør veien smal og tvinger alle som vil passere inn på en trang og risikabel sti.',
             enemies: [
@@ -150,7 +150,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-6',
             title: 'Blackstone Keep — The Forge Locks',
-            image: 'adventures/shadows-of-blackstone-keep/images/04_2_blackstone_room2.jpg',
+            images: ['adventures/shadows-of-blackstone-keep/images/04_2_blackstone_room2.jpg'],
             readAloud:
                 'The exit is a pair of towering, solid iron doors etched with massive gears. Four ancient dwarven stone wheels are built into the wall beside them, each carved with a glowing, mystical rune. Clues regarding the proper alignment are etched into the surrounding masonry.',
             readAloudNo:
@@ -167,7 +167,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'scene-7',
             title: 'Blackstone Keep — The Heartforge',
-            image: 'adventures/shadows-of-blackstone-keep/images/04_3_final_battle.jpg',
+            images: ['adventures/shadows-of-blackstone-keep/images/04_3_final_battle.jpg'],
             readAloud:
                 'The vault doors grind open onto a massive, circular chamber. Great stone channels hum with glowing molten lava around a central platform connected by narrow, broken iron bridges and swinging chains. Deep beneath the floor grates, the core of the ancient Heartforge pulses with an angry, blinding orange light. Kragath Iron Fang stands at the central control altar, holding the primary dwarven key as the machinery awakens.',
             readAloudNo:
@@ -201,7 +201,7 @@ window.RPG_HELPER.adventures.push({
         {
             id: 'monster-gallery',
             title: 'Monster Gallery',
-            image: 'adventures/shadows-of-blackstone-keep/images/monster-gallery.jpg',
+            images: ['adventures/shadows-of-blackstone-keep/images/monster-gallery.jpg'],
             gallery: true
         }
     ]

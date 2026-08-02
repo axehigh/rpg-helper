@@ -67,6 +67,28 @@ function renderBox(content) {
   return '<div class="dm-box">' + content + '</div>';
 }
 
+function renderCombatBody(adventure, scene) {
+  var html = '';
+  if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
+  if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderBox(renderNotes(scene.tactics));
+  if (!html) html += '<p class="no-combat">No combat details for this scene.</p>';
+  return html;
+}
+
+function battlemapSourceHtml(info) {
+  if (!info || !info.book) return '';
+  var parts = [];
+  if (info.page) parts.push('p. ' + info.page + (info.side ? ' (' + info.side + ')' : ''));
+  if (info.location) parts.push(info.location);
+  var pathLine = info.folder + '/' + info.filename;
+  return (
+    '<div class="battlemap-source"><span class="tag">Battle map — find the book</span>' +
+    '<span class="book-loc">' + escapeHtml(info.book) +
+    (parts.length ? ' &middot; ' + escapeHtml(parts.join(' &middot; ')) : '') +
+    '</span><span class="file-path">' + escapeHtml(pathLine) + '</span></div>'
+  );
+}
+
 function renderOverview(adventure) {
   var html = '';
   if (adventure.intro) {

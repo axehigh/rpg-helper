@@ -1,7 +1,10 @@
 window.RPG_HELPER = window.RPG_HELPER || { adventures: [] };
+window.RPG_HELPER.config = window.RPG_HELPER.config || {
+  defaultReadAloudLang: 'no'
+};
 
 function sceneImages(scene) {
-  return scene.images && scene.images.length ? scene.images : [scene.image];
+  return scene.images || [];
 }
 
 function loadScript(src) {
@@ -20,6 +23,28 @@ function getAdventures() {
 
 function getAdventure(id) {
   return getAdventures().find(a => a.id === id);
+}
+
+function getBattlemaps() {
+  return window.RPG_HELPER.battlemaps || [];
+}
+
+function getBattlemap(id) {
+  return getBattlemaps().find(b => b.id === id);
+}
+
+function battlemapInfo(scene) {
+  if (!scene || !scene.battlemap) return null;
+  const id = typeof scene.battlemap === 'string' ? scene.battlemap : scene.battlemap.id;
+  if (!id) return null;
+  const entry = getBattlemap(id);
+  if (entry) {
+    return {
+      src: entry.src, book: entry.book, page: entry.page, side: entry.side,
+      location: entry.location, filename: entry.filename, folder: entry.folder, grid: entry.grid
+    };
+  }
+  return { src: id };
 }
 
 function escapeHtml(str) {

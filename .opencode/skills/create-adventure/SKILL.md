@@ -26,11 +26,16 @@ entry. Confirm the story with the user before building `data.js`.
     `window.RPG_HELPER.adventures = window.RPG_HELPER.adventures.filter(a => a.id !== '<slug>');`
   - Fields: `id`, `title`, `meta {players, level, duration}`, `intro`, `objectives[]`,
     `documents[]`, `monsters[]`, `scenes[]`.
-- Each scene: `id`, `title`, `images[]` (or single `image`) via placeholder paths under
+- Each scene: `id`, `title`, `images[]` via placeholder paths under
   `adventures/<slug>/images/`, optional `readAloud` + `readAloudNo` (Norwegian), plus
-  `environment`, `enemies[]`, `notes[]`, `tactics[]`, `aftermath`.
+  `environment`, `enemies[]`, `notes[]`, `tactics[]`, `aftermath`. Scenes always use an
+  `images[]` array (never a singular `image` field). Combat scenes may add an
+  optional `battlemap`: either a physical-book library id string (e.g. `'ttb1-p31-l-underground'`
+  from `library/battlemaps/data.js` — prefer these) or a local image path; the DM screen's
+  Combat toggle swaps to it (tagged "Map") and hides non-combat details, so scenes without one
+  simply keep their scene image.
 - Enemy entries: `{id: '<monster-id>', count: n}`; add `optional: true` for optional waves.
-- End scenes with `{id: 'monster-gallery', title: 'Monster Gallery', image: ..., gallery: true}`.
+- End scenes with `{id: 'monster-gallery', title: 'Monster Gallery', images: [...], gallery: true}`.
 - Provide `readAloudNo` for every `readAloud`; the DM language toggle falls back to English.
 
 ### 3. Monsters

@@ -9,7 +9,8 @@
   var sceneIndex = 0;
   var imageIndex = 0;
   var autoSend = false;
-  var lang = 'en';
+  var lang = (window.RPG_HELPER.config && window.RPG_HELPER.config.defaultReadAloudLang === 'no') ? 'no' : 'en';
+  var combatMode = false;
 
   if (location.protocol === 'http:' || location.protocol === 'https:') {
     var playerUrl = location.origin + '/player.html#' + adventureId;
@@ -24,16 +25,28 @@
     sceneTitle: document.getElementById('sceneTitle'),
     sceneBody: document.getElementById('sceneBody'),
     sceneImages: document.getElementById('sceneImages'),
+    battlemapSource: document.getElementById('battlemapSource'),
     overview: document.getElementById('panelOverview'),
     monsterSearch: document.getElementById('monsterSearch'),
     monsterList: document.getElementById('monsterList'),
     documents: document.getElementById('panelDocuments'),
-    counter: document.getElementById('sceneCounter')
+    counter: document.getElementById('sceneCounter'),
+    combatBtn: document.getElementById('combatBtn')
   };
+
+  function visibleImages(scene) {
+    var info = battlemapInfo(scene);
+    var images = sceneImages(scene);
+    if (info && info.src) images = images.concat([info.src]);
+    return images;
+  }
 
   function sendScene() {
     if (!adventure) return;
-    Sync.publish(adventure.id, adventure.scenes[sceneIndex].id, imageIndex);
+    var scene = adventure.scenes[sceneIndex];
+    var images = visibleImages(scene);
+    var sceneIdx = battlemapInfo(scene) ? Math.min(imageIndex, images.length - 2) : imageIndex;
+    Sync.publish(adventure.id, scene.id, sceneIdx);
   }
 
   var pushTimer = null;
@@ -54,29 +67,39 @@
 
   function renderScene() {
     var scene = adventure.scenes[sceneIndex];
-    imageIndex = 0;
+    var images = visibleImages(scene);
+    imageIndex = combatMode ? Math.max(0, images.length - 1) : 0;
     if (scene.gallery) {
       els.counter.textContent = 'Gallery';
     } else {
       var realBefore = adventure.scenes.slice(0, sceneIndex).filter(function (s) { return !s.gallery; }).length;
       els.counter.textContent = (realBefore + 1) + ' / ' + sceneCount();
     }
-    els.sceneImg.src = sceneImages(scene)[imageIndex];
+    els.sceneImg.src = images[imageIndex];
     els.sceneImg.alt = scene.title;
     els.sceneLabels.textContent = adventure.title + ' — ' + scene.title;
     els.sceneTitle.textContent = scene.title;
     renderSceneImages(scene);
 
+    var info = battlemapInfo(scene);
+    var sourceHtml = battlemapSourceHtml(info);
+    els.battlemapSource.innerHTML = sourceHtml;
+    els.battlemapSource.classList.toggle('hidden', !sourceHtml);
+
     var html = '';
-    if (scene.readAloud || scene.readAloudNo) {
-      var readAloud = lang === 'no' ? (scene.readAloudNo || scene.readAloud) : (scene.readAloud || scene.readAloudNo);
-      html += renderReadAloud(readAloud, lang === 'no' ? 'Les høyt' : 'Read aloud');
+    if (combatMode) {
+      html += renderCombatBody(adventure, scene);
+    } else {
+      if (scene.readAloud || scene.readAloudNo) {
+        var readAloud = lang === 'no' ? (scene.readAloudNo || scene.readAloud) : (scene.readAloud || scene.readAloudNo);
+        html += renderReadAloud(readAloud, lang === 'no' ? 'Les høyt' : 'Read aloud');
+      }
+      if (scene.environment) html += '<h3>Environment</h3><p>' + escapeHtml(scene.environment) + '</p>';
+      if (scene.notes && scene.notes.length) html += '<h3>DM Notes</h3>' + renderBox(renderNotes(scene.notes));
+      if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
+      if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderBox(renderNotes(scene.tactics));
+      if (scene.aftermath) html += '<h3>Aftermath & Clues</h3>' + renderBox('<p>' + escapeHtml(scene.aftermath) + '</p>');
     }
-    if (scene.environment) html += '<h3>Environment</h3><p>' + escapeHtml(scene.environment) + '</p>';
-    if (scene.notes && scene.notes.length) html += '<h3>DM Notes</h3>' + renderBox(renderNotes(scene.notes));
-    if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
-    if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderBox(renderNotes(scene.tactics));
-    if (scene.aftermath) html += '<h3>Aftermath & Clues</h3>' + renderBox('<p>' + escapeHtml(scene.aftermath) + '</p>');
     els.sceneBody.innerHTML = html;
 
     var items = document.querySelectorAll('#sceneList .scene-item');
@@ -98,14 +121,17 @@
   }
 
   function renderSceneImages(scene) {
-    var images = sceneImages(scene);
+    var images = visibleImages(scene);
+    var mapIndex = battlemapInfo(scene) ? images.length - 1 : -1;
     var html = '';
     images.forEach(function (src, i) {
       html += (
         '<button class="scene-thumb' + (i === imageIndex ? ' active' : '') + '" data-i="' + i + '" title="' +
         (i === imageIndex ? 'Showing' : 'Show this image') + '">' +
           '<img src="' + escapeHtml(src) + '" alt="">' +
-          (i === imageIndex ? '<span class="thumb-tag">Showing</span>' : '') +
+          (i === imageIndex
+            ? '<span class="thumb-tag">Showing</span>'
+            : i === mapIndex ? '<span class="thumb-tag map">Map</span>' : '') +
         '</button>'
       );
     });
@@ -196,12 +222,24 @@
     document.getElementById('followBtn').setAttribute('aria-pressed', autoSend ? 'true' : 'false');
   });
 
-  document.getElementById('langBtn').addEventListener('click', function () {
-    lang = lang === 'en' ? 'no' : 'en';
+  function updateLangBtn() {
     var btn = document.getElementById('langBtn');
     btn.textContent = lang === 'en' ? 'Norsk' : 'English';
     btn.classList.toggle('on', lang === 'no');
     btn.setAttribute('aria-pressed', lang === 'no' ? 'true' : 'false');
+  }
+
+  document.getElementById('langBtn').addEventListener('click', function () {
+    lang = lang === 'en' ? 'no' : 'en';
+    updateLangBtn();
+    renderScene();
+  });
+  updateLangBtn();
+
+  els.combatBtn.addEventListener('click', function () {
+    combatMode = !combatMode;
+    els.combatBtn.classList.toggle('on', combatMode);
+    els.combatBtn.setAttribute('aria-pressed', combatMode ? 'true' : 'false');
     renderScene();
   });
 
@@ -210,7 +248,7 @@
     if (!btn) return;
     imageIndex = Number(btn.dataset.i);
     var scene = adventure.scenes[sceneIndex];
-    els.sceneImg.src = sceneImages(scene)[imageIndex];
+    els.sceneImg.src = visibleImages(scene)[imageIndex];
     renderSceneImages(scene);
     if (autoSend) sendScene();
   });
@@ -225,6 +263,7 @@
 
   loadScript('adventures/index.js')
     .then(function () { return loadScript('adventures/monsters.js'); })
+    .then(function () { return loadScript('library/battlemaps/data.js'); })
     .then(function () {
       var meta = getAdventure(adventureId);
       if (!meta) throw new Error('Unknown adventure: ' + adventureId);

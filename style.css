@@ -108,6 +108,23 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
   background: rgba(20, 20, 26, .8); color: #6fb3ff; font-size: .65rem;
   text-transform: uppercase; letter-spacing: .04em; line-height: 1.2;
 }
+.thumb-tag.map { color: #e2b45c; }
+.no-combat { color: #9a9aa2; font-style: italic; }
+.battlemap-source {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem;
+  margin-top: .5rem; padding: .45rem .6rem;
+  background: #26200f; border: 1px solid #4a3d1c; border-radius: 6px;
+  font-size: .78rem;
+}
+.battlemap-source .tag {
+  color: #e2b45c; text-transform: uppercase; letter-spacing: .05em;
+  font-weight: 600; font-size: .68rem;
+}
+.battlemap-source .book-loc { color: #d6c69a; }
+.battlemap-source .file-path {
+  color: #9a9aa2; font-family: ui-monospace, Consolas, monospace;
+  font-size: .72rem; word-break: break-all;
+}
 .scene-detail h2 { margin-bottom: .5rem; }
 .scene-detail h3 { margin: 1rem 0 .4rem; font-size: 1rem; color: #6fb3ff; }
 .dm-note { line-height: 1.55; margin: .35rem 0; }

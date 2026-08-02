@@ -15,7 +15,7 @@ window.RPG_HELPER.adventures.push({
   title: 'Embers of Heartforge',
   blurb: '4 players · Level 4–5 · 3–4 hours',
   synopsis: 'Descend into the mines and face the master smith\'s judgment',
-  image: 'adventures/embers-of-heartforge/images/01_ember_summons.jpg',
+  image: 'adventures/embers-of-heartforge/images/01_Attack_on_Oakhollow.jpg',
   source: 'adventures/embers-of-heartforge/data.js',
   active: false
 });
