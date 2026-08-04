@@ -82,10 +82,16 @@ function battlemapSourceHtml(info) {
   if (info.location) parts.push(info.location);
   var pathLine = info.folder + '/' + info.filename;
   return (
-    '<div class="battlemap-source"><span class="tag">Battle map — find the book</span>' +
-    '<span class="book-loc">' + escapeHtml(info.book) +
-    (parts.length ? ' &middot; ' + escapeHtml(parts.join(' &middot; ')) : '') +
-    '</span><span class="file-path">' + escapeHtml(pathLine) + '</span></div>'
+    '<span class="book-hint" tabindex="0" role="tooltip" aria-label="Battle map book reference">' +
+      '<span aria-hidden="true">&#8505;</span>' +
+      '<span class="book-tip">' +
+        '<strong>Battle map &mdash; find the book</strong>' +
+        '<span class="book-loc">' + escapeHtml(info.book) +
+          (parts.length ? ' &middot; ' + escapeHtml(parts.join(' &middot; ')) : '') +
+        '</span>' +
+        '<span class="file-path">' + escapeHtml(pathLine) + '</span>' +
+      '</span>' +
+    '</span>'
   );
 }
 
