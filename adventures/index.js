@@ -19,3 +19,13 @@ window.RPG_HELPER.adventures.push({
   source: 'adventures/embers-of-heartforge/data.js',
   status: 'wip'
 });
+
+window.RPG_HELPER.adventures.push({
+  id: 'the-witchwood-wards',
+  title: 'The Witchwood Wards',
+  blurb: '4 players · Level 3–4 · 3–4 hours',
+  synopsis: 'Break the standing stones and face the Bog Witch of the Witchwood',
+  image: 'adventures/the-witchwood-wards/images/01_rooted_road.jpg',
+  source: 'adventures/the-witchwood-wards/data.js',
+  status: 'wip'
+});

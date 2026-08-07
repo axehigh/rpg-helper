@@ -173,5 +173,77 @@ window.RPG_HELPER.monsters = {
       'Pickpocket: once per combat, steals a small object from a hero and uses it as a bargaining chip.',
       'Relic Merchant: carries 2 healing potions and a key to the mine\'s back entrance.'
     ]
+  },
+  'marsh-hound': {
+    id: 'marsh-hound',
+    name: 'Marsh Hound',
+    role: 'Beast',
+    ac: 13,
+    hp: 20,
+    speed: '40 ft, swim 30 ft',
+    hit: '+5',
+    damage: 'Bite 1d8+3',
+    special: [
+      'Muddy Grip: on a hit, the target makes a DC 12 Strength save or is grappled in the sucking mud.',
+      'Pack Hunt: gains advantage on attacks against a creature grappled by another marsh hound.'
+    ]
+  },
+  'will-o-wisp': {
+    id: 'will-o-wisp',
+    name: 'Will-o\'-Wisp',
+    role: 'Support',
+    ac: 14,
+    hp: 20,
+    speed: '0 ft, fly 50 ft (hover)',
+    hit: '+5',
+    damage: 'Shocking Touch 2d6',
+    special: [
+      'Insubstantial: resistant to nonmagical bludgeoning, piercing, and slashing.',
+      'Luring Light: dims and drifts toward the slowest hero, drawing them off the path and into the mire.'
+    ]
+  },
+  'spirit-guardian': {
+    id: 'spirit-guardian',
+    name: 'Ward Spirit',
+    role: 'Undead Guardian',
+    ac: 14,
+    hp: 25,
+    speed: '30 ft, fly 30 ft',
+    hit: '+5',
+    damage: 'Chill Touch 1d10+3',
+    special: [
+      'Wardbound: rises where a wrong stone was pressed; ignores difficult terrain and cannot leave the circle.',
+      'Grasping Moss: on a hit, the target makes a DC 12 Strength save or is restrained by spectral vines until it saves.'
+    ]
+  },
+  'bark-touched': {
+    id: 'bark-touched',
+    name: 'Bark-Touched Servant',
+    role: 'Brute',
+    ac: 14,
+    hp: 26,
+    speed: '20 ft',
+    hit: '+4',
+    damage: 'Rooted Slam 1d8+3',
+    special: [
+      'Bark Hide: resistant to nonmagical bludgeoning and piercing damage.',
+      'Slow Steps: speed is halved but it ignores difficult terrain in the swamp.'
+    ]
+  },
+  'bog-witch': {
+    id: 'bog-witch',
+    name: 'Bog Witch',
+    role: 'Final Boss',
+    ac: 15,
+    hp: 55,
+    speed: '30 ft',
+    hit: '+5',
+    damage: 'Necrotic Grasp 2d6+3',
+    special: [
+      'Curse of Bark: once per turn, a target within 30 ft makes a DC 13 Charisma save or its speed is halved and it takes 1d4 necrotic damage each turn until it succeeds.',
+      'Grasping Reeds: as an action, every hero in the lair makes a DC 12 Dexterity save or is restrained until the witch\'s next turn.',
+      'Call the Court: once, summons 2 marsh hounds from the mire.',
+      'Broken Promise: at 0 HP the witch does not fall — she kneels, and the truth of the curse spills out.'
+    ]
   }
 };
