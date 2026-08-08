@@ -13,9 +13,7 @@
   var combatMode = false;
 
   if (location.protocol === 'http:' || location.protocol === 'https:') {
-    var playerUrl = location.origin + '/player.html#' + adventureId;
-    document.getElementById('syncNote').innerHTML =
-      '<a href="' + escapeHtml(playerUrl) + '" target="_blank" rel="noopener">player screen</a>';
+    updateSyncNote();
   }
 
   var els = {
@@ -29,6 +27,8 @@
     overview: document.getElementById('panelOverview'),
     monsterSearch: document.getElementById('monsterSearch'),
     monsterList: document.getElementById('monsterList'),
+    standaloneSearch: document.getElementById('standaloneSearch'),
+    standaloneList: document.getElementById('standaloneList'),
     documents: document.getElementById('panelDocuments'),
     counter: document.getElementById('sceneCounter'),
     combatBtn: document.getElementById('combatBtn')
@@ -172,6 +172,33 @@
     els.monsterList.innerHTML = list.map(monsterCard).join('') || '<p>No monsters match.</p>';
   }
 
+  function updateSyncNote() {
+    if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
+    var id = adventure ? adventure.id : adventureId;
+    var playerUrl = location.origin + '/player.html#' + id;
+    document.getElementById('syncNote').innerHTML =
+      '<a href="' + escapeHtml(playerUrl) + '" target="_blank" rel="noopener">player screen</a>';
+  }
+
+  function renderStandalones() {
+    var q = (els.standaloneSearch.value || '').toLowerCase();
+    var metas = getAdventures().filter(function (a) {
+      return a.kind === 'single-scene' &&
+        (!q || (a.title + ' ' + (a.synopsis || '')).toLowerCase().indexOf(q) !== -1);
+    });
+    var html = metas.map(function (m) {
+      return (
+        '<a class="standalone-summary" href="dm.html#' + escapeHtml(m.id) + '" target="_blank" rel="noopener">' +
+          escapeHtml(m.title) +
+          '<small>' + escapeHtml(m.blurb || '') + '</small>' +
+        '</a>'
+      );
+    }).join('');
+    els.standaloneList.innerHTML = html || '<p>No standalone scenes match.</p>';
+  }
+
+  els.standaloneSearch.addEventListener('input', renderStandalones);
+
   function renderDocuments() {
     var docs = adventure.documents || [];
     els.documents.innerHTML = docs.map(function (d) {
@@ -188,8 +215,10 @@
     document.getElementById('panelOverview').classList.toggle('hidden', tab !== 'overview');
     document.getElementById('panelScene').classList.toggle('hidden', tab !== 'scene');
     document.getElementById('panelMonsters').classList.toggle('hidden', tab !== 'monsters');
+    document.getElementById('panelStandalones').classList.toggle('hidden', tab !== 'standalones');
     document.getElementById('panelDocuments').classList.toggle('hidden', tab !== 'documents');
     if (tab === 'monsters') renderMonsters();
+    if (tab === 'standalones') renderStandalones();
     if (tab === 'overview') renderOverviewTab();
   }
 
@@ -274,7 +303,11 @@
       if (!adventure || !adventure.scenes) throw new Error('Adventure failed to load: ' + adventureId);
       document.title = 'DM - ' + adventure.title;
       document.getElementById('advTitle').textContent = adventure.title;
-      renderOverviewTab();
+      if (adventure.kind === 'single-scene') {
+        showTab('scene');
+      } else {
+        renderOverviewTab();
+      }
       renderSceneList();
       renderScene();
       renderDocuments();

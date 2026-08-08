@@ -22,7 +22,17 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
 
 /* Launcher */
 .launcher-header { max-width: 960px; margin: 0 auto 2rem; }
-.adventure-list { max-width: 960px; margin: 0 auto; display: grid; gap: 1.5rem; }
+.adventure-list { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.75rem; }
+.adventure-grid { display: grid; gap: 1.5rem; }
+.standalone-section h2 {
+  font-size: 1.05rem; letter-spacing: .03em; margin: 0 0 .25rem;
+  text-transform: uppercase;
+}
+.standalone-section h2::after {
+  content: ''; display: block; width: 100%; height: 1px;
+  background: #3a3a42; margin-top: .35rem;
+}
+.adventure-card.scene-card { box-shadow: 0 0 0 1px #4a3d2c; }
 .adventure-card {
   display: flex; gap: 1rem; background: #26262c;
   border-radius: 10px; overflow: hidden;
@@ -40,6 +50,7 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
 .adventure-status.status-ready { color: #6fb3ff; border-color: #6fb3ff; }
 .adventure-status.status-wip { color: #e2b45c; border-color: #e2b45c; }
 .adventure-status.status-completed { color: #9a9aa2; border-color: #9a9aa2; }
+.adventure-status.status-scene { color: #c77bff; border-color: #c77bff; }
 .completed-toggle {
   margin-top: .75rem; padding: .4rem .8rem; border-radius: 6px;
   background: #26262c; color: #e8e8ea; border: 1px solid #3a3a42;
@@ -191,7 +202,8 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
 .monster-stats b { color: #6fb3ff; }
 .monster-special { margin: 0; font-size: .88rem; line-height: 1.5; color: #cfcfd8; }
 
-#panelMonsters input {
+#panelMonsters input,
+#panelStandalones input {
   width: 100%; padding: .5rem; border-radius: 6px; border: 1px solid #3a3a42;
   background: #26262c; color: #e8e8ea; margin-bottom: .5rem;
 }
@@ -199,6 +211,17 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
 #panelDocuments a {
   padding: .6rem .8rem; background: #26262c; border-radius: 8px;
   border: 1px solid #3a3a42; text-decoration: none;
+}
+
+.standalone-summary {
+  display: block; width: 100%; text-align: left; padding: .7rem .9rem;
+  background: #26262c; border: 1px solid #3a3a42; border-radius: 8px;
+  cursor: pointer; color: #e8e8ea; font-size: .95rem; font-weight: 600;
+  text-decoration: none; margin-bottom: .5rem;
+}
+.standalone-summary:hover { background: #2e2e35; border-color: #6fb3ff; }
+.standalone-summary small {
+  display: block; font-weight: 400; font-size: .8rem; color: #9a9aa2; margin-top: .2rem;
 }
 
 /* Player screen */

@@ -29,3 +29,35 @@ window.RPG_HELPER.adventures.push({
   source: 'adventures/the-witchwood-wards/data.js',
   status: 'wip'
 });
+
+window.RPG_HELPER.adventures.push({
+  id: 'the-blood-harvest',
+  title: 'The Blood Harvest',
+  blurb: '4 players · Level 3–4 · 3–4 hours',
+  synopsis: 'Save a town\'s children from a saint who demands a soul a year',
+  image: 'adventures/the-blood-harvest/images/01_festival_eve.jpg',
+  source: 'adventures/the-blood-harvest/data.js',
+  status: 'wip'
+});
+
+window.RPG_HELPER.adventures.push({
+  id: 'redpost-road',
+  title: 'Redpost Road',
+  blurb: '4 players · Level 2 · 1–1.5 hours',
+  synopsis: 'Survive the Redpost ambush and burn the goblin camp',
+  image: 'adventures/redpost-road/images/01_redpost_road.jpg',
+  source: 'adventures/redpost-road/data.js',
+  status: 'ready',
+  kind: 'single-scene'
+});
+
+window.RPG_HELPER.adventures.push({
+  id: 'the-tolling-bell',
+  title: 'The Tolling Bell',
+  blurb: '4 players · Level 3 · 1.5–2 hours',
+  synopsis: 'Shelter in a flooded chapel and still its drowning bell',
+  image: 'adventures/the-tolling-bell/images/01_flooded_nave.jpg',
+  source: 'adventures/the-tolling-bell/data.js',
+  status: 'ready',
+  kind: 'single-scene'
+});

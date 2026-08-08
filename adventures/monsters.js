@@ -230,6 +230,77 @@ window.RPG_HELPER.monsters = {
       'Slow Steps: speed is halved but it ignores difficult terrain in the swamp.'
     ]
   },
+  'zombie': {
+    id: 'zombie',
+    name: 'Zombie',
+    role: 'Undead',
+    ac: 8,
+    hp: 22,
+    speed: '20 ft',
+    hit: '+3',
+    damage: 'Slam 1d6+1',
+    special: [
+      'Undead Fortitude: when dropped to 0 HP, makes a DC 12 CON save — on a success it drops to 1 HP instead.',
+      'Mindless: ignores fear and difficult terrain; advances in a straight line toward the nearest living creature.'
+    ]
+  },
+  'skeleton': {
+    id: 'skeleton',
+    name: 'Skeleton',
+    role: 'Undead',
+    ac: 13,
+    hp: 13,
+    speed: '30 ft',
+    hit: '+4',
+    damage: 'Shortbow 1d6+2',
+    special: [
+      'Fragile Frame: bludgeoning damage is doubled.',
+      'Stands at range and shoots from cover; shatters if forced into melee by a bludgeon.'
+    ]
+  },
+  'ghoul': {
+    id: 'ghoul',
+    name: 'Ghoul',
+    role: 'Undead',
+    ac: 12,
+    hp: 22,
+    speed: '30 ft',
+    hit: '+4',
+    damage: 'Claw 1d6+2',
+    special: [
+      'Paralyzing Bite: on a hit, the target makes a DC 11 CON save or is paralyzed until the ghoul\'s next turn.',
+      'Ravenous: attacks a paralyzed target with advantage.'
+    ]
+  },
+  'cultist': {
+    id: 'cultist',
+    name: 'Red Skull Cultist',
+    role: 'Zealot',
+    ac: 12,
+    hp: 12,
+    speed: '30 ft',
+    hit: '+4',
+    damage: 'Dagger 1d4+2',
+    special: [
+      'Ritual Knife: on a hit, marks the target — the abbot\'s undead move toward it.',
+      'Skull Chant: once, all cultists and undead within 30 ft gain +1 to hit for a round.'
+    ]
+  },
+  'red-skull-abbot': {
+    id: 'red-skull-abbot',
+    name: 'Abbot Cael, the Red Skull',
+    role: 'Final Boss',
+    ac: 15,
+    hp: 60,
+    speed: '30 ft',
+    hit: '+5',
+    damage: 'Censer Flail 1d8+3 (x2 attacks)',
+    special: [
+      'Tithe Bell: once, every undead in the vault takes an immediate turn.',
+      'Saint\'s Vigor: once below half HP, regains 15 HP as the saint\'s light bends around him.',
+      'Broken Zeal: at 0 HP he does not fall — he kneels, and the choice is offered.'
+    ]
+  },
   'bog-witch': {
     id: 'bog-witch',
     name: 'Bog Witch',

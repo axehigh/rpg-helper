@@ -97,6 +97,16 @@ function battlemapSourceHtml(info) {
 
 function renderOverview(adventure) {
   var html = '';
+  var count = (adventure.scenes || []).filter(function (s) { return !s.gallery; }).length;
+  var metaParts = [];
+  var meta = adventure.meta || {};
+  if (meta.players) metaParts.push(meta.players + ' players');
+  if (meta.level) metaParts.push('Level ' + meta.level);
+  if (meta.duration) metaParts.push(meta.duration);
+  if (count) metaParts.push(count + (count === 1 ? ' scene' : ' scenes'));
+  if (metaParts.length) {
+    html += '<div class="dm-box"><p class="dm-meta">' + escapeHtml(metaParts.join(' \u00b7 ')) + '</p></div>';
+  }
   if (adventure.intro) {
     html += '<div class="dm-box"><span class="tag">Intro</span><p>' + escapeHtml(adventure.intro) + '</p></div>';
   }

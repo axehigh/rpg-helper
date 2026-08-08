@@ -10,13 +10,19 @@
     return '<span class="adventure-status status-' + a.status + '">' + escapeHtml(STATUS_LABEL[a.status]) + '</span>';
   }
 
+  function sceneBadge(a) {
+    if (a.kind !== 'single-scene') return '';
+    return '<span class="adventure-status status-scene">Scene</span>';
+  }
+
   function cardHtml(a) {
     var statusClass = a.status ? ' status-' + a.status : '';
+    var sceneClass = a.kind === 'single-scene' ? ' scene-card' : '';
     return (
-      '<div class="adventure-card' + statusClass + '">' +
+      '<div class="adventure-card' + statusClass + sceneClass + '">' +
         '<img src="' + escapeHtml(a.image) + '" alt="">' +
         '<div class="adventure-card-body">' +
-          '<h2>' + escapeHtml(a.title) + statusBadge(a) + '</h2>' +
+          '<h2>' + escapeHtml(a.title) + statusBadge(a) + sceneBadge(a) + '</h2>' +
           '<p>' + escapeHtml(a.blurb || '') + '</p>' +
           (a.synopsis ? '<p class="adventure-synopsis">' + escapeHtml(a.synopsis) + '</p>' : '') +
           '<div class="adventure-actions">' +
@@ -28,14 +34,23 @@
     );
   }
 
+  function sectionHtml(entries, className) {
+    if (!entries.length) return '';
+    return '<section class="' + className + '">' +
+      (className === 'standalone-section' ? '<h2>Standalone Scenes</h2>' : '') +
+      '<div class="adventure-grid">' + entries.map(cardHtml).join('') + '</div>' +
+      '</section>';
+  }
+
   function render() {
-    var adventures = getAdventures();
-    var visible = adventures.filter(function (a) {
+    var adventures = getAdventures().filter(function (a) {
       return showCompleted || a.status !== 'completed';
     });
-    list.innerHTML = visible.length
-      ? visible.map(cardHtml).join('')
-      : '<p>' + (adventures.length ? 'No adventures to show here.' : 'No adventures found.') + '</p>';
+    var scenes = adventures.filter(function (a) { return a.kind === 'single-scene'; });
+    var full = adventures.filter(function (a) { return a.kind !== 'single-scene'; });
+    list.innerHTML = adventures.length
+      ? sectionHtml(full, 'adventure-section') + sectionHtml(scenes, 'standalone-section')
+      : '<p>' + (getAdventures().length ? 'No adventures to show here.' : 'No adventures found.') + '</p>';
   }
 
   toggle.addEventListener('click', function () {

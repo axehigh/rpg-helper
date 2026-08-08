@@ -12,7 +12,10 @@ entry. Confirm the story with the user before building `data.js`.
 ## Workflow
 
 ### 1. Synopsis (`adventure.md`)
-- Create `adventures/<slug>/docs/` and write `adventure.md`.
+- If `adventures/<slug>/docs/adventure.md` already exists (e.g. written by the
+  `draft-adventure-story` skill), read and reuse it instead of rewriting. Only
+  adjust it if the user asks.
+- Otherwise, create `adventures/<slug>/docs/` and write `adventure.md`.
 - Mirror the existing structure: title line, italic tagline (`*A tabletop RPG adventure
   for N players, level X, lasting ... hours.*`, plus follow-up note), `## The Hook`,
   `## The Party's Objectives` (bulleted), `---`, `## The Storyline` (numbered chapters),
@@ -53,12 +56,24 @@ entry. Confirm the story with the user before building `data.js`.
   played, green highlight on the card), `wip` (still being written, faded `opacity: .45`),
   or `completed` (hidden on index.html behind the "Show completed adventures" toggle).
 
+### Standalone scenes
+- A standalone scene is a short, self-contained adventure with only 1–3 scenes plus the
+  monster gallery. Use it for quick encounters a DM can drop into a session.
+- Add `kind: 'single-scene'` to BOTH the registry meta entry and the full object in
+  `data.js` (the self-filtering re-registration replaces the meta entry, so the full object
+  must carry the flag too).
+- `status: 'ready'` is typical. On `index.html` standalone scenes appear under a separate
+  "Standalone Scenes" section with a purple "Scene" badge; on the DM screen they are
+  browsable in the "Standalones" tab while an adventure is running.
+
 ## Conventions
 - ES5-style code, 4-space indentation in data files, single quotes, string concat with `+`.
 - Escape dynamic content with `escapeHtml()` in render code; data files only store text.
 - Image paths are placeholders until assets exist: `adventures/<slug>/images/<name>.jpg`.
 
 ## Verification
+- Before finalizing, run the `grill-me` skill on the finished adventure: Story
+  mode for the narrative beats and payoff, Tech mode for the data files.
 - `node --check` on `adventures/<slug>/data.js`, `adventures/monsters.js`, `adventures/index.js`.
 - Smoke-test that all monster pointers resolve:
   ```
