@@ -19,3 +19,13 @@ window.RPG_HELPER.adventures.push({
   source: 'adventures/embers-of-heartforge/data.js',
   status: 'wip'
 });
+
+window.RPG_HELPER.adventures.push({
+  id: 'the-iron-shackle-mines',
+  title: 'The Iron Shackle Mines',
+  blurb: '4 players · Level 2 · 3 hours',
+  synopsis: 'Infiltrate the canyon and free captives from the slaver mine',
+  image: 'adventures/the-iron-shackle-mines/images/01_canyon_switchback.jpg',
+  source: 'adventures/the-iron-shackle-mines/data.js',
+  status: 'ready'
+});

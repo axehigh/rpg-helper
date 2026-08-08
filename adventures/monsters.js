@@ -173,5 +173,71 @@ window.RPG_HELPER.monsters = {
       'Pickpocket: once per combat, steals a small object from a hero and uses it as a bargaining chip.',
       'Relic Merchant: carries 2 healing potions and a key to the mine\'s back entrance.'
     ]
+  },
+  'slaver-scout': {
+    id: 'slaver-scout',
+    name: 'Slaver Scout',
+    role: 'Fast ranged',
+    ac: 14,
+    hp: 13,
+    speed: '30 ft',
+    hit: '+4',
+    damage: 'Light Crossbow 1d8+2 or Shortsword 1d6+2',
+    special: [
+      'Caltrops: once per combat, scatters caltrops in a 10-ft square (DC 12 Dexterity save or take 1 damage and speed is reduced to 0 until healed/rested).'
+    ]
+  },
+  'slaver-hound': {
+    id: 'slaver-hound',
+    name: 'Slaver Hound',
+    role: 'Beast',
+    ac: 12,
+    hp: 13,
+    speed: '40 ft',
+    hit: '+4',
+    damage: 'Bite 1d6+2',
+    special: 'Pack Tactics: gains advantage on attack rolls against a creature if at least one of the hound\'s allies is within 5 ft of the creature and isn\'t incapacitated.'
+  },
+  'iron-shackle-thug': {
+    id: 'iron-shackle-thug',
+    name: 'Iron Shackle Thug',
+    role: 'Front line',
+    ac: 13,
+    hp: 18,
+    speed: '30 ft',
+    hit: '+4',
+    damage: 'Heavy Mace 1d8+2',
+    special: [
+      'Whip Lash (Recharge 5–6): as a bonus action, lashes a whip at a target within 10 ft (DC 12 Strength save or be knocked prone).'
+    ]
+  },
+  'iron-shackle-enforcer': {
+    id: 'iron-shackle-enforcer',
+    name: 'Iron Shackle Enforcer',
+    role: 'Heavy hitter',
+    ac: 15,
+    hp: 26,
+    speed: '30 ft',
+    hit: '+4',
+    damage: 'Greatsword 2d6+2',
+    special: [
+      'No Mercy: deals an extra 1d6 damage to prone or restrained targets.',
+      'Threatening Presence: adjacent enemies have disadvantage on ranged attack rolls.'
+    ]
+  },
+  'taskmaster-gruul': {
+    id: 'taskmaster-gruul',
+    name: 'Taskmaster Gruul',
+    role: 'Final Boss',
+    ac: 16,
+    hp: 55,
+    speed: '30 ft',
+    hit: '+5',
+    damage: 'Iron Mallet 1d10+3 (x2 attacks)',
+    special: [
+      'Get to Work! (Bonus Action): orders one ally to make an immediate melee attack.',
+      'Shackler (once per combat): throws heavy iron shackles at a target within 15 ft (DC 13 Dexterity save or be restrained).',
+      'Frightful Whiplash: once, when reduced below half HP, lets out a roar and strikes all adjacent enemies with his chain whip (1d6+3 bludgeoning and pushed 5 ft).'
+    ]
   }
 };
