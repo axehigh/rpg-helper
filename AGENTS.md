@@ -6,12 +6,14 @@ a DM screen and a synced player view for an adventure.
 ## Project overview
 
 - No frontend framework and no build step. Plain HTML, CSS, and vanilla JavaScript loaded via `<script>` tags.
-- Node.js static server with a tiny sync API: `server.js`.
+- Node.js static server with a tiny sync API: `server.js`. The site also runs on plain static hosting or PHP-only hosts (cross-device sync via `api/scene.php`).
 - Adventure content lives as plain JS data files (not a database) and is loaded at runtime by URL hash.
 
 ## Commands
 
 - Start the local server: `npm start` (or `node server.js`). Serves on `http://localhost:8080`.
+- PHP-only hosting: serve the repo root and use `api/scene.php` for cross-device sync, e.g. `php -S 0.0.0.0:8000`.
+- Static hosting: the client probes `/api/scene` then `/api/scene.php`; on hosts with neither, server sync is skipped and same-browser tabs sync via localStorage/BroadcastChannel.
 - No lint, typecheck, or test scripts are configured.
 
 ## Key pages and flows
@@ -22,7 +24,7 @@ a DM screen and a synced player view for an adventure.
 - `js/dm.js` — DM screen logic; renders scenes, monsters, documents.
 - `js/player.js` — player view logic; listens to `Sync` for scene changes.
 - `js/render.js` — shared HTML-string render helpers (`monsterCard`, `encounterList`, `renderReadAloud`, `renderNotes`, `renderCombatBody`, `battlemapSourceHtml`).
-- `js/common.js` — shared globals: `loadScript`, `getAdventures`, `getAdventure`, `escapeHtml`, battlemap library accessors (`getBattlemaps`, `getBattlemap`, `battlemapInfo`), and the `Sync` pub/sub singleton (localStorage + BroadcastChannel + server polling).
+- `js/common.js` — shared globals: `loadScript`, `getAdventures`, `getAdventure`, `escapeHtml`, battlemap library accessors (`getBattlemaps`, `getBattlemap`, `battlemapInfo`), and the `Sync` pub/sub singleton (localStorage + BroadcastChannel + server polling). Server sync probes `/api/scene` (Node) then `/api/scene.php` (PHP) and uses whichever responds with valid scene state; neither → static mode.
 
 ## How adventures work
 

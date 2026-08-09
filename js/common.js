@@ -59,13 +59,38 @@ var Sync = (function () {
   var KEY = 'rpg-helper-scene';
   var channel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('rpg-helper') : null;
   var viaServer = location.protocol === 'http:' || location.protocol === 'https:';
+  var serverEndpoint = null;
+  var serverProbe = null;
+  var serverEndpoints = ['/api/scene', '/api/scene.php'];
 
   function read() {
     try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
   }
 
+  function probeServer() {
+    if (!viaServer) return Promise.resolve(null);
+    if (serverProbe) return serverProbe;
+    serverProbe = serverEndpoints.reduce(function (promise, url) {
+      return promise.then(function (found) {
+        if (found) return found;
+        return fetch(url).then(function (res) {
+          if (!res.ok) return null;
+          return res.json().then(function (s) {
+            if (s && typeof s === 'object' && 'adventureId' in s && 'sceneId' in s && 't' in s) return url;
+            return null;
+          }).catch(function () { return null; });
+        }).catch(function () { return null; });
+      });
+    }, Promise.resolve(null)).then(function (found) {
+      serverEndpoint = found;
+      return found;
+    });
+    return serverProbe;
+  }
+
   function serverPublish(adventureId, sceneId, imageIndex) {
-    fetch('/api/scene', {
+    if (!serverEndpoint) return;
+    fetch(serverEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ adventureId: adventureId, sceneId: sceneId, imageIndex: imageIndex })
@@ -77,12 +102,14 @@ var Sync = (function () {
       localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), adventureId: adventureId, sceneId: sceneId, imageIndex: imageIndex }));
     } catch (e) { /* storage unavailable */ }
     if (channel) channel.postMessage({ type: 'scene', adventureId: adventureId, sceneId: sceneId, imageIndex: imageIndex });
-    if (viaServer) serverPublish(adventureId, sceneId, imageIndex);
+    probeServer();
+    if (serverEndpoint) serverPublish(adventureId, sceneId, imageIndex);
   }
 
   function subscribe(adventureId, onScene) {
     var any = adventureId === undefined || adventureId === null;
     function matches(id) { return any || id === adventureId; }
+    var closed = false;
 
     if (channel) {
       channel.addEventListener('message', function (e) {
@@ -94,22 +121,26 @@ var Sync = (function () {
     if (last && matches(last.adventureId)) onScene(last.sceneId, last.imageIndex, last.adventureId);
 
     var serverLast = null;
+    var serverTimer = null;
     if (viaServer) {
-      var pull = function () {
-        fetch('/api/scene')
-          .then(function (r) { return r.json(); })
-          .then(function (s) {
-            if (s && matches(s.adventureId)) {
-              if (!serverLast || serverLast.sceneId !== s.sceneId || serverLast.t !== s.t) {
-                serverLast = s;
-                onScene(s.sceneId, s.imageIndex, s.adventureId);
+      probeServer().then(function (endpoint) {
+        if (!endpoint || closed) return;
+        var pull = function () {
+          fetch(endpoint)
+            .then(function (r) { return r.json(); })
+            .then(function (s) {
+              if (s && matches(s.adventureId)) {
+                if (!serverLast || serverLast.sceneId !== s.sceneId || serverLast.t !== s.t) {
+                  serverLast = s;
+                  onScene(s.sceneId, s.imageIndex, s.adventureId);
+                }
               }
-            }
-          })
-          .catch(function () {});
-      };
-      pull();
-      var serverTimer = setInterval(pull, 800);
+            })
+            .catch(function () {});
+        };
+        pull();
+        serverTimer = setInterval(pull, 800);
+      });
     }
 
     var timer = setInterval(function () {
@@ -123,6 +154,7 @@ var Sync = (function () {
     }, 600);
 
     return function () {
+      closed = true;
       clearInterval(timer);
       if (serverTimer) clearInterval(serverTimer);
     };
