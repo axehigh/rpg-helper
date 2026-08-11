@@ -382,5 +382,61 @@ window.RPG_HELPER.monsters = {
       'Shackler (once per combat): throws heavy iron shackles at a target within 15 ft (DC 13 Dexterity save or be restrained).',
       'Frightful Whiplash: once, when reduced below half HP, lets out a roar and strikes all adjacent enemies with his chain whip (1d6+3 bludgeoning and pushed 5 ft).'
     ]
+  },
+  'blighted-peasant': {
+    id: 'blighted-peasant',
+    name: 'Blighted Peasant',
+    role: 'Minion',
+    ac: 9,
+    hp: 14,
+    speed: '20 ft',
+    hit: '+3',
+    damage: 'Slam 1d6+1 plus Rotting Touch',
+    special: [
+      'Rotting Touch: target must make a DC 11 Constitution save or take 1d4 poison damage at the start of its next turn.',
+      'Joyous Burst: when reduced to 0 HP, explodes in a shower of putrid broth. Adjacent creatures must make a DC 11 Dexterity save or take 1d6 poison damage.'
+    ]
+  },
+  'nurgling-swarm': {
+    id: 'nurgling-swarm',
+    name: 'Nurgling Swarm',
+    role: 'Skirmisher',
+    ac: 13,
+    hp: 16,
+    speed: '30 ft',
+    hit: '+4',
+    damage: 'Bites 1d6+2 plus Poison Filth',
+    special: [
+      'Poison Filth: target must make a DC 10 Constitution save or be poisoned until the end of its next turn.',
+      'Mischievous Dodging: can use a reaction to gain +3 AC against one melee attack.'
+    ]
+  },
+  'rot-knight': {
+    id: 'rot-knight',
+    name: 'Rot Knight',
+    role: 'Front line',
+    ac: 16,
+    hp: 30,
+    speed: '20 ft',
+    hit: '+5',
+    damage: 'Rusted Halberd 1d10+3',
+    special: [
+      'Aura of Rust: metallic weapons hitting the Rot Knight become temporarily pitted and deal -1 damage until the wielder completes a short/long rest to polish them.',
+      'Grandfather\'s Fortitude: ignores difficult terrain caused by slime, swamps, or rotting foliage.'
+    ]
+  },
+  'abbot-throt': {
+    id: 'abbot-throt',
+    name: 'Abbot Throt, Apostle of Decay',
+    role: 'Final Boss',
+    ac: 15,
+    hp: 65,
+    speed: '30 ft',
+    hit: '+5',
+    damage: 'Censer Flail 1d8+3 (x2 attacks)',
+    special: [
+      'Plague Cloud (Bonus Action): releases a 10-ft cloud of noxious green vapor. Creatures inside take 1d6 poison damage.',
+      'Rot-Bell Toll (Once Each): 1. Joyous Renewal (all blighted allies regain 10 HP), 2. Pestilent Peal (all heroes must make a DC 12 Constitution save or be poisoned for 1 minute), 3. Final Bloom (once below half HP, summons 2 blighted-peasants from the vats).'
+    ]
   }
 };

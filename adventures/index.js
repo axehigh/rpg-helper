@@ -71,3 +71,13 @@ window.RPG_HELPER.adventures.push({
   source: 'adventures/the-iron-shackle-mines/data.js',
   status: 'ready'
 });
+
+window.RPG_HELPER.adventures.push({
+  id: 'the-joyous-blight-of-plaguestead',
+  title: 'The Joyous Blight of Plaguestead',
+  blurb: '4 players · Level 3 · 3–4 hours',
+  synopsis: 'Still the drowning bell and break the Grandfather\'s joyous blight',
+  image: 'adventures/the-joyous-blight-of-plaguestead/images/01_singing_outpost.jpg',
+  source: 'adventures/the-joyous-blight-of-plaguestead/data.js',
+  status: 'ready'
+});
