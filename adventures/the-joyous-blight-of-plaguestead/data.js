@@ -4,18 +4,18 @@ window.RPG_HELPER.adventures = window.RPG_HELPER.adventures.filter(a => a.id !==
 
 window.RPG_HELPER.adventures.push({
     id: 'the-joyous-blight-of-plaguestead',
-    title: 'The Joyous Blight of Plaguestead',
+    title: 'The Joyous Blight of Heartstead',
     meta: {players: 4, level: '3', duration: '3–4 hours'},
     intro:
-        'The village of Plaguestead is infected with a rotting, putrid plague, but the villagers are ' +
+        'The village of Heartstead is infected with a rotting, putrid plague, but the villagers are ' +
         'not dying in agony — they are singing and celebrating with ecstatic joy. They worship a ' +
         '"Generous Grandfather" who has freed them from pain. You are hired to break through the quarantine, ' +
         'stop the source of this "joyous blight," and save who you can before the plague overflows the valley.',
     objectives: [
-        'Investigate the outlying farms of Plaguestead and survive the "blessed" welcome.',
-        'Infiltrate the high street of Plaguestead and bypass the rotting guards and daemonic imps.',
+        'Investigate the outlying farms of Heartstead and survive the "blessed" welcome.',
+        'Infiltrate the high street of Heartstead and bypass the rotting guards and daemonic imps.',
         'Confront Abbot Throt inside the desecrated village chapel and silence the defiled Rot-Bell.',
-        'Neutralize the bubbling Cauldron of Poxes and decide the fate of Plaguestead.'
+        'Neutralize the bubbling Cauldron of Poxes and decide the fate of Heartstead.'
     ],
     documents: [
         {label: 'Adventure (md)', href: 'adventures/the-joyous-blight-of-plaguestead/docs/adventure.md'}
@@ -37,21 +37,21 @@ window.RPG_HELPER.adventures.push({
             battlemap: 'ttb1-p3-l-rural-inn',
             readAloud:
                 'The air grows heavy, carrying a sweet, sickly-sweet aroma like overripe fruit and ' +
-                'stagnant pondwater. Ahead, the outline of Plaguestead\'s outlying farms rises from the fog. ' +
+                'stagnant pondwater. Ahead, the outline of Heartstead\'s outlying farms rises from the fog. ' +
                 'Strange, lively singing echoes through the mist. As you draw closer, you see a group of ' +
                 'villagers dancing hand-in-hand around a cracked cauldron. But as the fog parts, your breath catches. ' +
                 'Their skin is swollen and green, their clothes stained with dried pus, and bloated blisters cover ' +
                 'their arms. Yet they are smiling, laughing, and beckoning you to join their joyous circle.',
             readAloudNo:
                 'Luften blir tung og bærer med seg en søtlig, kvalmende duft som overmoden frukt og ' +
-                'stillestående vann. Foran dere stiger konturene av Plaguesteads ytterste gårder frem fra tåken. ' +
+                'stillestående vann. Foran dere stiger konturene av Heartsteads ytterste gårder frem fra tåken. ' +
                 'Merkelig, livlig sang ekkoer gjennom disen. Etter hvert som dere kommer nærmere, ser dere en ' +
                 'gruppe landsbyboere som danser hånd i hånd rundt en sprukken kjele. Men idet tåken letter, ' +
                 'setter dere pusten i halsen. Huden deres er hoven og grønn, klærne er flekket med tørket verk, ' +
                 'og oppblåste blemmer dekker armene deres. Likevel smiler de, ler, og vinker dere inn i sin ' +
                 'gledesfylte sirkel.',
             environment:
-                'The outlying farms and country lane leading into Plaguestead. Thick fog clings to the wet grass.',
+                'The outlying farms and country lane leading into Heartstead. Thick fog clings to the wet grass.',
             notes: [
                 'The Welcoming Committee: 4 blighted peasants and 2 marsh hounds dance in a delirious circle around a cracked wooden cauldron bubbling with stagnant, rancid broth.',
                 'The Infection: The peasants are horribly bloated, rotting, and covered in sores, but their minds are completely numb to the pain, locked in a joyous, maniacal trance.',
@@ -73,13 +73,13 @@ window.RPG_HELPER.adventures.push({
         },
         {
             id: 'scene-2',
-            title: 'The High Street of Plaguestead',
+            title: 'The High Street of Heartstead',
             images: [
                 'adventures/the-joyous-blight-of-plaguestead/images/02_high_street.jpg'
             ],
             battlemap: 'ttb1-p17-l-high-street',
             readAloud:
-                'As you step onto the High Street of Plaguestead, the joyous madness of the village becomes a ' +
+                'As you step onto the High Street of Heartstead, the joyous madness of the village becomes a ' +
                 'choking nightmare. Weeping green moss clings to the cobblestones, and a thin, yellowish-green ' +
                 'vapor clings to the ground. In the gutters, tiny, green-skinned creatures — no larger than ' +
                 'housecats, with bloated bellies and wide, toothy grins — frolic in the filth, throwing handfuls ' +
@@ -87,7 +87,7 @@ window.RPG_HELPER.adventures.push({
                 'rusted, pitted plate armor, their breath rattling through wet, congested iron helms. They raise ' +
                 'rusted halberds, eager to introduce you to their Grandfather\'s grace.',
             readAloudNo:
-                'Idet dere går inn på Plaguesteads hovedgate, blir landsbyens gledesfylte vanvidd til et ' +
+                'Idet dere går inn på Heartsteads hovedgate, blir landsbyens gledesfylte vanvidd til et ' +
                 'kvelende mareritt. Dryppende, grønn mose klamrer seg til brosteinene, og en tynn, gulgrønn damp ' +
                 'ligger lavt over bakken. I rennesteinen leker bittelåte, grønnhudede skapninger – ikke større ' +
                 'enn huskatter, med oppblåste mager og brede, tannete glis – i sølen mens de kaster råtten ' +
@@ -144,7 +144,7 @@ window.RPG_HELPER.adventures.push({
             environment:
                 'The desecrated stone interior of the chapel. A massive copper cauldron dominates the sanctuary altar, bubbling with volatile, green plague-broth.',
             notes: [
-                'Abbot Throt: Once the protector of Plaguestead, now completely corrupted into a fanatical Apostle of Decay. He believes the plague is a beautiful, loving gift.',
+                'Abbot Throt: Once the protector of Heartstead, now completely corrupted into a fanatical Apostle of Decay. He believes the plague is a beautiful, loving gift.',
                 'The Defiled Rot-Bell: Hanging from the central rafters. Its tolling pulses with necrotic energy, accelerating the plague\'s maturation and keeping his minions alive.',
                 'Sacrilegious Workshop: The pews, icons, and holy books have been thrown into heaps, covered in green slime and crawling with nurglings.'
             ],

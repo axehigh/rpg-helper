@@ -1,4 +1,4 @@
-# The Joyous Blight of Plaguestead
+# The Joyous Blight of Heartstead
 
 *A tabletop RPG adventure for 4 players, level 3, lasting 3–4 hours.*
 
@@ -6,23 +6,23 @@
 
 ## The Hook
 
-The village of Plaguestead was once a prosperous trading post, but a week ago, a thick, sweet-smelling fog rolled in from the surrounding fens. Travelers returning from the village report a bizarre and terrifying sight: the town is infected with a rotting, putrid plague, but the villagers are not dying in agony—they are singing, dancing, and celebrating with ecstatic joy. They speak of a "Generous Grandfather" who has freed them from pain and blessed them with eternal growth. 
+The village of Heartstead was once a prosperous trading post, but a week ago, a thick, sweet-smelling fog rolled in from the surrounding fens. Travelers returning from the village report a bizarre and terrifying sight: the town is infected with a rotting, putrid plague, but the villagers are not dying in agony—they are singing, dancing, and celebrating with ecstatic joy. They speak of a "Generous Grandfather" who has freed them from pain and blessed them with eternal growth. 
 
-A concerned merchant whose family remains in Plaguestead has hired the party to break through the quarantine, enter the village, stop the source of this "joyous blight," and save who they can before the plague overflows the valley.
+A concerned merchant whose family remains in Heartstead has hired the party to break through the quarantine, enter the village, stop the source of this "joyous blight," and save who they can before the plague overflows the valley.
 
 ## The Party's Objectives
 
-- Investigate the outlying farms of Plaguestead and survive the "blessed" welcome.
-- Infiltrate the high street of Plaguestead and bypass the rotting guards and daemonic imps.
+- Investigate the outlying farms of Heartstead and survive the "blessed" welcome.
+- Infiltrate the high street of Heartstead and bypass the rotting guards and daemonic imps.
 - Confront Abbot Throt inside the desecrated village chapel and silence the defiled Rot-Bell.
-- Neutralize the bubbling Cauldron of Poxes and decide the fate of Plaguestead.
+- Neutralize the bubbling Cauldron of Poxes and decide the fate of Heartstead.
 
 ---
 
 ## The Storyline
 
 ### 1. The Singing Outpost
-**Setting:** The outlying farms and country lane leading into Plaguestead.  
+**Setting:** The outlying farms and country lane leading into Heartstead.  
 **Battlemap:** `ttb1-p3-l-rural-inn` (Rural Inn)  
 **Beat:** The heroes encounter the first signs of the infection. Instead of suffering, the infected peasants are blissfully dancing. They attack when the heroes refuse to drink the Grandfather's rotting "broth."  
 **Enemies:**
@@ -32,12 +32,12 @@ A concerned merchant whose family remains in Plaguestead has hired the party to 
 **Tactics:** The Blighted Peasants shamble forward, attempting to grapple the heroes and spread their pestilence. The Marsh Hounds use their *Pack Hunt* feature to target grappled heroes with advantage.  
 **Aftermath:** A defeated peasant briefly recovers their sanity before collapsing, whispering that Abbot Throt has taken over the chapel and is tolling the "Rot-Bell" to spread the grandfather's great broth.  
 **Read Aloud:**
-The air grows heavy, carrying a sweet, sickly-sweet aroma like overripe fruit and stagnant pondwater. Ahead, the outline of Plaguestead's outlying farms rises from the fog. Strange, lively singing echoes through the mist. As you draw closer, you see a group of villagers dancing hand-in-hand around a cracked cauldron. But as the fog parts, your breath catches. Their skin is swollen and green, their clothes stained with dried pus, and bloated blisters cover their arms. Yet they are smiling, laughing, and beckoning you to join their joyous circle.
+The air grows heavy, carrying a sweet, sickly-sweet aroma like overripe fruit and stagnant pondwater. Ahead, the outline of Heartstead's outlying farms rises from the fog. Strange, lively singing echoes through the mist. As you draw closer, you see a group of villagers dancing hand-in-hand around a cracked cauldron. But as the fog parts, your breath catches. Their skin is swollen and green, their clothes stained with dried pus, and bloated blisters cover their arms. Yet they are smiling, laughing, and beckoning you to join their joyous circle.
 
 **Read Aloud (Norwegian):**
-Luften blir tung og bærer med seg en søtlig, kvalmende duft som overmoden frukt og stillestående vann. Foran dere stiger konturene av Plaguesteads ytterste gårder frem fra tåken. Merkelig, livlig sang ekkoer gjennom disen. Etter hvert som dere kommer nærmere, ser dere en gruppe landsbyboere som danser hånd i hånd rundt en sprukken kjele. Men idet tåken letter, setter dere pusten i halsen. Huden deres er hoven og grønn, klærne er flekket med tørket verk, og oppblåste blemmer dekker armene deres. Likevel smiler de, ler, og vinker dere inn i sin gledesfylte sirkel.
+Luften blir tung og bærer med seg en søtlig, kvalmende duft som overmoden frukt og stillestående vann. Foran dere stiger konturene av Heartsteads ytterste gårder frem fra tåken. Merkelig, livlig sang ekkoer gjennom disen. Etter hvert som dere kommer nærmere, ser dere en gruppe landsbyboere som danser hånd i hånd rundt en sprukken kjele. Men idet tåken letter, setter dere pusten i halsen. Huden deres er hoven og grønn, klærne er flekket med tørket verk, og oppblåste blemmer dekker armene deres. Likevel smiler de, ler, og vinker dere inn i sin gledesfylte sirkel.
 
-### 2. The High Street of Plaguestead
+### 2. The High Street of Heartstead
 **Setting:** The main cobblestone thoroughfare, overgrown with weeping green moss and thick with yellow vapor.  
 **Battlemap:** `ttb1-p17-l-high-street` (High Street)  
 **Beat:** Tiny imps of decay (Nurglings) play in the gutters, while heavily armored, rotting guardians (Rot Knights) block access to the village center.  
@@ -48,10 +48,10 @@ Luften blir tung og bærer med seg en søtlig, kvalmende duft som overmoden fruk
 **Tactics:** Nurglings swarm the backline, throwing toxic filth to poison the heroes. The Rot Knights form a slow, heavily armored wall, using their rusted weapons and rust auras to pit the heroes' steel.  
 **Aftermath:** The heroes find a rusted brass key engraved with a three-lobed fly on one of the Rot Knights, which unlocks the chapel's heavy iron-bound doors.  
 **Read Aloud:**
-As you step onto the High Street of Plaguestead, the joyous madness of the village becomes a choking nightmare. Weeping green moss clings to the cobblestones, and a thin, yellowish-green vapor clings to the ground. In the gutters, tiny, green-skinned creatures—no larger than housecats, with bloated bellies and wide, toothy grins—frolic in the filth, throwing handfuls of rotting muck at each other. Tearing through the fog come massive, hulking figures clad in rusted, pitted plate armor, their breath rattling through wet, congested iron helms. They raise rusted halberds, eager to introduce you to their Grandfather's grace.
+As you step onto the High Street of Heartstead, the joyous madness of the village becomes a choking nightmare. Weeping green moss clings to the cobblestones, and a thin, yellowish-green vapor clings to the ground. In the gutters, tiny, green-skinned creatures—no larger than housecats, with bloated bellies and wide, toothy grins—frolic in the filth, throwing handfuls of rotting muck at each other. Tearing through the fog come massive, hulking figures clad in rusted, pitted plate armor, their breath rattling through wet, congested iron helms. They raise rusted halberds, eager to introduce you to their Grandfather's grace.
 
 **Read Aloud (Norwegian):**
-Idet dere går inn på Plaguesteads hovedgate, blir landsbyens gledesfylte vanvidd til et kvelende mareritt. Dryppende, grønn mose klamrer seg til brosteinene, og en tynn, gulgrønn damp ligger lavt over bakken. I rennesteinen leker bittelåte, grønnhudede skapninger – ikke større enn huskatter, med oppblåste mager og brede, tannete glis – i sølen mens de kaster råtten gjørme på hverandre. Ut av tåken stormer digre, tunge skikkelser kledd i rusten, tæret platerustning. Pusten deres rasler gjennom våte, tette jernhjelmer. De hever rustne hellebarder, ivrige etter å introdusere dere for sin bestefars nåde.
+Idet dere går inn på Heartsteads hovedgate, blir landsbyens gledesfylte vanvidd til et kvelende mareritt. Dryppende, grønn mose klamrer seg til brosteinene, og en tynn, gulgrønn damp ligger lavt over bakken. I rennesteinen leker bittelåte, grønnhudede skapninger – ikke større enn huskatter, med oppblåste mager og brede, tannete glis – i sølen mens de kaster råtten gjørme på hverandre. Ut av tåken stormer digre, tunge skikkelser kledd i rusten, tæret platerustning. Pusten deres rasler gjennom våte, tette jernhjelmer. De hever rustne hellebarder, ivrige etter å introdusere dere for sin bestefars nåde.
 
 ### 3. The Chapel of the Weeping Three
 **Setting:** The desecrated village chapel, smelling of boiling grease, copper, and incense.  
@@ -73,7 +73,7 @@ De tunge tredørene til landsbykapellet knirker opp og slipper ut en bølge av v
 ### 4. The Bitter Choice
 **Setting:** The altar sanctuary as the copper cauldron tips.  
 **Beat:** The climax. No combat, but a high-stakes dramatic decision. The boiling cauldron is spilling open. The heroes must choose how to neutralize it:
-*   **The Sacred Sacrifice:** Pour the temple's ancient saintly relics into the cauldron. The holy magic purifies the pox completely, curing the surviving villagers and restoring Plaguestead, but the ancient relics are permanently dissolved.
+*   **The Sacred Sacrifice:** Pour the temple's ancient saintly relics into the cauldron. The holy magic purifies the pox completely, curing the surviving villagers and restoring Heartstead, but the ancient relics are permanently dissolved.
 *   **The Iron Quarantine:** Set the chapel ablaze and seal the iron doors. This incinerates the plague-sludge, preventing its spread to the valley, but the historic chapel, its relics, and any infected seeking sanctuary inside are burned to ashes.
 *   **The Flesh Siphon:** Channel the rot into the heroes' own life force using druidic runes. This saves both the chapel, relics, and villagers, but each hero carries a permanent scar of Nurgle (e.g., permanent -2 Max HP or a minor rot-wound).  
 

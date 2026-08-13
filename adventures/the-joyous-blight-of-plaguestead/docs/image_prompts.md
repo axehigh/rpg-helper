@@ -1,4 +1,4 @@
-# Image Prompts: The Joyous Blight of Plaguestead
+# Image Prompts: The Joyous Blight of Heartstead
 
 This document contains AI image generation prompts (optimized for Midjourney, DALL-E 3, or Stable Diffusion) to create visual assets for this adventure.
 
@@ -14,7 +14,7 @@ This document contains AI image generation prompts (optimized for Midjourney, DA
 ### Scene 1: The Singing Outpost
 **Prompt:** A grimdark fantasy scene at twilight. In a misty, low-lit country lane outside a dilapidated medieval farm, a group of 4 bloated, sickly-green-skinned peasants are dancing hand-in-hand in a joyful, manic circle. They wear tattered, pus-stained burlap rags. Their faces are stretched into wide, ecstatic, unblinking grins despite their weeping sores and bloated blisters. In the center of their circle is a large, cracked wooden cauldron bubbling with a thick, glowing neon-green broth. A sickly green vapor rises from the cauldron, mixing with the heavy grey fog. The atmosphere is eerie and unsettling, contrasting the grotesque decay of the people with their bizarre, blissful happiness. Cinematic lighting, hyper-realistic textures, 8k, dark fantasy art style.
 
-### Scene 2: The High Street of Plaguestead
+### Scene 2: The High Street of Heartstead
 **Prompt:** A narrow medieval cobblestone high street choked with thick, weeping green moss and a low-lying yellow toxic vapor. In the foreground, dozens of tiny, mischievous green imps (Nurglings) with bloated bellies and wide toothy grins are frolicking in the gutters, throwing handfuls of rotting filth. In the midground, two hulking knights in heavily rusted, pitted green-tinged plate armor stand guard, their iron helms weeping a thick black ichor. The buildings are crooked and decaying, with green fungus growing from the timber frames. Grimdark, atmospheric lighting, hyper-realistic, 8k, cinematic horror.
 
 ### Scene 3: The Chapel of the Weeping Three
