@@ -52,11 +52,12 @@
     if (adventure && adventure.id === id) return Promise.resolve(adventure);
     if (loadingAdventure) return loadingAdventure;
     var done = function () { loadingAdventure = null; };
-    loadingAdventure = loadScript('adventures/index.js')
+    loadingAdventure = loadScript('js/markdown-loader.js')
+      .then(function () { return loadScript('adventures/index.js'); })
       .then(function () {
         var meta = getAdventure(id);
         if (!meta) throw new Error('Unknown adventure: ' + id);
-        return loadScript(meta.source);
+        return loadAdventure(meta);
       })
       .then(function () {
         var a = getAdventure(id);
@@ -150,11 +151,12 @@
 
   Sync.subscribe(adventureId, gotoScene);
 
-  loadScript('adventures/index.js')
+  loadScript('js/markdown-loader.js')
+    .then(function () { return loadScript('adventures/index.js'); })
     .then(function () {
       var meta = getAdventure(adventureId);
       if (!meta) throw new Error('Unknown adventure: ' + adventureId);
-      return loadScript(meta.source);
+      return loadAdventure(meta);
     })
     .then(function () {
       adventure = getAdventure(adventureId);

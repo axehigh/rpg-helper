@@ -32,6 +32,7 @@ global.window = { adventures: [] };
 var registry = requireFile('adventures/index.js') && window.RPG_HELPER.adventures;
 var monsters = (requireFile('adventures/monsters.js') && window.RPG_HELPER.monsters) || {};
 var battlemaps = (requireFile('library/battlemaps/data.js') && window.RPG_HELPER.battlemaps) || [];
+var parseAdventureMarkdown = requireFile('js/markdown-loader.js');
 
 // --- Registry ---
 if (registry) {
@@ -65,8 +66,29 @@ Object.keys(monsters).forEach(function (id) {
 });
 
 // --- Adventures ---
+function loadAdventureObject(reg) {
+  if (/\.md$/i.test(reg.source)) {
+    if (!parseAdventureMarkdown) { error(reg.id + ': markdown loader missing'); return null; }
+    var text;
+    try {
+      text = fs.readFileSync(path.join(ROOT, reg.source), 'utf8');
+    } catch (e) {
+      error(reg.id + ': failed to read ' + reg.source + ' (' + e.message + ')');
+      return null;
+    }
+    try {
+      return parseAdventureMarkdown(text);
+    } catch (e) {
+      error(reg.id + ': failed to parse ' + reg.source + ' (' + e.message + ')');
+      return null;
+    }
+  }
+  require(path.join(ROOT, reg.source));
+  return window.RPG_HELPER.adventures.find(function (a) { return a.id === reg.id; }) || null;
+}
+
 function validateAdventure(reg) {
-  var adv = window.RPG_HELPER.adventures.find(function (a) { return a.id === reg.id; });
+  var adv = loadAdventureObject(reg);
   if (!adv) {
     error(reg.id + ': data file did not register an adventure with id "' + reg.id + '"');
     return;

@@ -58,7 +58,7 @@ End with:
   `create-adventure` to register; every monster used is listed; encounter
   composition (boss + minions, optional waves) balances against the party level
   using the `role` field.
-- **Scene mapping:** each storyline chapter maps cleanly to `data.js` fields —
+- **Scene mapping:** each storyline chapter maps cleanly to `adventure.md` fields —
   `setting` → `environment`, `beat` → `readAloud`/`notes`, plus `enemies`,
   `tactics`, `aftermath`, optional `battlemap`.
 - **Localization:** a `readAloudNo` (Norwegian) is present or planned for every

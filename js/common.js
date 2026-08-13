@@ -17,6 +17,25 @@ function loadScript(src) {
   });
 }
 
+function loadAdventure(meta) {
+  const src = meta.source || '';
+  if (/\.md$/i.test(src)) {
+    return fetch(src)
+      .then(res => res.text())
+      .then(text => {
+        const parsed = parseAdventureMarkdown(text);
+        if (!parsed || parsed.id !== meta.id) throw new Error('Adventure failed to load: ' + meta.id);
+        const adventures = getAdventures();
+        const idx = adventures.findIndex(a => a.id === meta.id);
+        const merged = Object.assign({}, adventures[idx] || meta, parsed);
+        if (idx === -1) adventures.push(merged);
+        else adventures[idx] = merged;
+        return merged;
+      });
+  }
+  return loadScript(src);
+}
+
 function getAdventures() {
   return window.RPG_HELPER.adventures;
 }

@@ -5,10 +5,10 @@ description: Design the story for a new RPG Helper adventure before building it 
 
 # Draft Adventure Story
 
-This skill writes the **story** — not the JSON. It produces the `docs/adventure.md`
-synopsis that the `create-adventure` skill formalizes into `data.js`, monster stat
-blocks, and a registry entry. It never touches `data.js`, `adventures/monsters.js`,
-or `adventures/index.js`; those are `create-adventure`'s job.
+This skill writes the **story** — not the data. It produces the `docs/adventure.md`
+synopsis that the `create-adventure` skill formalizes into `adventure.md`, monster stat
+blocks, and a registry entry. It never touches `adventures/monsters.js` or
+`adventures/index.js`; those are `create-adventure`'s job.
 
 ## Workflow
 
@@ -57,7 +57,7 @@ lasting ... hours.*`), `## The Hook`, `## The Party's Objectives` (bulleted),
 `---`, `## The Storyline` (numbered chapters), `## Epilogue`.
 
 For every storyline chapter, annotate the scene so `create-adventure` can lift it
-into `data.js`:
+into `adventure.md`:
 - `title`
 - `setting` — where it happens (→ `environment`)
 - `beat` — the trope/dramatic moment (→ `readAloud` seed + `notes`)
@@ -83,8 +83,8 @@ and payoff. Iterate on feedback. Do not save until approved.
 
 ### 7. Save on approval
 Create `adventures/<slug>/docs/` and write `adventure.md` with the approved story.
-The slug is the kebab-case id (e.g. `the-witchwood-wards`). Do **not** write
-`data.js` or touch the monster library.
+The slug is the kebab-case id (e.g. `the-witchwood-wards`). Do **not** touch the
+monster library or registry.
 
 ### 8. Handoff
 Tell the user the story is approved and saved, and to run `create-adventure` to
@@ -115,7 +115,7 @@ will detect the existing `adventure.md` and reuse it.
 
 ## Conventions
 - Match the markdown style of existing `adventures/*/docs/adventure.md` files.
-- Docs hold prose only; data fields live in `data.js` (written by
+- Docs hold prose only; data fields live in `adventure.md` (written by
   `create-adventure`).
 - `readAloud` has an English sketch; a Norwegian translation is expected to be
   added in `create-adventure`.

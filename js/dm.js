@@ -290,13 +290,14 @@
 
   els.monsterSearch.addEventListener('input', renderMonsters);
 
-  loadScript('adventures/index.js')
+  loadScript('js/markdown-loader.js')
+    .then(function () { return loadScript('adventures/index.js'); })
     .then(function () { return loadScript('adventures/monsters.js'); })
     .then(function () { return loadScript('library/battlemaps/data.js'); })
     .then(function () {
       var meta = getAdventure(adventureId);
       if (!meta) throw new Error('Unknown adventure: ' + adventureId);
-      return loadScript(meta.source);
+      return loadAdventure(meta);
     })
     .then(function () {
       adventure = getAdventure(adventureId);
