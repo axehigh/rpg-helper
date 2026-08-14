@@ -1,6 +1,6 @@
 ---
 name: draft-adventure-story
-description: Design the story for a new RPG Helper adventure before building it — premise, DnD tropes, hook, objectives, scene-by-scene beats, and encounters drawn from the shared monster library (plus invented monsters). Use when the user asks to draft, plot, brainstorm, outline, or pitch an adventure story or adventure idea. The story front-end to create-adventure: run this first to craft the narrative, then run create-adventure to build data.js, monsters, and the registry entry.
+description: Design the story for a new RPG Helper adventure before building it — premise, DnD tropes, hook, objectives, scene-by-scene beats, and encounters drawn from the shared monster library (plus invented monsters). Use when the user asks to draft, plot, brainstorm, outline, or pitch an adventure story or adventure idea. The story front-end to create-adventure: run this first to craft the narrative, then run create-adventure to build adventure.md, monsters, and the registry entry.
 ---
 
 # Draft Adventure Story

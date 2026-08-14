@@ -76,12 +76,21 @@ function loadAdventureObject(reg) {
       error(reg.id + ': failed to read ' + reg.source + ' (' + e.message + ')');
       return null;
     }
+    var adv;
     try {
-      return parseAdventureMarkdown(text);
+      adv = parseAdventureMarkdown(text);
     } catch (e) {
       error(reg.id + ': failed to parse ' + reg.source + ' (' + e.message + ')');
       return null;
     }
+    if (reg.documents) {
+      try {
+        require(path.join(ROOT, reg.documents));
+      } catch (e) {
+        error(reg.id + ': failed to load documents sidecar ' + reg.documents + ' (' + e.message + ')');
+      }
+    }
+    return adv;
   }
   require(path.join(ROOT, reg.source));
   return window.RPG_HELPER.adventures.find(function (a) { return a.id === reg.id; }) || null;
@@ -132,7 +141,8 @@ function validateAdventure(reg) {
     if (!monsters[id]) error(reg.id + ': monsters[] pointer "' + id + '" is not in the monster library');
   });
 
-  (adv.documents || []).forEach(function (d) {
+  var docEntry = window.RPG_HELPER.adventures.find(function (a) { return a.id === reg.id; });
+  ((docEntry && docEntry.documents) || []).forEach(function (d) {
     if (d.href && !exists(d.href)) warn(reg.id + ': document href not found: ' + d.href);
   });
 }

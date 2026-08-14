@@ -13,6 +13,8 @@
     'aftermath clues': 'aftermath'
   };
 
+  var IMG_RE = /!\[([^\]]*)\]\(([^)]+)\)/g;
+
   function normalizeHeading(name) {
     return name.toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
   }
@@ -20,6 +22,17 @@
   function isH1(line) { return /^#\s+/.test(line); }
   function isH2(line) { return /^##\s+/.test(line); }
   function headingText(line) { return line.replace(/^#+\s+/, '').trim(); }
+
+  // Pulls every markdown image ![alt](src) out of a line.
+  // Returns { text, imgs } where text has the image syntax removed.
+  function extractImages(line) {
+    var imgs = [];
+    var text = line.replace(IMG_RE, function (match, alt, src) {
+      imgs.push(src.trim());
+      return '';
+    });
+    return { text: text, imgs: imgs };
+  }
 
   function parseEnemy(line) {
     var id = line;
@@ -41,11 +54,6 @@
     if (count > 1) enemy.count = count;
     if (optional) enemy.optional = true;
     return enemy;
-  }
-
-  function parseDocument(line) {
-    var m = line.match(/^(.*?)\s*->\s*(.*)$/);
-    return m ? { label: m[1].trim(), href: m[2].trim() } : { label: line.trim(), href: '' };
   }
 
   function parseAdventureMarkdown(md) {
@@ -117,9 +125,6 @@
           } else if (/^objectives$/i.test(h)) {
             topSection = 'objectives';
             adv.objectives = [];
-          } else if (/^documents$/i.test(h)) {
-            topSection = 'documents';
-            adv.documents = [];
           }
         }
         continue;
@@ -136,6 +141,14 @@
       }
 
       // --- Content lines ---
+      if (scene) {
+        // Images can live anywhere in a scene block; collect and strip them.
+        var ex = extractImages(line);
+        if (ex.imgs.length) scene.images = scene.images.concat(ex.imgs);
+        line = ex.text.trim();
+        if (!line) continue;
+      }
+
       if (pendingProse) {
         pendingProse.raw.push(line);
         continue;
@@ -143,11 +156,6 @@
 
       if (topSection === 'objectives') {
         if (/^- /.test(line)) adv.objectives.push(line.replace(/^-\s+/, '').trim());
-        continue;
-      }
-
-      if (topSection === 'documents') {
-        if (/^- /.test(line)) adv.documents.push(parseDocument(line.replace(/^-\s+/, '').trim()));
         continue;
       }
 
@@ -166,14 +174,7 @@
             key = body;
             val = '';
           }
-          if (key === 'images' && val === '') {
-            var imgs = [];
-            while (i + 1 < n && /^\s+- /.test(lines[i + 1])) {
-              i++;
-              imgs.push(lines[i].replace(/^\s*-\s+/, '').trim());
-            }
-            scene.images = imgs;
-          } else if (key === 'id') {
+          if (key === 'id') {
             scene.id = val;
           } else if (key === 'battlemap') {
             scene.battlemap = val;

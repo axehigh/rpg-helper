@@ -7,5 +7,6 @@ window.RPG_HELPER.adventures.push({
   synopsis: 'Defeat the evil warlord in the dwarven forge',
   image: 'adventures/shadows-of-blackstone-keep/images/01_Attack_on_Oakhollow.jpg',
   source: 'adventures/shadows-of-blackstone-keep/adventure.md',
+  documents: 'adventures/shadows-of-blackstone-keep/data.js',
   status: 'completed'
 });

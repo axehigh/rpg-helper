@@ -19,19 +19,11 @@ Houses crackle in flames as villagers flee down the dirt roads.
 - Drive off or eliminate the tactical raiders.
 - Rescue Elder Hadrick or recover the map dropped in the chaos.
 
-# Documents
-
-- Adventure (md) -> adventures/shadows-of-blackstone-keep/docs/adventure.md
-- Adventure (PDF) -> adventures/shadows-of-blackstone-keep/docs/adventure.pdf
-- Adventure – Monsters (PDF) -> adventures/shadows-of-blackstone-keep/docs/adventure-monsters.pdf
-- Adventure (DOCX) -> adventures/shadows-of-blackstone-keep/docs/Shadows over Blackstone Keep.docx
-- Adventure – Monsters (DOCX) -> adventures/shadows-of-blackstone-keep/docs/Shadows over Blackstone Keep - Monsters.docx
-
 # Scene: The Oakhollow Raiders
 
+![The Oakhollow Raiders](adventures/shadows-of-blackstone-keep/images/01_Attack_on_Oakhollow.jpg)
+
 - id: scene-1
-- images:
-  - adventures/shadows-of-blackstone-keep/images/01_Attack_on_Oakhollow.jpg
 
 ## Read Aloud
 
@@ -73,9 +65,9 @@ A wounded, soot-stained ranger stumbles forward, coughing: "They dragged Elder H
 
 # Scene: Through Blackwood Forest
 
+![Through Blackwood Forest](adventures/shadows-of-blackstone-keep/images/02_campsite.jpg)
+
 - id: scene-2
-- images:
-  - adventures/shadows-of-blackstone-keep/images/02_campsite.jpg
 
 ## Environment
 
@@ -89,9 +81,9 @@ Dense, dark foliage. The players track fresh bootprints and claw marks of the wa
 
 # Scene: Dwarven Milestones
 
+![Dwarven Milestones](adventures/shadows-of-blackstone-keep/images/02_the_forest_runes.jpg)
+
 - id: scene-3
-- images:
-  - adventures/shadows-of-blackstone-keep/images/02_the_forest_runes.jpg
 
 ## DM Notes
 
@@ -111,9 +103,9 @@ Dense, dark foliage. The players track fresh bootprints and claw marks of the wa
 
 # Scene: Blackstone Keep
 
+![Blackstone Keep](adventures/shadows-of-blackstone-keep/images/04_0_blackstone_keep.jpg)
+
 - id: scene-4
-- images:
-  - adventures/shadows-of-blackstone-keep/images/04_0_blackstone_keep.jpg
 
 ## Read Aloud
 
@@ -142,10 +134,10 @@ Once defeated, the heroes find healing potions
 
 # Scene: Blackstone Keep — The Collapsed Hall
 
+![The Collapsed Hall](adventures/shadows-of-blackstone-keep/images/04_1_blackstone_room1.jpg)
+![The goblin parchment](adventures/shadows-of-blackstone-keep/images/parchment.jpg)
+
 - id: scene-5
-- images:
-  - adventures/shadows-of-blackstone-keep/images/04_1_blackstone_room1.jpg
-  - adventures/shadows-of-blackstone-keep/images/parchment.jpg
 
 ## Read Aloud
 
@@ -166,9 +158,9 @@ Goblin parchment reads: "To wake the Heartforge, mimic the master smith's work. 
 
 # Scene: Blackstone Keep — The Forge Locks
 
+![The Forge Locks](adventures/shadows-of-blackstone-keep/images/04_2_blackstone_room2.jpg)
+
 - id: scene-6
-- images:
-  - adventures/shadows-of-blackstone-keep/images/04_2_blackstone_room2.jpg
 
 ## Read Aloud
 
@@ -192,9 +184,9 @@ Utgangen er et par tårnhøye, massive jerndører, gravert med enorme tannhjul. 
 
 # Scene: Blackstone Keep — The Heartforge
 
+![The Heartforge](adventures/shadows-of-blackstone-keep/images/04_3_final_battle.jpg)
+
 - id: scene-7
-- images:
-  - adventures/shadows-of-blackstone-keep/images/04_3_final_battle.jpg
 
 ## Read Aloud
 
@@ -235,7 +227,7 @@ Lava channels surround a central altar.
 
 # Scene: Monster Gallery
 
+![Monster Gallery](adventures/shadows-of-blackstone-keep/images/monster-gallery.jpg)
+
 - id: monster-gallery
 - gallery: true
-- images:
-  - adventures/shadows-of-blackstone-keep/images/monster-gallery.jpg

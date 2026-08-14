@@ -31,6 +31,12 @@ function loadAdventure(meta) {
         if (idx === -1) adventures.push(merged);
         else adventures[idx] = merged;
         return merged;
+      })
+      .then(function (adv) {
+        if (!meta.documents) return adv;
+        return loadScript(meta.documents).then(function () {
+          return getAdventure(meta.id) || adv;
+        });
       });
   }
   return loadScript(src);

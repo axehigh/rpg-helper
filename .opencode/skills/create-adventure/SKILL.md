@@ -29,13 +29,14 @@ Confirm the story with the user before building `adventure.md`.
   `adventures/shadows-of-blackstone-keep/adventure.md` (the reference adventure):
   - `---` frontmatter: `id`, `title`, optional `kind` (`single-scene` for standalone
     adventures), `players`, `level`, `duration`, `monsters` (comma-separated ids).
-  - `# Intro` (prose, one sentence per line), `# Objectives` (bullets),
-    `# Documents` (`- label -> href`, one per line).
+  - `# Intro` (prose, one sentence per line), `# Objectives` (bullets).
   - One `# Scene: <Title>` block per scene:
-    - Leading `- key: value` bullets: `- id:`, `- images:` (nested `- path` bullets,
-      placeholder paths under `adventures/<slug>/images/`), optional `- battlemap:`
+    - Leading `- key: value` bullets: `- id:`, optional `- battlemap:`
       (either a physical-book library id from `library/battlemaps/data.js` or a local
       image path), optional `- gallery: true`.
+    - Scene images are plain markdown image lines `![alt](path)` (placeholder paths under
+      `adventures/<slug>/images/`), anywhere in the scene block; the loader collects them
+      into `scene.images`.
     - Sub-sections as `##` headings: `## Read Aloud`, `## Read Aloud (Norsk)`,
       `## Environment`, `## DM Notes` (bullets), `## Enemies` (bullets: `id xN (optional)`
       → `{id, count, optional}`), `## Tactics & Synergy` (bullets),
@@ -45,6 +46,9 @@ Confirm the story with the user before building `adventure.md`.
 - Provide `readAloudNo` for every `readAloud`; the DM language toggle falls back to English.
 - `kind: 'single-scene'` goes in the frontmatter AND the registry entry for standalone
   scenes (1–3 scenes + gallery).
+- Documents are **not** authored in `adventure.md`. If the adventure has narrative docs,
+  create a sidecar `adventures/<slug>/data.js` that attaches `documents[]` (`{ label, href }`)
+  to the adventure by id, and reference it from the registry `documents` field.
 
 ### 3. Monsters
 - Reuse ids from `adventures/monsters.js` (shared library) when they fit.
