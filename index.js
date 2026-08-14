@@ -20,7 +20,7 @@
     var sceneClass = a.kind === 'single-scene' ? ' scene-card' : '';
     return (
       '<div class="adventure-card' + statusClass + sceneClass + '">' +
-        '<img src="' + escapeHtml(a.image) + '" alt="">' +
+        (a.image ? '<img src="' + escapeHtml(a.image) + '" alt="" onerror="this.remove()">' : '') +
         '<div class="adventure-card-body">' +
           '<h2>' + escapeHtml(a.title) + statusBadge(a) + sceneBadge(a) + '</h2>' +
           '<p>' + escapeHtml(a.blurb || '') + '</p>' +

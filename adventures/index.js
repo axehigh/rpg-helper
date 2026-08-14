@@ -10,3 +10,14 @@ window.RPG_HELPER.adventures.push({
   documents: 'adventures/shadows-of-blackstone-keep/data.js',
   status: 'completed'
 });
+
+window.RPG_HELPER.adventures.push({
+  id: 'the-joyous-blight-of-plaguestead',
+  title: 'The Joyous Blight of Heartstead',
+  blurb: '4 players · Level 3 · 3–4 hours',
+  synopsis: 'Stop the joyous blight consuming Heartstead',
+  image: 'adventures/the-joyous-blight-of-plaguestead/images/01_singing_outpost.jpg',
+  source: 'adventures/the-joyous-blight-of-plaguestead/adventure.md',
+  documents: 'adventures/the-joyous-blight-of-plaguestead/data.js',
+  status: 'wip'
+});

@@ -18,6 +18,12 @@ function exists(file) {
 function error(msg) { errors.push(msg); }
 function warn(msg) { warnings.push(msg); }
 
+// wip adventures legitimately use placeholder image paths until assets exist.
+function missingImage(reg, msg) {
+  if (reg && reg.status === 'wip') warn(msg);
+  else error(msg);
+}
+
 function requireFile(relPath, desc) {
   try {
     return require(path.join(ROOT, relPath));
@@ -43,7 +49,7 @@ if (registry) {
     seenIds[a.id] = true;
     if (a.status && !validStatus[a.status]) warn('Registry: unknown status "' + a.status + '" for "' + a.id + '"');
     if (!a.status) warn('Registry: "' + a.id + '" has no status');
-    if (a.image && !exists(a.image)) error('Registry: image not found for "' + a.id + '": ' + a.image);
+    if (a.image && !exists(a.image)) missingImage(a, 'Registry: image not found for "' + a.id + '": ' + a.image);
     if (a.source && !exists(a.source)) error('Registry: source not found for "' + a.id + '": ' + a.source);
   });
 }
@@ -115,7 +121,7 @@ function validateAdventure(reg) {
     var imgs = s.images || [];
     if (!imgs.length) warn(reg.id + ': scene "' + s.id + '" has no images');
     imgs.forEach(function (p) {
-      if (!exists(p)) error(reg.id + ': scene "' + s.id + '" image not found: ' + p);
+      if (!exists(p)) missingImage(reg, reg.id + ': scene "' + s.id + '" image not found: ' + p);
     });
 
     if (s.battlemap) {
