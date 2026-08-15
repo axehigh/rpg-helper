@@ -33,19 +33,29 @@
     <aside class="scene-list" id="sceneList"></aside>
     <section class="dm-panel" id="panelOverview"></section>
     <section class="dm-panel hidden" id="panelScene">
+      <div class="scene-toolbar">
+        <button id="sidebarBtn" class="layout-btn" title="Cycle scene sidebar: full, thumbnails, hidden">Sidebar: Full</button>
+        <span class="layout-sep" aria-hidden="true"></span>
+        <span class="layout-group" role="group" aria-label="Image and text columns">
+          <button id="layoutImgBtn" data-view="image" class="layout-btn" aria-pressed="false">Image</button>
+          <button id="layoutBothBtn" data-view="both" class="layout-btn active" aria-pressed="true">Both</button>
+          <button id="layoutTextBtn" data-view="text" class="layout-btn" aria-pressed="false">Text</button>
+        </span>
+      </div>
+      <div class="scene-detail">
+        <h2 id="sceneTitle"></h2>
+        <div id="sceneBody"></div>
+      </div>
       <div class="scene-image">
         <img id="sceneImg" alt="">
         <div id="sceneImages" class="scene-thumbs hidden"></div>
         <div id="battlemapSource" class="battlemap-source hidden"></div>
         <div class="scene-labels" id="sceneLabels"></div>
       </div>
-      <div class="scene-detail">
-        <h2 id="sceneTitle"></h2>
-        <div id="sceneBody"></div>
-      </div>
     </section>
     <section class="dm-panel hidden" id="panelMonsters">
       <input id="monsterSearch" type="search" placeholder="Filter monsters...">
+      <button id="monsterToggle" class="monster-toggle" aria-pressed="false">Expand all</button>
       <div id="monsterList"></div>
     </section>
     <section class="dm-panel hidden" id="panelStandalones">

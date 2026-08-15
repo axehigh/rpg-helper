@@ -11,6 +11,8 @@
   var autoSend = false;
   var lang = (window.RPG_HELPER.config && window.RPG_HELPER.config.defaultReadAloudLang === 'no') ? 'no' : 'en';
   var combatMode = false;
+  var sidebarMode = 0;
+  var panelView = 'both';
 
   if (location.protocol === 'http:' || location.protocol === 'https:') {
     updateSyncNote();
@@ -27,11 +29,17 @@
     overview: document.getElementById('panelOverview'),
     monsterSearch: document.getElementById('monsterSearch'),
     monsterList: document.getElementById('monsterList'),
+    monsterToggle: document.getElementById('monsterToggle'),
     standaloneSearch: document.getElementById('standaloneSearch'),
     standaloneList: document.getElementById('standaloneList'),
     documents: document.getElementById('panelDocuments'),
     counter: document.getElementById('sceneCounter'),
-    combatBtn: document.getElementById('combatBtn')
+    combatBtn: document.getElementById('combatBtn'),
+    panelScene: document.getElementById('panelScene'),
+    sidebarBtn: document.getElementById('sidebarBtn'),
+    layoutImgBtn: document.getElementById('layoutImgBtn'),
+    layoutBothBtn: document.getElementById('layoutBothBtn'),
+    layoutTextBtn: document.getElementById('layoutTextBtn')
   };
 
   function visibleImages(scene) {
@@ -92,13 +100,13 @@
     } else {
       if (scene.readAloud || scene.readAloudNo) {
         var readAloud = lang === 'no' ? (scene.readAloudNo || scene.readAloud) : (scene.readAloud || scene.readAloudNo);
-        html += renderReadAloud(readAloud, lang === 'no' ? 'Les høyt' : 'Read aloud');
+        html += sceneSection(lang === 'no' ? 'Les høyt' : 'Read aloud', '<div class="read-aloud">' + escapeHtml(readAloud) + '</div>');
       }
-      if (scene.environment) html += '<h3>Environment</h3><p>' + escapeHtml(scene.environment) + '</p>';
-      if (scene.notes && scene.notes.length) html += '<h3>DM Notes</h3>' + renderNoteBlocks(scene.notes);
-      if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
-      if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderNoteBlocks(scene.tactics);
-      if (scene.aftermath) html += '<h3>Aftermath & Clues</h3>' + renderBox('<p>' + escapeHtml(scene.aftermath) + '</p>');
+      if (scene.environment) html += sceneSection('Environment', '<p>' + escapeHtml(scene.environment) + '</p>');
+      if (scene.notes && scene.notes.length) html += sceneSection('DM Notes', renderNoteBlocks(scene.notes));
+      if (scene.enemies && scene.enemies.length) html += sceneSection('Enemies', encounterList(adventure, scene.enemies));
+      if (scene.tactics && scene.tactics.length) html += sceneSection('Tactics & Synergy', renderNoteBlocks(scene.tactics));
+      if (scene.aftermath) html += sceneSection('Aftermath & Clues', '<p>' + escapeHtml(scene.aftermath) + '</p>');
     }
     els.sceneBody.innerHTML = html;
 
@@ -169,7 +177,22 @@
     var list = getAdventureMonsters(adventure).filter(function (m) {
       return !q || m.name.toLowerCase().indexOf(q) !== -1 || m.role.toLowerCase().indexOf(q) !== -1;
     });
-    els.monsterList.innerHTML = list.map(monsterCard).join('') || '<p>No monsters match.</p>';
+    els.monsterList.innerHTML = list.map(function (m) {
+      return monsterCard(m, { open: false });
+    }).join('') || '<p>No monsters match.</p>';
+    els.monsterToggle.textContent = 'Expand all';
+    els.monsterToggle.setAttribute('aria-pressed', 'false');
+  }
+
+  function toggleAllMonsters(expand) {
+    var cards = els.monsterList.querySelectorAll('.monster-card');
+    for (var i = 0; i < cards.length; i++) {
+      if (expand) cards[i].setAttribute('open', '');
+      else cards[i].removeAttribute('open');
+    }
+    var btn = els.monsterToggle;
+    btn.textContent = expand ? 'Collapse all' : 'Expand all';
+    btn.setAttribute('aria-pressed', expand ? 'true' : 'false');
   }
 
   function updateSyncNote() {
@@ -272,6 +295,34 @@
     renderScene();
   });
 
+  function setSidebarMode(mode) {
+    var body = document.querySelector('.dm-body');
+    body.classList.remove('sidebar-thumbs', 'sidebar-hidden');
+    if (mode === 1) body.classList.add('sidebar-thumbs');
+    if (mode === 2) body.classList.add('sidebar-hidden');
+    els.sidebarBtn.textContent = ['Sidebar: Full', 'Sidebar: Thumbs', 'Sidebar: Hidden'][mode];
+  }
+
+  function setPanelView(view) {
+    panelView = view;
+    els.panelScene.classList.toggle('image-only', view === 'image');
+    els.panelScene.classList.toggle('text-only', view === 'text');
+    [els.layoutImgBtn, els.layoutBothBtn, els.layoutTextBtn].forEach(function (b) {
+      var on = b.dataset.view === view;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  els.sidebarBtn.addEventListener('click', function () {
+    setSidebarMode(sidebarMode = (sidebarMode + 1) % 3);
+  });
+
+  els.layoutImgBtn.addEventListener('click', function () { setPanelView('image'); });
+  els.layoutBothBtn.addEventListener('click', function () { setPanelView('both'); });
+  els.layoutTextBtn.addEventListener('click', function () { setPanelView('text'); });
+  setPanelView('both');
+
   els.sceneImages.addEventListener('click', function (e) {
     var btn = e.target.closest('.scene-thumb');
     if (!btn) return;
@@ -289,6 +340,10 @@
   });
 
   els.monsterSearch.addEventListener('input', renderMonsters);
+
+  els.monsterToggle.addEventListener('click', function () {
+    toggleAllMonsters(!els.monsterList.querySelector('.monster-card[open]'));
+  });
 
   loadScript('js/markdown-loader.js')
     .then(function () { return loadScript('adventures/index.js'); })

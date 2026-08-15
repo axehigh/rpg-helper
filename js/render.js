@@ -10,28 +10,43 @@ function monstersById(adventure) {
   return map;
 }
 
-function specialLines(m) {
+function monsterTraits(m) {
   var s = m.special;
   var lines = Array.isArray(s) ? s : [s];
-  return lines.map(escapeHtml).join('<br>');
+  return lines.map(function (line) {
+    var i = line.indexOf(':');
+    if (i === -1) return '<span class="monster-trait"><span class="monster-trait-body">' + escapeHtml(line) + '</span></span>';
+    var html = '<span class="monster-trait-tag">' + escapeHtml(line.slice(0, i).trim()) + '</span>';
+    var body = line.slice(i + 1).trim();
+    if (body) html += ' <span class="monster-trait-body">' + escapeHtml(body) + '</span>';
+    return '<span class="monster-trait">' + html + '</span>';
+  }).join('');
 }
 
-function monsterCard(m) {
-  return (
-    '<div class="monster-card">' +
-      '<div class="monster-head">' +
-        '<h3>' + escapeHtml(m.name) + '</h3>' +
-        '<span class="monster-role">' + escapeHtml(m.role) + '</span>' +
-      '</div>' +
-      '<div class="monster-stats">' +
-        '<span><b>AC</b> ' + escapeHtml(m.ac) + '</span>' +
-        '<span><b>HP</b> ' + escapeHtml(m.hp) + '</span>' +
-        '<span><b>Spd</b> ' + escapeHtml(m.speed) + '</span>' +
-        '<span><b>Hit</b> ' + escapeHtml(m.hit) + '</span>' +
-        '<span><b>DMG</b> ' + escapeHtml(m.damage) + '</span>' +
-      '</div>' +
-      '<p class="monster-special">' + specialLines(m) + '</p>' +
+function monsterCard(m, opts) {
+  opts = opts || {};
+  var prefix = opts.prefix || '';
+  var stats = (
+    '<div class="monster-stats">' +
+      '<span><b>AC</b> ' + escapeHtml(m.ac) + '</span>' +
+      '<span><b>HP</b> ' + escapeHtml(m.hp) + '</span>' +
+      '<span><b>Spd</b> ' + escapeHtml(m.speed) + '</span>' +
+      '<span><b>Hit</b> ' + escapeHtml(m.hit) + '</span>' +
+      '<span><b>DMG</b> ' + escapeHtml(m.damage) + '</span>' +
     '</div>'
+  );
+  var special = (m.special && m.special.length) ? '<div class="monster-special">' + monsterTraits(m) + '</div>' : '';
+  return (
+    '<details class="monster-card"' + (opts.open ? ' open' : '') + '>' +
+      '<summary class="monster-head">' +
+        '<h3>' + escapeHtml(prefix + m.name) + '</h3>' +
+        '<span class="monster-meta">' +
+          '<span class="monster-role">' + escapeHtml(m.role) + '</span>' +
+          '<span class="monster-caret" aria-hidden="true">&#9656;</span>' +
+        '</span>' +
+      '</summary>' +
+      stats + special +
+    '</details>'
   );
 }
 
@@ -46,14 +61,16 @@ function encounterList(adventure, enemies) {
     var prefix = '';
     if (optional) prefix += 'optional ';
     if (count > 1) prefix += count + ' x ';
-    return monsterCard(m).replace('<h3>', '<h3>' + escapeHtml(prefix));
+    return monsterCard(m, { prefix: prefix, open: true });
   }).join('');
 }
 
-function renderReadAloud(text, tag) {
+function sceneSection(title, content) {
   return (
-    '<div class="read-aloud"><span class="tag">' + (tag || 'Read aloud') + '</span>' +
-    escapeHtml(text) + '</div>'
+    '<details class="scene-block" open>' +
+      '<summary>' + escapeHtml(title) + '</summary>' +
+      '<div class="scene-block-body">' + content + '</div>' +
+    '</details>'
   );
 }
 
@@ -79,8 +96,8 @@ function renderBox(content) {
 
 function renderCombatBody(adventure, scene) {
   var html = '';
-  if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
-  if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderNoteBlocks(scene.tactics);
+  if (scene.enemies && scene.enemies.length) html += sceneSection('Enemies', encounterList(adventure, scene.enemies));
+  if (scene.tactics && scene.tactics.length) html += sceneSection('Tactics & Synergy', renderNoteBlocks(scene.tactics));
   if (!html) html += '<p class="no-combat">No combat details for this scene.</p>';
   return html;
 }
