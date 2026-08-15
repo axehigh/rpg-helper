@@ -9,9 +9,9 @@ monsters: marsh-hound, blighted-peasant, nurgling-swarm, rot-knight, abbot-throt
 
 # Intro
 
-The village of Heartstead is infected with a rotting, putrid plague, but the villagers are not dying in agony — they are singing and celebrating with ecstatic joy.
-They worship a "Generous Grandfather" who has freed them from pain.
-You are hired to break through the quarantine, stop the source of this "joyous blight," and save who you can before the plague overflows the valley.
+The village of Heartstead was once a prosperous trading post, but a week ago a thick, sweet-smelling fog rolled in from the surrounding fens.
+The town is now infected with a rotting, putrid plague, yet the villagers are not dying in agony — they are singing and celebrating with ecstatic joy, worshiping a "Generous Grandfather" who has freed them from pain.
+A worried merchant whose family still lives in Heartstead has hired you to break through the quarantine, stop the source of this "joyous blight," and save who you can before the plague overflows the valley.
 
 # Objectives
 
@@ -104,13 +104,15 @@ The main cobblestone thoroughfare. Thick green moss covers the stones, making it
 ## Enemies
 
 - rot-knight x2
-- nurgling-swarm x3
+- nurgling-swarm x2
 
 ## DM Notes
 
-- Nurglings in the Gutters: 3 nurgling swarms are playing in the toxic sludge, cackling and capering. They are aggressive, unpredictable, and highly evasive.
+- Nurglings in the Gutters: 2 nurgling swarms are playing in the toxic sludge, cackling and capering. They are aggressive, unpredictable, and highly evasive.
 - The Rot Guards: 2 hulking rot knights stand guard in front of the heavy wooden chapel gates, completely devoted to preventing anyone from interrupting the abbot's work.
-- Aura of Decay: The thick rust-filled air makes metal weapons pitted and fragile. Remind players of the pitting effect when they strike the rot knights.
+- Aura of Rust: When a metallic weapon hits a rot knight, it becomes pitted and deals -1 damage until the wielder polishes it during a short or long rest. Remind players of the effect when they strike the knights.
+- Past the Guards: If the heroes slip past the knights instead of fighting, the chapel's old iron-banded door can be forced (DC 15 Strength) or picked (DC 13 thieves' tools) — or the key can be lifted from a knight's belt with a clever Sleight of Hand.
+- A Moment to Breathe: Once the street is quiet, the fog settles and the village falls eerily still. Offer the party a short rest before the chapel while the nurglings scatter — they'll need it for Throt.
 
 ## Tactics & Synergy
 
@@ -206,6 +208,7 @@ The high-altar sanctuary. The bubbling cauldron is tilting precariously as acidi
 
 ## DM Notes
 
+- The Old Runes: Beneath the sanctuary floor, the village's original crypt is carved with druidic runes older than the settlement itself. A hero with Arcana or Nature recognizes they could be woven to siphon the rot — the key to the Flesh Siphon option.
 - Option 1 — The Sacred Sacrifice: Pour the temple's ancient relics of Saint Elspeth directly into the cauldron. The holy magic completely purifies the rot, curing the surviving peasants, but the priceless relics are dissolved and lost forever.
 - Option 2 — The Iron Quarantine: Set the wooden rafters of the chapel ablaze and bar the heavy iron gates. The holy fire incinerates the plague-broth, saving the valley, but the chapel, its relics, and any infected seeking sanctuary inside are burned to ash.
 - Option 3 — The Flesh Siphon: Use ancient druidic runes to draw the rotting plague directly into the heroes' own life force. This saves the chapel, the relics, and the villagers, but each hero carries a permanent scar of Nurgle (-2 Max HP or a minor rot-scar).

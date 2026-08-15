@@ -182,6 +182,16 @@ code { background: #26262c; padding: .1rem .35rem; border-radius: 4px; }
 }
 .dm-box .dm-note:first-child { margin-top: 0; }
 .dm-box p:last-child { margin-bottom: 0; }
+.dm-note-block {
+  background: #2b2621; border: 1px solid #3f382e;
+  border-left: 3px solid #e2b45c; border-radius: 8px;
+  padding: .6rem .9rem; margin: .5rem 0;
+}
+.dm-note-block h4 {
+  margin: 0 0 .25rem; font-size: .78rem; color: #e2b45c;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.dm-note-block p { margin: 0; }
 .read-aloud {
   background: #2b2f22; border-left: 3px solid #b8cc6a;
   padding: .7rem .9rem; border-radius: 6px; font-style: italic;

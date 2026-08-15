@@ -42,7 +42,7 @@ Luften blir tung og bærer med seg en søtlig, kvalmende duft som overmoden fruk
 **Battlemap:** `ttb1-p17-l-high-street` (High Street)  
 **Beat:** Tiny imps of decay (Nurglings) play in the gutters, while heavily armored, rotting guardians (Rot Knights) block access to the village center.  
 **Enemies:**
-*   `nurgling-swarm` x3 (New, Skirmisher)
+*   `nurgling-swarm` x2 (New, Skirmisher)
 *   `rot-knight` x2 (New, Front line)  
 
 **Tactics:** Nurglings swarm the backline, throwing toxic filth to poison the heroes. The Rot Knights form a slow, heavily armored wall, using their rusted weapons and rust auras to pit the heroes' steel.  

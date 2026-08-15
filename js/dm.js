@@ -95,9 +95,9 @@
         html += renderReadAloud(readAloud, lang === 'no' ? 'Les høyt' : 'Read aloud');
       }
       if (scene.environment) html += '<h3>Environment</h3><p>' + escapeHtml(scene.environment) + '</p>';
-      if (scene.notes && scene.notes.length) html += '<h3>DM Notes</h3>' + renderBox(renderNotes(scene.notes));
+      if (scene.notes && scene.notes.length) html += '<h3>DM Notes</h3>' + renderNoteBlocks(scene.notes);
       if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
-      if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderBox(renderNotes(scene.tactics));
+      if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderNoteBlocks(scene.tactics);
       if (scene.aftermath) html += '<h3>Aftermath & Clues</h3>' + renderBox('<p>' + escapeHtml(scene.aftermath) + '</p>');
     }
     els.sceneBody.innerHTML = html;

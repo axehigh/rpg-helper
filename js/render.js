@@ -63,6 +63,16 @@ function renderNotes(notes) {
   }).join('');
 }
 
+function renderNoteBlocks(notes) {
+  return notes.map(function (n) {
+    var i = n.indexOf(':');
+    if (i === -1) return '<section class="dm-note-block"><p>' + escapeHtml(n) + '</p></section>';
+    var label = n.slice(0, i).trim();
+    var body = n.slice(i + 1).trim();
+    return '<section class="dm-note-block"><h4>' + escapeHtml(label) + '</h4><p>' + escapeHtml(body) + '</p></section>';
+  }).join('');
+}
+
 function renderBox(content) {
   return '<div class="dm-box">' + content + '</div>';
 }
@@ -70,7 +80,7 @@ function renderBox(content) {
 function renderCombatBody(adventure, scene) {
   var html = '';
   if (scene.enemies && scene.enemies.length) html += '<h3>Enemies</h3>' + encounterList(adventure, scene.enemies);
-  if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderBox(renderNotes(scene.tactics));
+  if (scene.tactics && scene.tactics.length) html += '<h3>Tactics & Synergy</h3>' + renderNoteBlocks(scene.tactics);
   if (!html) html += '<p class="no-combat">No combat details for this scene.</p>';
   return html;
 }
