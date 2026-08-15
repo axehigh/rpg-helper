@@ -33,5 +33,8 @@ This document contains AI image generation prompts (optimized for Midjourney, DA
 ### The Rot Knights
 **Prompt:** A full-body concept art of a hulking warrior in ancient, pitted plate armor that is covered in thick orange rust and patches of green moss. A sickly green vapor leaks from the joints of the armor. The knight carries a massive, rusted halberd. The helmet’s visor reveals only a single, wet, milky-white eye. The pose is slow and menacing. Grimdark, hyper-realistic, weathered textures, 8k.
 
+### The Marsh Hounds
+**Prompt:** Full-body concept art of a swamp-hunting hound warped by the Grandfather's blessing. Its lanky frame is bloated with sickly green-grey flesh, mottled with weeping sores and patches of green moss clinging to matted, rotting fur. Thick brackish sludge drips from its jowls, and its mouth hangs in a wide, manic, ecstatic grin full of crooked, yellowed teeth. Its eyes are glazed with a blissful, feverish warmth. Waterlogged reeds are tangled in its coat, and a faint yellow-green vapor rises from its sodden body, leaving a trail of sucking mud behind it. Grimdark, hyper-realistic, weathered textures, 8k.
+
 ### Abbot Throt, Apostle of Decay
 **Prompt:** Full-body concept art of a monstrously obese priest. His skin is a pale, sickly green, stretched thin over his massive frame and weeping with sores. He wears tattered, once-regal religious vestments stained with black ichor. In one hand, he wields a massive, smoking censer-flail made of rusted iron; in the other, a giant, filth-covered wooden ladle. His expression is one of blissful, fatherly warmth and madness. Dark fantasy art, hyper-detailed, 8k.

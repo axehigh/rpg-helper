@@ -180,7 +180,7 @@ But the bubbles in the giant copper vat grow frantic, and the cauldron begins to
 
 # Scene: The Bitter Choice
 
-![The Bitter Choice](adventures/the-joyous-blight-of-plaguestead/images/04_bitter_choice.jpg)
+![The Bitter Choice](adventures/the-joyous-blight-of-plaguestead/images/scene4.jpg)
 
 - id: scene-4
 

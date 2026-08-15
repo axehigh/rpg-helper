@@ -14,7 +14,7 @@ a DM screen and a synced player view for an adventure.
 - Start the local server: `npm start` (or `node server.js`). Serves on `http://localhost:8080`.
 - PHP-only hosting: serve the repo root and use `api/scene.php` for cross-device sync, e.g. `php -S 0.0.0.0:8000`.
 - Static hosting: the client probes `/api/scene` then `/api/scene.php`; on hosts with neither, server sync is skipped and same-browser tabs sync via localStorage/BroadcastChannel.
-- No lint, typecheck, or test scripts are configured.
+- Asset-integrity test: `npm test` runs `scripts/test-adventure-assets.js`, which checks every registered adventure ships its `data.js` documents sidecar and that every image referenced in `adventure.md` exists on disk. Missing assets are warnings for `wip` adventures, errors otherwise.
 
 ## Key pages and flows
 
