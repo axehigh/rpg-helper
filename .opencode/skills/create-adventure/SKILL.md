@@ -12,17 +12,22 @@ Confirm the story with the user before building `adventure.md`.
 
 ## Workflow
 
-### 1. Synopsis (`docs/adventure.md`)
-- If `adventures/<slug>/docs/adventure.md` already exists (e.g. written by the
-  `draft-adventure-story` skill), read and reuse it instead of rewriting. Only
-  adjust it if the user asks.
-- Otherwise, create `adventures/<slug>/docs/` and write `adventure.md`.
+### 1. Story first — draft by default
+- Run the `draft-adventure-story` skill **before** creating anything. It frames the
+  request, pitches premises, drafts the story, grills it in Story mode, and saves
+  `adventures/<slug>/docs/adventure.md` after the user signs off on title, theme, and
+  the discovery/payoff.
+- Only skip the draft when the user confirms an already-approved story exists
+  (`docs/adventure.md` on disk, or a story just approved in chat). Then read and reuse
+  it instead of rewriting; adjust only if the user asks.
+- If the draft is skipped without an existing story, create `adventures/<slug>/docs/`
+  and write `adventure.md` directly, getting sign-off on title, theme, and the
+  discovery/payoff first — ask targeted questions (e.g. what the players find) instead
+  of inventing everything.
 - Mirror the existing structure: title line, italic tagline (`*A tabletop RPG adventure
   for N players, level X, lasting ... hours.*`, plus follow-up note), `## The Hook`,
   `## The Party's Objectives` (bulleted), `---`, `## The Storyline` (numbered chapters),
   `## Epilogue`.
-- Before writing `adventure.md`, get user sign-off on title, theme, and the discovery/payoff.
-  Ask targeted questions (e.g. what the players find) instead of inventing everything.
 
 ### 2. Data file (`adventure.md`)
 - Create `adventures/<slug>/adventure.md` copying the shape of
@@ -38,7 +43,9 @@ Confirm the story with the user before building `adventure.md`.
       `adventures/<slug>/images/`), anywhere in the scene block; the loader collects them
       into `scene.images`.
     - Sub-sections as `##` headings: `## Read Aloud`, `## Read Aloud (Norsk)`,
-      `## Environment`, `## DM Notes` (bullets), `## Enemies` (bullets: `id xN (optional)`
+      `## Environment`, optional `## Puzzle (Optional)` (any scene; rendered as a
+      "Puzzle" block, hidden in combat view), `## DM Notes` (bullets),
+      `## Enemies` (bullets: `id xN (optional)`
       → `{id, count, optional}`), `## Tactics & Synergy` (bullets),
       `## Aftermath & Clues`.
 - Enemy bullets: `goblin-skirmisher x4`, `goblin-hexer x1 (optional)`; bare `id` = count 1.
@@ -50,7 +57,16 @@ Confirm the story with the user before building `adventure.md`.
   create a sidecar `adventures/<slug>/data.js` that attaches `documents[]` (`{ label, href }`)
   to the adventure by id, and reference it from the registry `documents` field.
 
-### 3. Monsters
+### 3. Image prompts (always)
+- Always write `adventures/<slug>/docs/image_prompts.md` when writing the data file,
+  if it does not already exist: Aesthetic Guidelines + one Scene Prompt per scene
+  (including the monster gallery) + one Monster Prompt per monster the adventure uses
+  (including reused library monsters).
+- Follow the format in `adventures/the-joyous-blight-of-plaguestead/docs/image_prompts.md`.
+- The app does not load this file; it feeds the image-generation workflow. If a `data.js`
+  sidecar exists, link it from the sidecar `documents[]`.
+
+### 4. Monsters
 - Reuse ids from `adventures/monsters.js` (shared library) when they fit.
 - New monsters: register in `adventures/monsters.js` EXACTLY ONCE, keyed by id, matching the
   stat format `id, name, role, ac, hp, speed, hit, damage, special` (`special` is string or array).
@@ -58,7 +74,7 @@ Confirm the story with the user before building `adventure.md`.
   constructs, fire elementals) rather than reusing surface monsters.
 - List every monster used in the frontmatter `monsters` list (ids into the library).
 
-### 4. Registry (`adventures/index.js`)
+### 5. Registry (`adventures/index.js`)
 - Push a meta entry: `id, title, blurb ('4 players · Level X · duration'), synopsis, image,
   source: 'adventures/<slug>/adventure.md', status`.
 - `status` is one of `ready` (ready to run, rendered normally), `running` (currently being
@@ -70,8 +86,8 @@ Confirm the story with the user before building `adventure.md`.
 
 ## Conventions
 - Keep the same `#`/`##` section names as the reference adventure — the parser maps
-  headings by name (`read aloud`/`read aloud norsk`/`environment`/`dm notes`/`enemies`/
-  `tactics synergy`/`aftermath clues`).
+  headings by name (`read aloud`/`read aloud norsk`/`environment`/`puzzle`/`dm notes`/
+  `enemies`/`tactics synergy`/`aftermath clues`).
 - Prose blocks (Intro, Read Aloud, Environment, Aftermath) flatten to a single paragraph,
   so put each sentence or fragment on its own line.
 - Image paths are placeholders until assets exist: `adventures/<slug>/images/<name>.jpg`.

@@ -21,3 +21,14 @@ window.RPG_HELPER.adventures.push({
   documents: 'adventures/the-joyous-blight-of-plaguestead/data.js',
   status: 'wip'
 });
+
+window.RPG_HELPER.adventures.push({
+  id: 'the-root-of-all-sorrow',
+  title: 'The Root of All Sorrow',
+  blurb: '4 players · Level 4 · 4–5 hours',
+  synopsis: 'Feed the tree beneath Thornhollow — or end it',
+  image: 'adventures/the-root-of-all-sorrow/images/01_black_apple_road.jpg',
+  source: 'adventures/the-root-of-all-sorrow/adventure.md',
+  documents: 'adventures/the-root-of-all-sorrow/data.js',
+  status: 'wip'
+});

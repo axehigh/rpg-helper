@@ -438,5 +438,63 @@ window.RPG_HELPER.monsters = {
       'Plague Cloud (Bonus Action): releases a 10-ft cloud of noxious green vapor. Creatures inside take 1d6 poison damage.',
       'Rot-Bell Toll (Once Each): 1. Joyous Renewal (all blighted allies regain 10 HP), 2. Pestilent Peal (all heroes must make a DC 12 Constitution save or be poisoned for 1 minute), 3. Final Bloom (once below half HP, summons 2 blighted-peasants from the vats).'
     ]
+  },
+  'rooted-child': {
+    id: 'rooted-child',
+    name: 'Rooted Child',
+    role: 'Skirmisher',
+    ac: 11,
+    hp: 20,
+    speed: '30 ft, climb 30 ft',
+    hit: '+4',
+    damage: 'Weeping Touch 1d6+1',
+    special: [
+      'Weeping Sap: on a hit, the target makes a DC 11 Constitution save or is poisoned until the end of its next turn.',
+      'Rooted Crawl: ignores difficult terrain and can crawl across walls and ceilings.',
+      'Last Weep: when reduced to 0 HP, its wail stirs the crypts — at the start of the next round, one rooted creature crawls forth.'
+    ]
+  },
+  'hollowed-acolyte': {
+    id: 'hollowed-acolyte',
+    name: 'Hollowed Acolyte',
+    role: 'Undead',
+    ac: 13,
+    hp: 30,
+    speed: '30 ft',
+    hit: '+5',
+    damage: 'Grey Bite 1d8+3 plus 1d6 necrotic',
+    special: [
+      'Stench of the Chapel: creatures that start their turn within 5 ft make a DC 11 Constitution save or are poisoned until their next turn.',
+      'Dreadful Glare: once per turn, one creature within 30 ft makes a DC 11 Wisdom save or is frightened until the end of the acolyte\'s next turn.'
+    ]
+  },
+  'root-warden': {
+    id: 'root-warden',
+    name: 'Root Warden',
+    role: 'Front line',
+    ac: 14,
+    hp: 72,
+    speed: '20 ft',
+    hit: '+6',
+    damage: 'Sap Tendrils 1d6+3 (x2 attacks)',
+    special: [
+      'Engulf: on a hit, a Medium or smaller target makes a DC 13 Strength save or is grappled and restrained, taking 1d6 bludgeoning damage at the start of each of its turns.',
+      'Sap Regeneration: regains 5 HP whenever it takes poison damage.'
+    ]
+  },
+  'root-keeper': {
+    id: 'root-keeper',
+    name: 'The Root-Keeper, First Reeve of Thornhollow',
+    role: 'Final Boss',
+    ac: 15,
+    hp: 80,
+    speed: '30 ft',
+    hit: '+6',
+    damage: 'Root Tendrils 1d8+3 (x2 attacks)',
+    special: [
+      'Grey-Sap Curse: on a hit, the target makes a DC 12 Constitution save or its hit point maximum decreases by 1d6 until it completes a long rest.',
+      'Crown of Roots: once per turn, all creatures within 10 ft make a DC 12 Dexterity save or are restrained until the end of the keeper\'s next turn.',
+      'Patient Grief: at 0 HP the keeper does not fall — it kneels, and the choice is offered.'
+    ]
   }
 };

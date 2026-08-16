@@ -88,8 +88,8 @@ monster library or registry.
 
 ### 8. Handoff
 Tell the user the story is approved and saved, and to run `create-adventure` to
-build the data file, monster stat blocks, and registry entry. `create-adventure`
-will detect the existing `adventure.md` and reuse it.
+build the data file, monster stat blocks, registry entry, and `docs/image_prompts.md`.
+`create-adventure` will detect the existing `adventure.md` and reuse it.
 
 ## Monsters policy
 - Reuse existing library monsters where they fit the theme.

@@ -103,6 +103,7 @@
         html += sceneSection(lang === 'no' ? 'Les høyt' : 'Read aloud', '<div class="read-aloud">' + escapeHtml(readAloud) + '</div>');
       }
       if (scene.environment) html += sceneSection('Environment', '<p>' + escapeHtml(scene.environment) + '</p>');
+      if (scene.puzzle) html += sceneSection('Puzzle', '<p>' + escapeHtml(scene.puzzle) + '</p>');
       if (scene.notes && scene.notes.length) html += sceneSection('DM Notes', renderNoteBlocks(scene.notes));
       if (scene.enemies && scene.enemies.length) html += sceneSection('Enemies', encounterList(adventure, scene.enemies));
       if (scene.tactics && scene.tactics.length) html += sceneSection('Tactics & Synergy', renderNoteBlocks(scene.tactics));

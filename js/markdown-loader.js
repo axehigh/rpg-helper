@@ -1,12 +1,14 @@
 (function (root) {
   'use strict';
 
-  var PROSE_FIELDS = { readAloud: 1, readAloudNo: 1, environment: 1, aftermath: 1 };
+  var PROSE_FIELDS = { readAloud: 1, readAloudNo: 1, environment: 1, aftermath: 1, puzzle: 1 };
 
   var FIELD_HEADINGS = {
     'read aloud': 'readAloud',
     'read aloud norsk': 'readAloudNo',
     'environment': 'environment',
+    'puzzle': 'puzzle',
+    'puzzle optional': 'puzzle',
     'dm notes': 'notes',
     'enemies': 'enemies',
     'tactics synergy': 'tactics',
