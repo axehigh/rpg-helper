@@ -22,7 +22,7 @@ No traveler has returned from Thornhollow in years, and no one who has worn the 
 
 # Scene: The Black-Apple Road
 
-![The Black-Apple Road](adventures/the-root-of-all-sorrow/images/01_black_apple_road.jpg)
+![The Black-Apple Road](adventures/the-root-of-all-sorrow/images/scene-01.jpg)
 
 - id: scene-1
 - battlemap: ttlb-p3-l-country-lane
@@ -70,7 +70,7 @@ The torn corpse at the drowned mill wears Aelwen's midwife badge. Benle draws th
 
 # Scene: The Hollow Feast
 
-![The Hollow Feast](adventures/the-root-of-all-sorrow/images/02_hollow_feast.jpg)
+![The Hollow Feast](adventures/the-root-of-all-sorrow/images/scene-02.jpg)
 
 - id: scene-2
 - battlemap: ttb1-p5-l-village-streets
@@ -124,7 +124,7 @@ Ilse kneels, and the truth spills out: the village has fed the tree its dying fo
 
 # Scene: The Unanswered Bell
 
-![The Unanswered Bell](adventures/the-root-of-all-sorrow/images/03_unanswered_bell.jpg)
+![The Unanswered Bell](adventures/the-root-of-all-sorrow/images/scene-03.jpg)
 
 - id: scene-3
 - battlemap: ttlb-p37-l-tomb
@@ -179,7 +179,7 @@ The hollowed acolyte kneels at the top of the stair and does not rise. Behind it
 
 # Scene: The Nursery of Rooted Things
 
-![The Nursery of Rooted Things](adventures/the-root-of-all-sorrow/images/04_nursery.jpg)
+![The Nursery of Rooted Things](adventures/the-root-of-all-sorrow/images/scene-04.jpg)
 
 - id: scene-4
 - battlemap: ttb2-p27-l-cellars
@@ -228,7 +228,7 @@ Aelwen gives the Heart-Knife of black iron and speaks the truth of the Root. The
 
 # Scene: The Sap Galleries
 
-![The Sap Galleries](adventures/the-root-of-all-sorrow/images/05_sap_galleries.jpg)
+![The Sap Galleries](adventures/the-root-of-all-sorrow/images/scene-05.jpg)
 
 - id: scene-5
 - battlemap: ttlb-p28-r-tunnel
@@ -275,7 +275,7 @@ The warden falls, and the gallery opens into a flooded chamber lit from below by
 
 # Scene: The First Root
 
-![The First Root](adventures/the-root-of-all-sorrow/images/06_first_root.jpg)
+![The First Root](adventures/the-root-of-all-sorrow/images/scene-06.jpg)
 
 - id: scene-6
 - battlemap: ttlb-p32-v-underground-flooded
@@ -326,7 +326,7 @@ The Keeper kneels, and the Heart is exposed, pulsing its slow, patient pulse. Ae
 
 # Scene: The Cut, the Torch, the Ring
 
-![The Cut, the Torch, the Ring](adventures/the-root-of-all-sorrow/images/07_the_choice.jpg)
+![The Cut, the Torch, the Ring](adventures/the-root-of-all-sorrow/images/scene-07.jpg)
 
 - id: scene-7
 
@@ -364,7 +364,7 @@ If the tree burns, the party leaves a smoking well — no reward but the knowled
 
 # Scene: Monster Gallery
 
-![Monster Gallery](adventures/the-root-of-all-sorrow/images/monster-gallery.jpg)
+![Monster Gallery](kadventures/the-root-of-all-sorrow/images/monster-gallery.jpg)
 
 - id: monster-gallery
 - gallery: true

@@ -27,7 +27,7 @@ window.RPG_HELPER.adventures.push({
   title: 'The Root of All Sorrow',
   blurb: '4 players · Level 4 · 4–5 hours',
   synopsis: 'Feed the tree beneath Thornhollow — or end it',
-  image: 'adventures/the-root-of-all-sorrow/images/01_black_apple_road.jpg',
+  image: 'adventures/the-root-of-all-sorrow/images/scene-01.jpg',
   source: 'adventures/the-root-of-all-sorrow/adventure.md',
   documents: 'adventures/the-root-of-all-sorrow/data.js',
   status: 'wip'

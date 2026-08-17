@@ -62,7 +62,11 @@ Confirm the story with the user before building `adventure.md`.
   if it does not already exist: Aesthetic Guidelines + one Scene Prompt per scene
   (including the monster gallery) + one Monster Prompt per monster the adventure uses
   (including reused library monsters).
-- Follow the format in `adventures/the-joyous-blight-of-plaguestead/docs/image_prompts.md`.
+- Follow the format in `adventures/the-root-of-all-sorrow/docs/image_prompts.md`.
+- Images are only ever shown on a DM screen — prompts do not need super-resolution
+  language. End every prompt with a short mood/composition suffix (e.g. `dark fantasy
+  art style.`). Never use `8k`, `hyper-realistic`, `hyper-detailed`, or similar
+  resolution keywords.
 - The app does not load this file; it feeds the image-generation workflow. If a `data.js`
   sidecar exists, link it from the sidecar `documents[]`.
 
