@@ -364,7 +364,7 @@ If the tree burns, the party leaves a smoking well — no reward but the knowled
 
 # Scene: Monster Gallery
 
-![Monster Gallery](kadventures/the-root-of-all-sorrow/images/monster-gallery.jpg)
+![Monster Gallery](adventures/the-root-of-all-sorrow/images/monster-gallery.jpg)
 
 - id: monster-gallery
 - gallery: true
