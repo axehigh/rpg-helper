@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#17171b">
+  <title>Read adventure - DnD Wayfinder</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#x1F3B2;</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="reader-page">
+  <div class="reader-shell">
+    <div class="reader-toolbar">
+      <a class="home-link" href="index.html">&larr; Adventures</a>
+      <div class="reader-controls">
+        <button id="langBtn" type="button" title="Toggle read-aloud language" aria-pressed="false">Norsk</button>
+      </div>
+    </div>
+    <header class="reader-header" id="readerTop">
+      <p class="reader-progress" id="readerProgress" aria-live="polite"></p>
+      <h1 id="readerTitle">Loading adventure…</h1>
+      <p class="reader-meta" id="readerMeta"></p>
+    </header>
+    <nav class="reader-index" id="readerIndex" aria-label="Adventure scenes"></nav>
+    <main class="reader-content" id="readerContent"></main>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/read.js"></script>
+</body>
+</html>
