@@ -1,5 +1,18 @@
 # Features
 
+## Running and deployment
+
+The deployable web application is contained in `app/`. Serve that directory as
+the document root. It contains the HTML, CSS, JavaScript, PHP sync endpoint,
+adventure content, and battlemap assets.
+
+For local development, run `npm start` from the repository root. The Node
+server serves `app/` while development scripts remain in `scripts/`.
+
+For a PHP-only host, upload the contents of `app/` and ensure PHP can write to
+`app/api/data/` for persistent cross-device scene synchronization. Node.js and
+the repository's development scripts are not needed on the host.
+
 ## Done
 - Battlemap option per scene. If present, the DM screen's **Combat** toggle displays the battlemap (tagged "Map"); scenes without one keep their scene image.
 - Display monster and battlemap (combat view shows only enemies and tactics).

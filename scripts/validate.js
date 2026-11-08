@@ -3,7 +3,7 @@
 var fs = require('fs');
 var path = require('path');
 
-var ROOT = path.join(__dirname, '..');
+var ROOT = path.join(__dirname, '..', 'app');
 var errors = [];
 var warnings = [];
 

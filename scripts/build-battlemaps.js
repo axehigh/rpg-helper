@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.join(__dirname, '..');
+const ROOT = path.join(__dirname, '..', 'app');
 const OUT = path.join(ROOT, 'library', 'battlemaps', 'data.js');
 
 const BOOKS = [

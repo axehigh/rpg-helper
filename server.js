@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const ROOT = __dirname;
+// The application is kept in app/ so the deployable web root is obvious.
+const ROOT = path.join(__dirname, 'app');
 const PORT = process.env.PORT || 8080;
 
 const MIME = {
